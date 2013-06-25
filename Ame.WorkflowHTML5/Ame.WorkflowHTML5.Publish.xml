@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="ec2-54-218-186-247.us-west-2.compute.amazonaws.com" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Default Web Site" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="EC2 GCI Profile" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="Administrator" savePWD="False" userPWD="" SelectedForPublish="True" />
+</publishData>

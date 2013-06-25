@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "PreRelationalList";
+}
+
+<div id="example" class="k-content">
+            <div id="grid"></div>
+
+    <script>
+
+        var products;
+
+        $(document).ready(function () {
+            var dataSource = new kendo.data.DataSource({
+                pageSize: 20,
+                data: products,
+                autoSync: true,
+                batch: true,
+                pageSize: 20,
+                schema: {
+                    model: {
+                        id: "ProcessID",
+                        fields: {
+                            ProcessID: { editable: false, nullable: true },
+                            ProcessStep: { validation: { required: true} },
+                            AccountedFor: { type: "boolean" }
+                        }
+                    }
+                }
+            });
+
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                height: 430,
+                toolbar: ["create"],
+                columns: [
+                            { field: "ProcessStep", title: "Process Step", width: "200px" },
+                            { field: "AccountedFor", title: "Accounted For", format: "{0:c}", width: "100px" },
+                            { command: ["destroy"], title: " ", width: "90px"}],
+                editable: true
+            });
+        });
+    </script>
+        </div>
+

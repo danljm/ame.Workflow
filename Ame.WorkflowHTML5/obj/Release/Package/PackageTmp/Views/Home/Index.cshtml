@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<section id="left-nav">
+    <ul id="treeview">
+        <li data-expanded="true"><span class="k-sprite folder"></span>Recent Activity
+            <ul>
+                <li data-expanded="false"><span class="k-sprite folder"></span>Pre Relation List
+                    <ul>
+                        <li>Relational List A</li>
+                        <li>Relational List B</li>
+                        <li>Relational List C</li>
+                    </ul>
+                </li>
+                <li data-expanded="false"><span class="k-sprite folder"></span>Relational Mapping
+                    <ul>
+                        <li>Relational Mapping A</li>
+                    </ul>
+                </li>
+                <li data-expanded="false"><span class="k-sprite folder"></span>Swim Lane Map
+                    <ul>
+                        <li>@Html.ActionLink("Swimlane Map 123", "SwimlaneMap123", "Home")</li>
+                    </ul>
+                </li>
+                <li data-expanded="false"><span class="k-sprite folder"></span>Flowchart
+                    <ul>
+                        <li>Flow Chart 1</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<!--Pattern HTML-->
+<div id="pattern" class="pattern">
+    <ul class="list img-list">
+        <li><a href="/Home/PreRelationalList" class="inner">
+            <div class="li-img">
+                <div class="pictograms"><span>&#57349;</span></div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Pre-Relational List</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/RelationalMap" class="inner">
+            <div class="li-img">
+                <div class="pictograms"><span>&#59254;</span></div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Relational Process Map</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/SwimlaneChart" class="inner">
+            <div class="li-img">
+                <div class="pictograms"><span>&#59196;</span></div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">SwimLane Process Map</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/Flowchart" class="inner">
+            <div class="li-img">
+                <div class="pictograms"><span>&#128362;</span></div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Activity FlowChart</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+    </ul>
+</div>
+<!--End Pattern HTML-->
+<style>
+#pattern
+{
+	position:absolute;
+	width:100%;
+	left:250px;
+}
+.list li {
+  display: table;
+  border-collapse: collapse;
+  width: 30%;
+  padding: 5px;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  padding-right: 1em;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
+}
+</style>

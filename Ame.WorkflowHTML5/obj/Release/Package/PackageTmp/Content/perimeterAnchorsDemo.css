@@ -1,0 +1,145 @@
+._jsPlumb_connector
+{
+	z-index: 1;
+}
+
+.shape
+{
+	z-index: 2;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	position: absolute;
+	cursor: pointer;
+	text-align: center;
+	color: #333;
+	font-size: 80%;
+}
+
+[data-shape=Rectangle]
+{
+	width: 144px;
+	height: 90px;
+	left: 380px;
+	top: 400px;
+	line-height: 90px;
+	background-image: url(../Content/rectangle.png);
+}
+
+[data-shape=Ellipse]
+{
+	width: 210px;
+	height: 70px;
+	left: 250px;
+	top: 300px;
+	line-height: 70px;
+	background-image: url(../Content/ellipse.png);
+}
+
+[data-shape=Circle]
+{
+	width: 60px;
+	height: 60px;
+	left: 100px;
+	top: 60px;
+	line-height: 60px;
+	background-image: url(../Content/circle.png);
+}
+
+[data-shape=Circle_start]
+{
+	width: 60px;
+	height: 60px;
+	left: 300px;
+	top: 60px;
+	line-height: 60px;
+	background-image: url(../Content/circle_start.png);
+}
+
+[data-shape=Circle_stop]
+{
+	width: 60px;
+	height: 60px;
+	left: 1000px;
+	top: 400px;
+	line-height: 60px;
+	background-image: url(../Content/circle_stop.png);
+}
+
+[data-shape=Triangle]
+{
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	background-image: url(../Content/triangle.png);
+}
+
+._90[data-shape=Triangle]
+{
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	background-image: url(../Content/triangle_90.png);
+}
+
+[data-shape=Diamond]
+{
+	width: 90px;
+	height: 90px;
+	left: 550px;
+	top: 150px;
+	line-height: 90px;
+	background-image: url(../Content/diamond.png);
+}
+
+.ep
+{
+	float: right;
+	width: 1em;
+	height: 1em;
+	background-color: #994466;
+	cursor: pointer;
+}
+
+.pallette
+{
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+
+#pallette-menu
+{
+	border-right: 2px solid #2C2A67;
+	float: left;
+	width: 13%;
+	height: 100%;
+	background: #C9E0F0;
+}
+
+.drag_icon
+{
+	position: relative;
+	float: right;
+	font-family: "entypo";
+	line-height: 0;
+	color: #000;
+	font-size: 4em;
+	text-align: center;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#pallette-menu li
+{
+	margin-left: 40px;
+	padding: 10px;
+}
+
+.palette_heading
+{
+	margin: 0;
+	text-align: center;
+}

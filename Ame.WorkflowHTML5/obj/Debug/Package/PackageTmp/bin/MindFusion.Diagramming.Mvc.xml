@@ -1,0 +1,898 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MindFusion.Diagramming.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:MindFusion.Diagramming.Mvc.NodeListViewExtensions">
+            <summary>
+            Contains extension methods of NodeListView
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListViewExtensions.NodeListView(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Returns a NodeListView by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="id">The Id of the NodeListView</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListViewExtensions.NodeListView(System.Web.Mvc.HtmlHelper,System.String,MindFusion.Diagramming.DiagramNodeCollection)">
+            <summary>
+            Returns a NodeListView by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="id">The Id of the NodeListView</param>
+            <param name="items">The items to be displayed</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListViewExtensions.NodeListView(System.Web.Mvc.HtmlHelper,MindFusion.Diagramming.Mvc.NodeListView)">
+            <summary>
+            Returns a NodeListView by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="view">The NodeListView</param>
+        </member>
+        <member name="T:MindFusion.Diagramming.Mvc.NodeListView">
+            <summary>
+            ListBox control with support for hosting DiagramNodes and dragging them to
+            the Diagram control.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.#ctor(System.String)">
+            <summary>
+            Creates an instance of NodeListView.
+            </summary>
+            <param name="id">The Id of the NodeListView</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.#ctor(System.String,MindFusion.Diagramming.DiagramNodeCollection)">
+            <summary>
+            Creates an instance of NodeListView.
+            </summary>
+            <param name="id">The Id of the NodeListView</param>
+            <param name="items">The collection of nodes to be displayed in the NodeListView</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.Render">
+            <summary>
+            Renders the NodeListView on a web page.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.ToJson">
+            <summary>
+            Serializes the NodeListView's data to JSON
+            </summary>
+            <returns>
+            The JSON string
+            </returns>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.SetWidth(System.Int32)">
+            <summary>
+            Sets the width of the view.
+            </summary>
+            <param name="value">The width of the view in pixels</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.SetHeight(System.Int32)">
+            <summary>
+            Sets the height of the view.
+            </summary>
+            <param name="value">The height of the view in pixels</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.SetNodeSize(System.Drawing.SizeF)">
+            <summary>
+            Sets the size of the nodes displayed in the view.
+            </summary>
+            <param name="value">The size of the nodes</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.AddNode(MindFusion.Diagramming.DiagramNode)">
+            <summary>
+            Adds a DiagramNode to the displayed nodes collection.
+            </summary>
+            <param name="node">The DiagramNode instance to add.</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.AddNode(MindFusion.Diagramming.DiagramNode,System.String)">
+            <summary>
+            Adds a DiagramNode to the displayed nodes collection.
+            </summary>
+            <param name="node">The DiagramNode instance to add.</param>
+            <param name="caption">The caption to display for the node.</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListView.RemoveNode(MindFusion.Diagramming.DiagramNode)">
+            <summary>
+            Removes a DiagramNode from the displayed nodes collection.
+            </summary>
+            <param name="node">The DiagramNode instance to remove.</param>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.Id">
+            <summary>
+            Gets or sets the id of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.Items">
+            <summary>
+            Gets or sets the collection of nodes displayed in the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.Captions">
+            <summary>
+            Gets or sets the collection of captions displayed in the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.Width">
+            <summary>
+            Gets or sets the width of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.Height">
+            <summary>
+            Gets or sets the height of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.NodeSize">
+            <summary>
+            Gets or sets the size of the nodes displayed in the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.DefaultNodeSize">
+            <summary>
+            Gets or sets the default size with which nodes dragged onto a diagram will be created.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListView.BoxPadding">
+            <summary>
+            Gets or sets the padding
+            </summary>
+        </member>
+        <member name="T:MindFusion.Diagramming.Mvc.DiagramViewExtensions">
+            <summary>
+            Contains extension methods of DiagramView.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramViewExtensions.DiagramView(System.Web.Mvc.HtmlHelper,System.String,MindFusion.Diagramming.Diagram)">
+            <summary>
+            Returns a DiagramView by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="id">The Id of the DiagramView</param>
+            <param name="diagram">The Diagram displayed by the view</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramViewExtensions.DiagramView(System.Web.Mvc.HtmlHelper,MindFusion.Diagramming.Mvc.DiagramView)">
+            <summary>
+            Returns a DiagramView by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="diagramView">The DiagramView</param>
+        </member>
+        <member name="T:MindFusion.Diagramming.Mvc.DiagramView">
+            <summary>
+            A control that displays the contents of a Diagram on a web page.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.#ctor">
+            <summary>
+            Creates an instance of DiagramView.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.#ctor(System.String)">
+            <summary>
+            Creates an instance of DiagramView.
+            </summary>
+            <param name="id">The Id of the DiagramView</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.#ctor(System.String,MindFusion.Diagramming.Diagram)">
+            <summary>
+            Creates an instance of DiagramView.
+            </summary>
+            <param name="id">The Id of the DiagramView</param>
+            <param name="diagram">The Diagram displayed by the view</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.FromRequest(System.String,System.Web.HttpRequestBase)">
+            <summary>
+            Creates an instance of DiagramView.
+            </summary>
+            <param name="id">The Id of the DiagramView</param>
+            <param name="request">An HttpRequest object that contains the json data for the view.</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.Render">
+            <summary>
+            Renders the DiagramView on a web page.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.FromJson(System.String)">
+            <summary>
+            Creates a Diagram object from JSON.
+            </summary>
+            <param name="json">The JSON string</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.ToJson(MindFusion.Diagramming.Mvc.DiagramView)">
+            <summary>
+            Serializes the DiagramView's data to JSON.
+            </summary>
+            <returns>
+            The JSON string
+            </returns>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.DocToClient(System.Drawing.RectangleF)">
+            <summary>
+            Converts the specified rectangle from document to client coordinates.
+            </summary>
+            <returns>
+            The converted rectangle
+            </returns>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.DocToClient(System.Drawing.PointF)">
+            <summary>
+            Converts the specified point from document to client coordinates.
+            </summary>
+            <returns>
+            The converted point
+            </returns>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.SetWidth(System.Int32)">
+            <summary>
+            Sets the width of the view
+            </summary>
+            <param name="value">The width of the view in pixels</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.SetHeight(System.Int32)">
+            <summary>
+            Sets the height of the view.
+            </summary>
+            <param name="value">The height of the view in pixels</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeSelectedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a node is selected, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkSelectedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a link is selected, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeDeselectedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a node is deselected, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkDeselectedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a link is deselected, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeCreatedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user draws a new node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkCreatedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user draws a new link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeModifiedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user moves or resizes a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkModifiedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user moves any control point of a link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeDeletedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a node is deleted, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkDeletedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a link is deleted, either programmatically or by the user.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeTextEditedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user edits the text of a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkTextEditedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user edits the text of a link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeClickedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the users clicks a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkClickedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the users clicks a link.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeDoubleClickedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the users double-clicks a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkDoubleClickedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the users double-clicks a link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.RepaintScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the diagram has been repainted.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.SizeChangedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the size of the diagram canvas has changed.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeCreatingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            while the user is drawing a new node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeDeletingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user tries to delete a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.NodeModifyingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            while the user is moving or resizing a node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkCreatingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            while the user is drawing a new link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkDeletingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user tries to delete a link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.LinkModifyingScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            while the user is modifying a link.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.InitializeNodeScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user starts drawing a new node, just after the 
+            DiagramNode instance is created.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.InitializeLinkScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when the user starts drawing a new link, just after the DiagramLink 
+            instance is created.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.TreeExpandedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a user expands a tree branch by clicking the [+] button of an Expandable node.
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramView.TreeCollapsedScript(System.String)">
+            <summary>
+            Sets the name of a JavaScript function that should be invoked
+            when a user collapses a tree branch by clicking the [+] button of an Expandable node. 
+            </summary>
+            <param name="value">The name of the function</param>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Diagram">
+            <summary>
+            Gets or sets the Diagram object displayed by this view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Behavior">
+            <summary>
+            Gets or sets a value indicating how the control responds to user actions.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Id">
+            <summary>
+            Gets or sets the id of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Width">
+            <summary>
+            Gets or sets the width of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Height">
+            <summary>
+            Gets or sets the height of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.Enabled">
+            <summary>
+            Gets or sets a value indicating whether handling of mouse events is enabled.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.AllowInplaceEdit">
+            <summary>
+            Gets or sets a value indicating whether in-place editing
+            of the text of objects is enabled.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.DelKeyAction">
+            <summary>
+            Gets or sets a value indicating the action that should be performed
+            when the user hits the Del key.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.FallbackContent">
+            <summary>
+            Gets or sets the HTML to be rendered as the canvas' fallback content.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.ScrollLeft">
+            <summary>
+            Gets or sets the view's X scroll position.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.ScrollTop">
+            <summary>
+            Gets or sets the view's Y scroll position.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramView.ZoomFactor">
+            <summary>
+            Gets or sets the zoom of the view.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Diagramming.Mvc.OverviewExtensions">
+            <summary>
+            Contains extension methods of Overview.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.OverviewExtensions.Overview(System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            Returns a Overview by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="id">The Id of the Overview</param>
+            <param name="diagramView">The Id of the DiagramView</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.OverviewExtensions.Overview(System.Web.Mvc.HtmlHelper,MindFusion.Diagramming.Mvc.Overview)">
+            <summary>
+            Returns a Overview by using the specified HTML helper.
+            </summary>
+            <param name="helper">The HTML helper</param>
+            <param name="view">The Overview</param>
+        </member>
+        <member name="T:MindFusion.Diagramming.Mvc.Overview">
+             <summary>
+            Provides a scaled-down view of a DiagramView contents
+            and lets the user scroll the bound view.
+             </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.Overview.#ctor(System.String,System.String)">
+            <summary>
+            Creates an instance of Overview for a DiagramView.
+            </summary>
+            <param name="id">The Id of the Overview </param>
+            <param name="diagramView">The Id of the DiagramView </param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.Overview.Render">
+            <summary>
+            Renders the Overview on a web page.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.Overview.ToJSON">
+            <summary>
+            Serializes the Overview's data to JSON
+            </summary>
+            <returns>
+            The JSON string
+            </returns>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.Overview.SetWidth(System.Int32)">
+            <summary>
+            Sets the width of the view.
+            </summary>
+            <param name="value">The width of the view in pixels</param>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.Overview.SetHeight(System.Int32)">
+            <summary>
+            Sets the height of the view.
+            </summary>
+            <param name="value">The height of the view in pixels</param>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.Id">
+            <summary>
+            Gets or sets the id of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.Width">
+            <summary>
+            Gets or sets the width of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.Height">
+            <summary>
+            Gets or sets the height of the view.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.DiagramView">
+            <summary>
+            Gets or sets the id of the DiagramView.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.BackColor">
+            <summary>
+            Gets or sets the background color of the overview control.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.Overview.DimColor">
+            <summary>
+            Gets or sets a color of the displayed diagram.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramViewConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramViewConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramViewConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListViewConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeListViewConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeListViewConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.OverviewConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.OverviewConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.OverviewConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ShapeNodeConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ShapeNodeConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.ShapeNodeConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableNodeConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableNodeConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.TableNodeConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ContainerNodeConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ContainerNodeConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.ContainerNodeConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.DiagramLinkConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.DiagramLinkConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.LinkLabelConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.LinkLabelConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.LinkLabelConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableRowConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableRowConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.TableRowConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableColumnConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableColumnConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.TableColumnConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableCellConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.TableCellConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.TableCellConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.BoundsConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.BoundsConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.BoundsConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.SizeConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.SizeConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.SizeConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.PointConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.PointConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.PointConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.PointCollectionConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.PointCollectionConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.PointCollectionConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.FontConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.FontConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.FontConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.BrushConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.BrushConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.BrushConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ColorStopConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.ColorStopConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.ColorStopConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.AnchorPointConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.AnchorPointConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.AnchorPointConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.AnchorPatternConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.AnchorPatternConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.AnchorPatternConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeEffectConverter.Deserialize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Type,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Deserialize override.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Diagramming.Mvc.NodeEffectConverter.Serialize(System.Object,System.Web.Script.Serialization.JavaScriptSerializer)">
+            <summary>
+            Serialize override.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Diagramming.Mvc.NodeEffectConverter.SupportedTypes">
+            <summary>
+            SupportedTypes override.
+            </summary>
+        </member>
+    </members>
+</doc>

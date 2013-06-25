@@ -1,0 +1,378 @@
+﻿body {
+    background-color: #FFF;
+    font-size: .85em;
+    font-family: "Open Sans", "Segoe UI", Verdana, Arial, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+a:link {
+    color: #034af3;
+}
+
+a:visited {
+    color: #505abc;
+}
+
+a:hover {
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active {
+    color: #12eb87;
+}
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding: 0 0 10px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header, #title {
+    /*position: relative;
+    border-bottom: 2px solid #2C2A67;
+    margin-bottom: 0px;
+    color: #000;
+    padding-left: 20px;
+    padding-right: 20px;*/
+}
+
+header h1, #header h1 {
+    padding: 5px 0;
+    margin: 0;
+    color: #000;
+    border: none;
+    font-size: 32px ;
+}
+
+#main 
+{
+	position:relative;
+	/*left: 250px;*/
+	top: 40px;
+	height: 800px;
+	right: 0;
+    padding: 10px 10px 10px 10px;
+    background-color: #fff;
+}
+
+footer, 
+#footer {
+    background-color: #fff;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0 0 30px 0;
+    font-size: .9em;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #000;
+}
+
+ul#menu li a:hover {
+    background: #2C2A67;
+    color: #FFF;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background: #2C2A67;
+    color: #FFF;
+    text-decoration: none;
+}
+
+ul#menu li.selected a 
+{
+	background: #2C2A67;
+    color: #FFF;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"] {
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 5px;
+    border: solid 1px #e8eef4;
+}
+
+table th {
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #e8eef4;
+    border: solid 1px #e8eef4;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+nav, 
+#menucontainer {
+    margin-top: 40px;
+}
+
+a#logo {
+    display: block;
+    float: left;
+    text-align: left;
+    width:110px;
+    height:42px;
+    background: url(../Content/Idaptic.png) left top no-repeat;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: White;
+}
+
+#logindisplay a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#left-nav 
+{
+	position:absolute;
+	left: 0;
+	width: 250px;
+	padding: 10px 10px 10px 10px
+}
+
+.main-select 
+{
+	background: #2C2A67;
+    color: #FFF;
+    font-size: 1.5em;
+    padding: 10px 10px 10px 10px
+}
+
+.masthead {
+	background: #363835 url(../Content/header-bg.png) repeat-x bottom;
+	height: 162px;
+}
+
+.footer {
+	padding-top: 20px;
+	position: relative;
+	color: #555555;
+	background: #252525;
+	/*font-family: Helvetica,Arial,FreeSans,sans-serif;*/
+	font-size: 8pt;
+	font-weight: bold;
+	text-align: center;
+	top:500px;
+}
+
+.footer a {
+	color: #7EAF28;
+}
+
+#crumb-path 
+{
+	position:absolute;
+	left: 250px;
+	right: 0;
+	height: 50px;
+}
+
+@font-face { font-family: "entypo"; font-style: normal; font-weight: 400; src: url(../Content/fonts/icons/entypo.eot); src: url("../Content/fonts/icons/entypo.eot?#iefix") format("ie9-skip-eot"), url("../Content/fonts/icons/entypo.woff") format("woff"), url("../Content/fonts/icons/entypo.ttf") format("truetype"); }
+
+.pictograms span {
+margin-right: 30px;
+font-family: "entypo";
+line-height: 0;
+color: #000;
+font-size: 4.5em;
+text-align: center;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.text-box {
+    width: 30em;
+}
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}

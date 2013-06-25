@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Flowchart";
+}
+
+<link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/stateMachineDemo.css")" rel="stylesheet" type="text/css" />
+
+<script src="@Url.Content("~/Scripts/stateMachineDemo-jquery.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/demo-list.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/demo-helper-jquery.js")" type="text/javascript"></script>
+
+<h4>FlowChart</h4>
+
+<div id="render"></div>
+<div class="w" id="opened">begin<div class="ep"></div></div>
+<div class="w" id="phone1">phone interview 1<div class="ep"></div></div>
+<div class="w" id="phone2">phone interview 2<div class="ep"></div></div>
+<div class="w circle" id="inperson">in person<div class="ep"></div></div>
+<div class="w" id="rejected">rejected<div class="ep"></div></div>	
