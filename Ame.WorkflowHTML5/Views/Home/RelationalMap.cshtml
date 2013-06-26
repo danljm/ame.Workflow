@@ -25,11 +25,11 @@
     <div class="customer"><h4>Customers</h4></div>
 
     <div id="render"></div>
-    <div class="shape rectangle" data-shape="Rectangle">Software Provider<span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle">Administration<span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle">Sales<span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle">Service<span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle">Corp. Customer<span class="drag_icon">&#10150;</span></div>
+    <div id="window1" class="shape rectangle" data-shape="Rectangle">Software Provider<span class="drag_icon">&#10150;</span></div>
+    <div id="window2" class="shape rectangle" data-shape="Rectangle">Administration<span class="drag_icon">&#10150;</span></div>
+    <div id="window3" class="shape rectangle" data-shape="Rectangle">Sales<span class="drag_icon">&#10150;</span></div>
+    <div id="window4" class="shape rectangle" data-shape="Rectangle">Service<span class="drag_icon">&#10150;</span></div>
+    <div id="window5" class="shape rectangle" data-shape="Rectangle">Corp. Customer<span class="drag_icon">&#10150;</span></div>
     
 </div>
 
@@ -58,11 +58,41 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        /* Connection 1 */
+        jsPlumb.connect({ source: $('#window1'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { label: "Supplier Invoice", location: 0.7, id: "label1"}]] });
+        /* Connection 2 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Payment", location: 0.7, id: "label2"}]] });
+        /* Connection 3 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Purchase Order", location: 0.7, id: "label3"}]] });
+        /* Connection 4 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label4"}]] });
+        /* Connection 5 */
+        jsPlumb.connect({ source: $('#window3'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label5"}]] });
+        /* Connection 6 */
+        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label6"}]] });
+        /* Connection 7 */
+        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { label: "Consulting Services Completed", location: 0.7, id: "label7"}]] });
+        /* Connection 8 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { label: "Invoice", location: 0.7, id: "label8"}]] });
+        /* Connection 9 */
+        jsPlumb.connect({ source: $('#window5'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { label: "Payment", location: 0.7, id: "label9"}]] });
+        /* Connection 10 */
+        jsPlumb.connect({ source: $('#window5'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "Organizational Change Requested", location: 0.7, id: "label10"}]] });
+        /* Connection 11 */
+        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Software Needed on the Consult", location: 0.7, id: "label11"}]] });
     });  
 
 </script>
 
 <style>
+    
+    /* Shape positions */
+    #window1 { position:absolute; left:368px; top:297px;}
+    #window2 { position:absolute; left:855px; top:126px;}
+    #window3 { position:absolute; left:876px; top:498px; }
+    #window4 { position:absolute; left:1212px; top:496px;}
+    #window5 { position:absolute; left:1577px; top:356px;}
                     
     .supplier
     {

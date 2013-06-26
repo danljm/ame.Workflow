@@ -6,9 +6,6 @@
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
 
 
-
-
-
 <h2>Swimlane Map - Test Process</h2>
 	
 <div id="pallette-draw">
@@ -26,17 +23,27 @@
     <ul class="list img-list">
         <li>
             <div class="li-text">
-                <h4 class="li-head">Performer 1</h4>
+                <h4 class="li-head">Corp. Customer</h4>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Performer 2</h4>
+                <h4 class="li-head">Sales</h4>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Performer 3</h4>
+                <h4 class="li-head">Administration</h4>
+            </div>
+        </li>
+        <li>
+            <div class="li-text">
+                <h4 class="li-head">Software Provider</h4>
+            </div>
+        </li>
+        <li>
+            <div class="li-text">
+                <h4 class="li-head">Service</h4>
             </div>
         </li>
     </ul>
@@ -46,46 +53,21 @@
     
 
     <div id="render"></div>
-    <div class="shape rectangle" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Sales</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Admin</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Software Vendor</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Svcs. Conducts Needs Assesment</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">IT Professional Installs Software + Writes API</div><span class="drag_icon">&#10150;</span></div>
+    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Trains Customer On Software</div><span class="drag_icon">&#10150;</span></div>
 
     
 </div>
 
-<div id="window">
-    <input class="text input" type="text" placeholder="Enter Label">
-    <span id="ok" class="k-button">OK</span>
-</div>
-
-<span id="undo" style="display:none" class="k-button">Click here to open the window.</span>
-
-
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        var window = $("#window");
-        var ok = $("#ok").bind("click", function () {
-            window.data("kendoWindow").close();
-        });
-
-        $(".shape").bind("click", function () {
-            window.data("kendoWindow").center();
-            window.data("kendoWindow").open();
-        });
-
-        var onClose = function () {
-            //undo.show();
-        }
-
-        if (!window.data("kendoWindow")) {
-            window.kendoWindow({
-                width: "300px",
-                close: onClose
-            });
-        }
 
         $(".pallette").draggable({
             containment: '#pallette-draw',
@@ -107,46 +89,24 @@
             }
         });
 
-        $('li').droppable({
-            hoverClass: "ui-state-active",
-            drop: function (event, ui) {
-
-                //$(ui.helper).clone().removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
-
-                //jsPlumb.repaintEverything();
-
-                //jsPlumb.setDraggable($(ui.helper), true);
-
-                //jsPlumb.makeSource(ui.helper, { filter: ".drag_icon", anchor: "Continuous", connector: "Flowchart" });
-
-                //jsPlumb.makeTarget(ui.helper, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
-
-
-            }
-        });
+        $('li').droppable({ hoverClass: "ui-state-active" });
     });  
 
 </script>
 
 <style>
-    
-    #example 
-                {
-                    min-height:200px;
-                }
 
-                #undo {
-                    text-align: center;
-                    position: absolute;
-                    white-space: nowrap;
-                    padding: 1em;
-                    cursor: pointer;
-                }
-    
+    .shape-label
+    {
+    	float:left;
+    	width:90%;
+    }
+
     .img-list
     {
         float: left;
         width: 87%;
+        border-left:2px solid #2C2A67;
     }
     
     .list li

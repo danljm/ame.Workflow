@@ -109,11 +109,11 @@
 
 #pallette-menu
 {
-	border-right: 2px solid #2C2A67;
+	border: 2px solid #2C2A67;
+	margin: 5px, 5px, 5px, 5px;
 	float: left;
 	width: 13%;
 	min-width: 200px;
-	height: 100%;
 	background: #C9E0F0;
 }
 

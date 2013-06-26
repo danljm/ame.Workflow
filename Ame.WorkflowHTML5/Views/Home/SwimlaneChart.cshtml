@@ -23,27 +23,27 @@
     <ul class="list img-list">
         <li>
             <div class="li-text">
-                <h4 class="li-head">Corp. Customer</h4>
+                <h5 class="li-head">Corp. Customer</h5>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Sales</h4>
+                <h5 class="li-head">Sales</h5>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Administration</h4>
+                <h5 class="li-head">Administration</h5>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Software Provider</h4>
+                <h5 class="li-head">Software Provider</h5>
             </div>
         </li>
         <li>
             <div class="li-text">
-                <h4 class="li-head">Service</h4>
+                <h5 class="li-head">Service</h5>
             </div>
         </li>
     </ul>
@@ -53,14 +53,14 @@
     
 
     <div id="render"></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Sales</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Admin</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Software Vendor</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Svcs. Conducts Needs Assesment</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">IT Professional Installs Software + Writes API</div><span class="drag_icon">&#10150;</span></div>
-    <div class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Trains Customer On Software</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window1" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window2" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window3" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Sales</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window4" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Admin</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window5" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Software Vendor</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window6" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Svcs. Conducts Needs Assesment</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window7" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">IT Professional Installs Software + Writes API</div><span class="drag_icon">&#10150;</span></div>
+    <div id="window8" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Trains Customer On Software</div><span class="drag_icon">&#10150;</span></div>
 
     
 </div>
@@ -90,12 +90,46 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        /* Connection 1 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
+        /* Connection 2 */
+        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Sales Sends Purchase Order On To Admin", location: 0.7, id: "label2"}]] });
+        /* Connection 3 */
+        jsPlumb.connect({ source: $('#window3'), target: $('#window6'), anchor: "Continuous", overlays: [["Label", { label: "Sales Informs Consultant Svcs. Of customer order", location: 0.7, id: "label3"}]] });
+        /* Connection 4 */
+        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Customer Makes Payment", location: 0.7, id: "label4"}]] });
+        /* Connection 5 */
+        jsPlumb.connect({ source: $('#window4'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Admin Invoices Customer", location: 0.7, id: "label5"}]] });
+        /* Connection 6 */
+        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { label: "Admin Sends Purchase Order to Software Vendor", location: 0.7, id: "label6"}]] });
+        /* Connection 8 */
+        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label8"}]] });
+        /* Connection 9 */
+        jsPlumb.connect({ source: $('#window6'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Consultant Puts in Request for Software", location: 0.7, id: "label9"}]] });
+        /* Connection 10 */
+        jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { label: "Consultant Sends stats to Programmers", location: 0.7, id: "label10"}]] });
+        /* Connection 11 */
+        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label11"}]] });
+        /* Connection 7 */
+        jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
+
     });  
 
 </script>
 
 <style>
-
+    
+    /* Shape positions */
+    #window1 { position:absolute; left:1580px; top:40px;}
+    #window2 { position:absolute; left:350px; top:40px;}
+    #window3 { position:absolute; left:350px; top:226px; }
+    #window4 { position:absolute; left:590px; top:407px;}
+    #window5 { position:absolute; left:827px; top:569px;}
+    #window6 { position:absolute; left:590px; top:760px; }
+    #window7 { position:absolute; left:1054px; top:760px;}
+    #window8 { position:absolute; left:1580px; top:760px;}
+    
     .shape-label
     {
     	float:left;
@@ -106,6 +140,7 @@
     {
         float: left;
         width: 87%;
+        border-left:2px solid #2C2A67;
     }
     
     .list li
@@ -113,7 +148,7 @@
         display: table;
         border-collapse: collapse;
         width: 100%;
-        height: 250px;
+        height: 180px;
         padding: 5px;
         border-bottom: 2px solid #2C2A67;
         
@@ -130,7 +165,7 @@
     .li-text
     {
     	/*display: table-cell;*/
-        width: 250px;
+        width: 180px;
         vertical-align: middle;
         transform:rotate(-90deg);
     -moz-transform:rotate(-90deg);
@@ -138,7 +173,7 @@
     -webkit-transform:rotate(-90deg);
     -ms-transform:rotate(-90deg);
     
-    -webkit-transform-origin: 120px 120px;
+    -webkit-transform-origin: 90px 90px;
 -moz-transform-origin: 120px 120px;
 -ms-transform-origin: 120px 120px;
 -o-transform-origin: 120px 120px;
@@ -148,6 +183,7 @@ border-bottom: 2px solid #2C2A67;
     .li-head
     {
         margin: 0;
+        padding: 5px 5px 5px 5px;
     }
     .li-sub
     {
