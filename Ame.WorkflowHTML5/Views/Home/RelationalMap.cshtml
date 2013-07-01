@@ -12,7 +12,7 @@
 
     <div id="pallette-menu">
         <ul>
-            <li class="palette_heading"><h4>Drawing Palette</h4></li>
+            <h4 style="text-align:center">Drawing Palette</h4>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
@@ -20,9 +20,9 @@
         </ul>
     </div>
 
-    <div class="supplier"><h4>Suppliers</h4></div>
-    <div class="organization"><h4>Organization</h4></div>
-    <div class="customer"><h4>Customers</h4></div>
+    <div class="rel-map supplier"><h4>Suppliers</h4></div>
+    <div class="rel-map organization"><h4>Organization</h4></div>
+    <div class="rel-map customer"><h4>Customers</h4></div>
 
     <div id="render"></div>
     <div id="window1" class="shape rectangle" data-shape="Rectangle">Software Provider<span class="drag_icon">&#10150;</span></div>
@@ -93,6 +93,11 @@
     #window3 { position:absolute; left:876px; top:498px; }
     #window4 { position:absolute; left:1212px; top:496px;}
     #window5 { position:absolute; left:1577px; top:356px;}
+    
+    .rel-map
+    {
+    	text-align:center;
+    }
                     
     .supplier
     {

@@ -2,19 +2,32 @@
     ViewBag.Title = "PreRelationalList";
 }
 
-<div id="example" class="k-content">
-            <div id="grid"></div>
+<h2>Pre Relational List - Test Process</h2>
 
+<div id="example" class="k-content">
+    <div id="grid">
+    </div>
     <script>
 
-        var products;
+        var performers = createData();
+
+        function createData() {
+            var data = [];
+            var processSteps = ['Software Provider', 'Administration', 'Sales', 'Service', 'Corp. Customer'];
+            for (var i = 0; i < 5; i++) {
+                data.push({
+                    Id: i + 1,
+                    ProcessStep: processSteps[i],
+                    AccountedFor: true
+                });
+            }
+            return data;
+        }
 
         $(document).ready(function () {
             var dataSource = new kendo.data.DataSource({
-                pageSize: 20,
-                data: products,
+                data: performers,
                 autoSync: true,
-                batch: true,
                 pageSize: 20,
                 schema: {
                     model: {
@@ -34,12 +47,11 @@
                 height: 430,
                 toolbar: ["create"],
                 columns: [
-                            { field: "ProcessStep", title: "Process Step", width: "200px" },
+                            { field: "ProcessStep", title: "Performer", width: "200px" },
                             { field: "AccountedFor", title: "Accounted For", format: "{0:c}", width: "100px" },
                             { command: ["destroy"], title: " ", width: "90px"}],
                 editable: true
             });
         });
     </script>
-        </div>
-
+</div>

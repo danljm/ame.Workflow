@@ -12,7 +12,7 @@
 
     <div id="pallette-menu">
         <ul>
-            <li class="palette_heading"><h4>Drawing Palette</h4></li>
+            <h4 style="text-align:center">Drawing Palette</h4>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
@@ -90,6 +90,9 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        $('.img-list').sortable();
+        $('.img-list').disableSelection();
 
         /* Connection 1 */
         jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });

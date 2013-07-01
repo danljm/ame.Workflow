@@ -27,11 +27,11 @@
 
 [data-shape=Ellipse]
 {
-	width: 210px;
-	height: 70px;
+	width: 181px;
+	height: 60px;
 	left: 250px;
 	top: 300px;
-	line-height: 70px;
+	line-height: 60px;
 	background-image: url(../Content/ellipse.png);
 }
 

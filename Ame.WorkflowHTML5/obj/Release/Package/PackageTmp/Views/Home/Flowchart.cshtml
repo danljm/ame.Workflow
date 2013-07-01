@@ -6,26 +6,33 @@
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
 
 
-<h2>FlowChart</h2>
+<h2>FlowChart - Test Process</h2>
 	
 <div id="pallette-draw">
 
     <div id="pallette-menu">
         <ul>
-            <li class="palette_heading"><h4>Drawing Palette</h4></li>
+            <h4 style="text-align:center">Drawing Palette</h4>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
             <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div></li>
+            <li class="pallette-shape"><div class="shape pallette" data-shape="Ellipse">Collect<span class="drag_icon">&#10150;</span></div></li>
+            <li class="pallette-shape"><div class="shape pallette" data-shape="Triangle">Analyze<span class="drag_icon">&#10150;</span></div></li>
         </ul>
-    </div>   
+    </div>
 
     <div id="render"></div>
-    <div class="shape rectangle" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div>
-    <div class="shape" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div>
-
+    <div id="window1" class="shape rectangle" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div>
+    <div id="window2" class="shape rectangle" data-shape="Rectangle">Activity Needs Assessment<span class="drag_icon">&#10150;</span></div>
+    <div id="window3" class="shape rectangle" data-shape="Ellipse">Collect Data From Client<span class="drag_icon">&#10150;</span></div>
+    <div id="window4" class="shape rectangle" data-shape="Rectangle">Input Data<span class="drag_icon">&#10150;</span></div>
+    <div id="window5" class="shape rectangle" data-shape="Triangle">Analyze Data<span class="drag_icon">&#10150;</span></div>
+    <div id="window6" class="shape rectangle" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div>
+    <div id="window7" class="shape rectangle" data-shape="Ellipse">Version A<span class="drag_icon">&#10150;</span></div>
+    <div id="window8" class="shape rectangle" data-shape="Ellipse">Version B<span class="drag_icon">&#10150;</span></div>  
+    <div id="window9" class="shape rectangle" data-shape="Rectangle">Conclusion<span class="drag_icon">&#10150;</span></div>
+    <div id="window10" class="shape rectangle" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div>
     
 </div>
 
@@ -54,11 +61,43 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        /* Connection 1 */
+        jsPlumb.connect({ source: $('#window1'), target: $('#window2'), anchor: "Continuous" });
+        /* Connection 2 */
+        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous" });
+        /* Connection 3 */
+        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous" });
+        /* Connection 4 */
+        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous" });
+        /* Connection 5 */
+        jsPlumb.connect({ source: $('#window5'), target: $('#window6'), anchor: "Continuous" });
+        /* Connection 6 */
+        jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous" });
+        /* Connection 7 */
+        jsPlumb.connect({ source: $('#window6'), target: $('#window8'), anchor: "Continuous" });
+        /* Connection 8 */
+        jsPlumb.connect({ source: $('#window6'), target: $('#window9'), anchor: "Continuous" });
+        /* Connection 9 */
+        jsPlumb.connect({ source: $('#window8'), target: $('#window9'), anchor: "Continuous" });
+        /* Connection 10 */
+        jsPlumb.connect({ source: $('#window9'), target: $('#window10'), anchor: "Continuous" });
     });  
 
 </script>
 
 <style>
+    
+    #window1 { position:absolute; left:272px; top:289px;}
+    #window2 { position:absolute; left:416px; top:274px;}
+    #window3 { position:absolute; left:615px; top:289px; }
+    #window4 { position:absolute; left:856px; top:274px;}
+    #window5 { position:absolute; left:1078px; top:244px;}
+    #window6 { position:absolute; left:1312px; top:274px; }
+    #window7 { position:absolute; left:1266px; top:124px;}
+    #window8 { position:absolute; left:1266px; top:440px;}
+    #window9 { position:absolute; left:1532px; top:274px;}
+    #window10 { position:absolute; left:1715px; top:293px;}
     
     .img-list
     {
@@ -91,16 +130,16 @@
         width: 250px;
         vertical-align: middle;
         transform:rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    -webkit-transform:rotate(-90deg);
-    -ms-transform:rotate(-90deg);
+        -moz-transform:rotate(-90deg);
+        -o-transform:rotate(-90deg);
+        -webkit-transform:rotate(-90deg);
+        -ms-transform:rotate(-90deg);
     
-    -webkit-transform-origin: 120px 120px;
--moz-transform-origin: 120px 120px;
--ms-transform-origin: 120px 120px;
--o-transform-origin: 120px 120px;
-border-bottom: 2px solid #2C2A67;
+        -webkit-transform-origin: 120px 120px;
+        -moz-transform-origin: 120px 120px;
+        -ms-transform-origin: 120px 120px;
+        -o-transform-origin: 120px 120px;
+        border-bottom: 2px solid #2C2A67;
         
     }
     .li-head
@@ -112,6 +151,3 @@ border-bottom: 2px solid #2C2A67;
         margin: 0;
     }
 </style>
-
-
-				          		     id="rejected">rejected<div class="ep"></div></div>	
