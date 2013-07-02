@@ -43,8 +43,8 @@
     margin-right: auto;
     border: 2px solid #2C2A67;
     height: 900px;
-    overflow: hidden;
-    background-color:#eaedef;
+    overflow-x: auto;
+    background-color:#f1f1f1;
 }
 
 #sidebar {            

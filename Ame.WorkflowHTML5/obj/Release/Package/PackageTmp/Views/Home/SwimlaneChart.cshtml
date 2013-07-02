@@ -25,6 +25,7 @@
             <div class="li-text">
                 <h5 class="li-head">Corp. Customer</h5>
             </div>
+            <div id="window1" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
         </li>
         <li>
             <div class="li-text">
@@ -90,6 +91,9 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        $('.img-list').sortable();
+        $('.img-list').disableSelection();
 
         /* Connection 1 */
         jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
