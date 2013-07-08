@@ -38,6 +38,10 @@
     </div>
 </div>
 
+<input type='button' class='k-button' value='Save' onclick='Save()'>
+<input type='button' class='k-button' value='Load' onclick='Load()'>
+<input type='button' class='k-button' value='Clear' onclick='Clear()'>
+
 
 <script type="text/javascript">
 
@@ -85,7 +89,60 @@
         jsPlumb.connect({ source: $('#window8'), target: $('#window9'), anchor: "Continuous" });
         /* Connection 10 */
         jsPlumb.connect({ source: $('#window9'), target: $('#window10'), anchor: "Continuous" });
-    });  
+    });
+
+    //// functions ////
+
+    // repaint
+    function Repaint() {
+        $("#main").resize(function () {
+            jsPlumb.repaintEverything();
+        });
+    }
+    // размер
+    function ResizeEl(el) {
+        $(el).resizable();
+    }
+    // drag
+    function DragEl(el) {
+        jsPlumb.draggable($(el));
+    }
+
+    // save
+    function Save() {
+        //$(".shape").resizable("destroy");
+        Objs = [];
+        $(".shape").not(".pallette").each(function () {
+            Objs.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        });
+        console.log(Objs);
+    }
+
+    // load
+    function Load() {
+        var s = "";
+        for (var i in Objs) {
+            var o = Objs[i];
+            console.log(o);
+            s += '<div id="' + o.id + '" class="shape rectangle" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
+        }
+        $('#pallette-draw').html(s);
+    }
+
+    // connection
+    function Line(el1, el2) {
+        var e0 = jsPlumb.addEndpoint(el1),
+            e1 = jsPlumb.addEndpoint(el2);
+        jsPlumb.connect({ source: e0, target: e1 });
+    }
+
+    // clear
+    function Clear() {
+        jsPlumb.reset();
+        $('.node').remove();
+        $('.point').remove();
+    }
+
 
 </script>
 
