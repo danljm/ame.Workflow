@@ -10,7 +10,7 @@
         <h4 style="text-align: center">
             Drawing Palette</h4>
         <li class="pallette-shape">
-            <div class="shape pallette" data-shape="Rectangle">
+            <div class="shape roundedRectangle gradient pallette">
                 Action<span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
@@ -36,7 +36,7 @@
                     <h5 class="li-head">
                         Corp. Customer</h5>
                 </div>
-                <div id="window1" class="shape rectangle" data-shape="Rectangle">
+                <div id="window1" class="shape roundedRectangle gradient">
                     <div class="shape-label">
                         Customer</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -68,39 +68,39 @@
         </ul>
         <div id="render">
         </div>
-        <div id="window1" class="shape rectangle" data-shape="Rectangle">
+        <div id="window1" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Customer</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window2" class="shape rectangle" data-shape="Rectangle">
+        <div id="window2" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Customer</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window3" class="shape rectangle" data-shape="Rectangle">
+        <div id="window3" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Sales</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window4" class="shape rectangle" data-shape="Rectangle">
+        <div id="window4" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Admin</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window5" class="shape rectangle" data-shape="Rectangle">
+        <div id="window5" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Software Vendor</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window6" class="shape rectangle" data-shape="Rectangle">
+        <div id="window6" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Consultant Svcs. Conducts Needs Assesment</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window7" class="shape rectangle" data-shape="Rectangle">
+        <div id="window7" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 IT Professional Installs Software + Writes API</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="window8" class="shape rectangle" data-shape="Rectangle">
+        <div id="window8" class="shape roundedRectangle gradient" >
             <div class="shape-label">
                 Consultant Trains Customer On Software</div>
             <span class="drag_icon">&#10150;</span></div>
-        <div id="roundedRectangle" class="gradient">
+        <div id="window9" class="shape roundedRectangle gradient">
             Test Shape Text<span class="drag_icon">&#10150;</span></div>
     </div>
 </div>
@@ -120,27 +120,25 @@
                 var clone = $('.clone');
 
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+                jsPlumb.makeSource(clone, {
+                    filter: ".drag_icon",
+                    anchor: "Continuous",
+                    connector: "Flowchart"
+                });
 
                 clone.draggable({
                     drag: function (event, ui) {
                         jsPlumb.repaintEverything();
                     }
                 });
+
+                clone.removeClass('clone');
             }
         });
 
-        
+
 
         $('li').droppable({ hoverClass: "ui-state-active" });
-
-        jsPlumb.draggable($('#roundedRectangle'));
-        jsPlumb.makeTarget($('#roundedRectangle'), { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
-        jsPlumb.makeSource($('#roundedRectangle'), {
-            filter: ".drag_icon",
-            anchor: "Continuous",
-            connector: "Flowchart"
-        });
-
         $('.img-list').sortable({ hoverClass: "ui-state-active" });
         $('.img-list').disableSelection();
 
@@ -285,13 +283,12 @@
     #group3
 {
 }
-#roundedRectangle
+.roundedRectangle
 {
-    position: absolute;
-    left: 124px;
-    /*width: 69px;*/
-    top: 72px;
-    /*height: 14px;*/
+    /*position: absolute;*/
+    min-width: 80px;
+    max-width: 120px;
+    min-height: 40px;
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzUiIHkxPSIwIiB4Mj0iMzUiIHkyPSIzNS41Ij48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWQ2OGZmIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjOGViNGZmIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjM1LjUiIGZpbGw9InVybCgjZykiIC8+PC9zdmc+);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(29, 104, 255)), color-stop(0%, rgb(142, 180, 255)), color-stop(100%, rgb(255, 255, 255)));
     background-image: -webkit-linear-gradient(top, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
@@ -302,9 +299,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d68ff', endColorstr='#ffffff', GradientType=0);
     background-repeat: no-repeat;
     border: 1px solid rgb(128, 128, 128);
-    font-size: 9px;
+    font-size: 11px;
     text-align: center;
-    font-family: Helvetica, sans-serif;
     color: rgb(0, 0, 0);
     padding: 10px 0;
     -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
