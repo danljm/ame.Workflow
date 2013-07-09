@@ -120,11 +120,6 @@
                 var clone = $('.clone');
 
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
-                jsPlumb.makeSource(clone, {
-                    filter: ".drag_icon",
-                    anchor: "Continuous",
-                    connector: "Flowchart"
-                });
 
                 clone.draggable({
                     drag: function (event, ui) {
@@ -237,6 +232,7 @@
         display: table;
         border-collapse: collapse;
         width: 100%;
+        min-height: 180px;
         height: 180px;
         padding: 5px;
         background: #CCEBFF;

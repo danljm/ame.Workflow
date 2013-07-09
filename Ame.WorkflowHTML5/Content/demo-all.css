@@ -42,8 +42,8 @@
     position: relative;
     margin-right: auto;
     border: 1px solid #2C2A67;
-    height: 700px;
-    width: 900px;
+    height: auto;
+    width: auto;
     overflow: scroll;
     background-color:#e1e1e1;
 }
