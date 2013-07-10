@@ -144,6 +144,7 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jsPlumb-save-functions.js" />
     <Content Include="Scripts\kendo_ui\js\cultures\kendo.culture.af-ZA.min.js" />
     <Content Include="Scripts\kendo_ui\js\cultures\kendo.culture.af.min.js" />
     <Content Include="Scripts\kendo_ui\js\cultures\kendo.culture.am-ET.min.js" />
