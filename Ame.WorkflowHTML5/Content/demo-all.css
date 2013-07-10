@@ -45,14 +45,14 @@
     height: auto;
     width: auto;
     overflow: scroll;
-    background-color:#e1e1e1;
+    background-color:#f1f1f1;
 }
 
  #pallette-draw {
     position: relative;
     height: 900px;
     width: 1600px;
-    background-color:#e1e1e1;
+    background-color:#f1f1f1;
 }
 
 
