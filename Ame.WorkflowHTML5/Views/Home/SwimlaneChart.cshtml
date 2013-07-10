@@ -104,33 +104,42 @@
 
     $(document).ready(function () {
 
+        counter = 0;
+
         $(".pallette").draggable({
             containment: '#pallette-draw',
             helper: 'clone',
             stop: function (event, ui) {
-                $(ui.helper).clone(true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
-                jsPlumb.repaintEverything();
 
-                var clone = $('.clone');
+                /* var clone = $('.clone');
 
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
-                clone.draggable({
-                    drag: function (event, ui) {
-                        jsPlumb.repaintEverything();
-                    }
-                });
-
                 clone.removeClass('clone');
+                console.log("clone class removed");
 
                 jsPlumbDemo.init();
+                console.log("init calles");*/
+
+                if ($(ui.helper).hasClass('clone')) {
+                    var clone = $('clone');
+
+                    jsPlumb.setDraggable(clone, true);
+                }
             }
         });
 
 
 
-        $('li').droppable({ hoverClass: "ui-state-active" });
+        $('li').droppable({
+            hoverClass: "ui-state-active",
+            drop: function (event, ui) {
+                if ($(ui.helper).hasClass('pallette')) {
+                    $(ui.helper).clone(true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+                }                
+            }
+        });
         $('.img-list').sortable({ hoverClass: "ui-state-active" });
         $('.img-list').disableSelection();
 
@@ -221,7 +230,7 @@
     {
         float: left;
         width: 100%;
-        margin: 1em 1em 1em 1em;
+        margin: 0;
     }
     
     .list li
@@ -232,10 +241,10 @@
         min-height: 180px;
         height: 180px;
         padding: 5px;
-        background: #CCEBFF;
-        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        margin: .5em .5em .5em .5em;
+        background: #FFFFFF;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,1.0);
+        box-shadow: 0 1px 4px rgba(0,0,0,1.0);
+        margin: 0;
     }
     .ui-state-active
     {
@@ -250,7 +259,7 @@
     {
         width: 180px;
         vertical-align: middle;
-        background: #009BFF;
+        background: #e1e1e1;
         
         transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);

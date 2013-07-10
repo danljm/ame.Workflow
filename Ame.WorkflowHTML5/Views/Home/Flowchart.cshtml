@@ -133,24 +133,7 @@
         /** Externalize into a function to be shared */
         var shapes = $(".shape");
 
-        // make everything draggable
-        jsPlumb.draggable(shapes);
-
-        // loop through them and connect each one to each other one.
-        for (var i = 0; i < shapes.length; i++) {
-
-            jsPlumb.makeSource(shapes[i], {
-                filter: ".drag_icon",
-                anchor: "Continuous",
-                connector: "Flowchart"
-            });
-
-            jsPlumb.makeTarget(shapes[i], {
-                dropOptions: { hoverClass: "dragHover" },
-                anchor: "Continuous"
-
-            });
-        }
+        jsPlumbDemo.init();        
     }
 
     // clear
