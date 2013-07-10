@@ -155,8 +155,9 @@
 
     // clear
     function Clear() {
+        jsPlumb.detachEveryConnection();
         jsPlumb.reset();
-        $("#pallette-draw").find('.shape').remove();
+        $("#pallette-draw").empty();
     }
 
 

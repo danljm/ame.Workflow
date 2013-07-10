@@ -7,34 +7,41 @@
 
 
 <h2>FlowChart - Test Process</h2>
-	
-<div id="pallette-draw">
 
-    <div id="pallette-menu">
-        <ul>
-            <h4 style="text-align:center">Drawing Palette</h4>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Ellipse">Collect<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Triangle">Analyze<span class="drag_icon">&#10150;</span></div></li>
-        </ul>
-    </div>
-
-    <div id="render"></div>
-    <div id="window1" class="shape rectangle" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div>
-    <div id="window2" class="shape rectangle" data-shape="Rectangle">Activity Needs Assessment<span class="drag_icon">&#10150;</span></div>
-    <div id="window3" class="shape rectangle" data-shape="Ellipse">Collect Data From Client<span class="drag_icon">&#10150;</span></div>
-    <div id="window4" class="shape rectangle" data-shape="Rectangle">Input Data<span class="drag_icon">&#10150;</span></div>
-    <div id="window5" class="shape rectangle" data-shape="Triangle">Analyze Data<span class="drag_icon">&#10150;</span></div>
-    <div id="window6" class="shape rectangle" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div>
-    <div id="window7" class="shape rectangle" data-shape="Ellipse">Version A<span class="drag_icon">&#10150;</span></div>
-    <div id="window8" class="shape rectangle" data-shape="Ellipse">Version B<span class="drag_icon">&#10150;</span></div>  
-    <div id="window9" class="shape rectangle" data-shape="Rectangle">Conclusion<span class="drag_icon">&#10150;</span></div>
-    <div id="window10" class="shape rectangle" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div>
-    
+<div id="pallette-menu">
+    <ul>
+        <h4 style="text-align:center">Drawing Palette</h4>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Ellipse">Collect<span class="drag_icon">&#10150;</span></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Triangle">Analyze<span class="drag_icon">&#10150;</span></div></li>
+    </ul>
 </div>
+
+<div id="pallette-container">
+    <div id="pallette-draw">
+
+        <div id="render"></div>
+        <div id="window1" class="shape rectangle" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div>
+        <div id="window2" class="shape rectangle" data-shape="Rectangle">Activity Needs Assessment<span class="drag_icon">&#10150;</span></div>
+        <div id="window3" class="shape rectangle" data-shape="Ellipse">Collect Data From Client<span class="drag_icon">&#10150;</span></div>
+        <div id="window4" class="shape rectangle" data-shape="Rectangle">Input Data<span class="drag_icon">&#10150;</span></div>
+        <div id="window5" class="shape rectangle" data-shape="Triangle">Analyze Data<span class="drag_icon">&#10150;</span></div>
+        <div id="window6" class="shape rectangle" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div>
+        <div id="window7" class="shape rectangle" data-shape="Ellipse">Version A<span class="drag_icon">&#10150;</span></div>
+        <div id="window8" class="shape rectangle" data-shape="Ellipse">Version B<span class="drag_icon">&#10150;</span></div>  
+        <div id="window9" class="shape rectangle" data-shape="Rectangle">Conclusion<span class="drag_icon">&#10150;</span></div>
+        <div id="window10" class="shape rectangle" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div>
+    
+    </div>
+</div>
+
+<input type='button' class='k-button' value='Save' onclick='Save()'>
+<input type='button' class='k-button' value='Load' onclick='Load()'>
+<input type='button' class='k-button' value='Clear' onclick='Clear()'>
+
 
 <script type="text/javascript">
 
@@ -82,7 +89,77 @@
         jsPlumb.connect({ source: $('#window8'), target: $('#window9'), anchor: "Continuous" });
         /* Connection 10 */
         jsPlumb.connect({ source: $('#window9'), target: $('#window10'), anchor: "Continuous" });
-    });  
+    });
+
+    //// functions ////
+
+    // repaint
+    function Repaint() {
+        $("#main").resize(function () {
+            jsPlumb.repaintEverything();
+        });
+    }
+    // размер
+    function ResizeEl(el) {
+        $(el).resizable();
+    }
+    // drag
+    function DragEl(el) {
+        jsPlumb.draggable($(el));
+    }
+
+    // save
+    function Save() {
+        //$(".shape").resizable("destroy");
+
+        chart = $("#pallette-draw").html();
+        Objs = [];
+        $(".shape").not(".pallette").each(function () {
+            Objs.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        });
+        console.log(chart);
+    }
+
+    // load
+    function Load() {
+        var s = "";
+        for (var i in Objs) {
+            var o = Objs[i];
+            console.log(o);
+            s += '<div id="' + o.id + '" class="shape rectangle" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
+        }
+        $('#pallette-draw').html(chart);
+
+        /** Externalize into a function to be shared */
+        var shapes = $(".shape");
+
+        // make everything draggable
+        jsPlumb.draggable(shapes);
+
+        // loop through them and connect each one to each other one.
+        for (var i = 0; i < shapes.length; i++) {
+
+            jsPlumb.makeSource(shapes[i], {
+                filter: ".drag_icon",
+                anchor: "Continuous",
+                connector: "Flowchart"
+            });
+
+            jsPlumb.makeTarget(shapes[i], {
+                dropOptions: { hoverClass: "dragHover" },
+                anchor: "Continuous"
+
+            });
+        }
+    }
+
+    // clear
+    function Clear() {
+        jsPlumb.detachEveryConnection();
+        jsPlumb.reset();
+        $("#pallette-draw").empty();
+    }
+
 
 </script>
 

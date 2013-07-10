@@ -1,69 +1,103 @@
 ﻿@{
     ViewBag.Title = "SwimlaneChart";
 }
-
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
-
-
-<h2>Swimlane Map - Test Process</h2>
-	
-<div id="pallette-draw">
-
-    <div id="pallette-menu">
-        <ul>
-            <h4 style="text-align:center">Drawing Palette</h4>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Rectangle">Action<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_start">Start<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Circle_stop">Stop<span class="drag_icon">&#10150;</span></div></li>
-            <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond">Decision<span class="drag_icon">&#10150;</span></div></li>
-        </ul>
-    </div>
-
-    <ul class="list img-list">
-        <li>
-            <div class="li-text">
-                <h5 class="li-head">Corp. Customer</h5>
-            </div>
-            <div id="window1" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
+<h2>
+    Swimlane Map - Test Process</h2>
+<div id="pallette-menu">
+    <ul>
+        <h4 style="text-align: center">
+            Drawing Palette</h4>
+        <li class="pallette-shape">
+            <div class="shape roundedRectangle gradient pallette">
+                Action<span class="drag_icon">&#10150;</span></div>
         </li>
-        <li>
-            <div class="li-text">
-                <h5 class="li-head">Sales</h5>
-            </div>
+        <li class="pallette-shape">
+            <div class="shape pallette" data-shape="Circle_start">
+                Start<span class="drag_icon">&#10150;</span></div>
         </li>
-        <li>
-            <div class="li-text">
-                <h5 class="li-head">Administration</h5>
-            </div>
+        <li class="pallette-shape">
+            <div class="shape pallette" data-shape="Circle_stop">
+                Stop<span class="drag_icon">&#10150;</span></div>
         </li>
-        <li>
-            <div class="li-text">
-                <h5 class="li-head">Software Provider</h5>
-            </div>
-        </li>
-        <li>
-            <div class="li-text">
-                <h5 class="li-head">Service</h5>
-            </div>
+        <li class="pallette-shape">
+            <div class="shape pallette" data-shape="Diamond">
+                Decision<span class="drag_icon">&#10150;</span></div>
         </li>
     </ul>
+</div>
 
-    
+<div id="pallette-container">
+    <div id="pallette-draw">
+        <ul class="list img-list">
+            <li>
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Corp. Customer</h5>
+                </div>
+                <div id="window1" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Customer</div>
+                    <span class="drag_icon">&#10150;</span></div>
+                <div id="window2" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Customer</div>
+                    <span class="drag_icon">&#10150;</span></div>
+            </li>
+            <li>
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Sales</h5>
+                </div>
+                <div id="window3" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Sales</div>
+                    <span class="drag_icon">&#10150;</span></div>
+            </li>
+            <li>
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Administration</h5>
+                </div>
+                <div id="window4" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Admin</div>
+                    <span class="drag_icon">&#10150;</span></div>
+            </li>
+            <li>
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Software Provider</h5>
+                </div>
+                <div id="window5" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Software Vendor</div>
+                    <span class="drag_icon">&#10150;</span></div>
+            </li>
+            <li>
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Service</h5>
+                </div>
+                <div id="window6" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Consultant Svcs. Conducts Needs Assesment</div>
+                    <span class="drag_icon">&#10150;</span></div>
+                <div id="window7" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        IT Professional Installs Software + Writes API</div>
+                    <span class="drag_icon">&#10150;</span></div>
+                <div id="window8" class="shape roundedRectangle gradient">
+                    <div class="shape-label">
+                        Consultant Trains Customer On Software</div>
+                    <span class="drag_icon">&#10150;</span></div>
+            </li>
+        </ul>
+        <div id="render">
+        </div>
 
-    
-
-    <div id="render"></div>
-    <div id="window1" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window2" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Customer</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window3" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Sales</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window4" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Admin</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window5" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Software Vendor</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window6" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Svcs. Conducts Needs Assesment</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window7" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">IT Professional Installs Software + Writes API</div><span class="drag_icon">&#10150;</span></div>
-    <div id="window8" class="shape rectangle" data-shape="Rectangle"><div class="shape-label">Consultant Trains Customer On Software</div><span class="drag_icon">&#10150;</span></div>
-
-    
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -74,7 +108,7 @@
             containment: '#pallette-draw',
             helper: 'clone',
             stop: function (event, ui) {
-                $(ui.helper).clone().removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+                $(ui.helper).clone(true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
                 jsPlumb.repaintEverything();
 
@@ -83,16 +117,19 @@
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
                 clone.draggable({
-                    stop: function (event, ui) {
+                    drag: function (event, ui) {
                         jsPlumb.repaintEverything();
                     }
                 });
+
+                clone.removeClass('clone');
             }
         });
 
-        $('li').droppable({ hoverClass: "ui-state-active" });
 
-        $('.img-list').sortable();
+
+        $('li').droppable({ hoverClass: "ui-state-active" });
+        $('.img-list').sortable({ hoverClass: "ui-state-active" });
         $('.img-list').disableSelection();
 
         /* Connection 1 */
@@ -121,29 +158,68 @@
     });  
 
 </script>
-
 <style>
-    
     /* Shape positions */
-    #window1 { position:absolute; left:1580px; top:40px;}
-    #window2 { position:absolute; left:350px; top:40px;}
-    #window3 { position:absolute; left:350px; top:226px; }
-    #window4 { position:absolute; left:590px; top:407px;}
-    #window5 { position:absolute; left:827px; top:569px;}
-    #window6 { position:absolute; left:590px; top:760px; }
-    #window7 { position:absolute; left:1054px; top:760px;}
-    #window8 { position:absolute; left:1580px; top:760px;}
+    #window1
+    {
+        position: absolute;
+        left: 1580px;
+        top: 40px;
+    }
+    #window2
+    {
+        position: absolute;
+        left: 350px;
+        top: 40px;
+    }
+    #window3
+    {
+        position: absolute;
+        left: 350px;
+        top: 226px;
+    }
+    #window4
+    {
+        position: absolute;
+        left: 590px;
+        top: 407px;
+    }
+    #window5
+    {
+        position: absolute;
+        left: 827px;
+        top: 569px;
+    }
+    #window6
+    {
+        position: absolute;
+        left: 590px;
+        top: 760px;
+    }
+    #window7
+    {
+        position: absolute;
+        left: 1054px;
+        top: 760px;
+    }
+    #window8
+    {
+        position: absolute;
+        left: 1580px;
+        top: 760px;
+    }
     
     .shape-label
     {
-    	float:left;
-    	width:90%;
+        float: left;
+        width: 90%;
     }
-
+    
     .img-list
     {
         float: left;
-        width: 87%;
+        width: 100%;
+        margin: 1em 1em 1em 1em;
     }
     
     .list li
@@ -151,12 +227,13 @@
         display: table;
         border-collapse: collapse;
         width: 100%;
+        min-height: 180px;
         height: 180px;
         padding: 5px;
         background: #CCEBFF;
-        border: 2px solid #2C2A67;
-        margin: 5px 5px 5px 5px;
-        
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        margin: .5em .5em .5em .5em;
     }
     .ui-state-active
     {
@@ -169,20 +246,19 @@
     }
     .li-text
     {
-    	/*display: table-cell;*/
         width: 180px;
         vertical-align: middle;
-        transform:rotate(-90deg);
-        -moz-transform:rotate(-90deg);
-        -o-transform:rotate(-90deg);
-        -webkit-transform:rotate(-90deg);
-        -ms-transform:rotate(-90deg);
-    
+        background: #009BFF;
+        
+        transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
         -webkit-transform-origin: 88px 90px;
         -moz-transform-origin: 88px 90px;
         -ms-transform-origin: 88px 90px;
         -o-transform-origin: 88px 90px;
-        border-bottom: 2px solid #2C2A67;
         
     }
     .li-head
@@ -194,7 +270,59 @@
     {
         margin: 0;
     }
+    
+    #group3
+{
+}
+.roundedRectangle
+{
+    /*position: absolute;*/
+    min-width: 80px;
+    max-width: 120px;
+    min-height: 40px;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzUiIHkxPSIwIiB4Mj0iMzUiIHkyPSIzNS41Ij48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWQ2OGZmIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjOGViNGZmIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjM1LjUiIGZpbGw9InVybCgjZykiIC8+PC9zdmc+);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(29, 104, 255)), color-stop(0%, rgb(142, 180, 255)), color-stop(100%, rgb(255, 255, 255)));
+    background-image: -webkit-linear-gradient(top, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image:    -moz-linear-gradient(top, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image:     -ms-linear-gradient(top, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image:      -o-linear-gradient(top, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image:         linear-gradient(to bottom, rgb(29, 104, 255) 0%, rgb(142, 180, 255) 0%, rgb(255, 255, 255) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d68ff', endColorstr='#ffffff', GradientType=0);
+    background-repeat: no-repeat;
+    border: 1px solid rgb(128, 128, 128);
+    font-size: 11px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
+       -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
+            border-radius: 4.75px 4.75px 4.75px 4.75px;
+}
+#group2
+{
+}
+#group
+{
+}
+#oval
+{
+    position: absolute;
+    left: 185px;
+    width: 4px;
+    top: 94px;
+    height: 4px;
+    background: rgb(29, 104, 255);
+    border: 1px solid rgb(0, 0, 226);
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
+}
+#polygon
+{
+    position: absolute;
+    left: 184px;
+    width: 6px;
+    top: 98px;
+    height: 7px;
+}
 </style>
-
-
-				          		    

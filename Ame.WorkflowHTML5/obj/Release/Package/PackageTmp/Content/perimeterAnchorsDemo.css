@@ -109,12 +109,14 @@
 
 #pallette-menu
 {
-	border: 2px solid #2C2A67;
-	margin: 5px, 5px, 5px, 5px;
+	/*border: 2px solid #2C2A67;*/
+	margin: 1em 1em 1em 1em;
 	float: left;
 	width: 13%;
 	min-width: 200px;
 	background: #CCEBFF;
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
 .drag_icon
