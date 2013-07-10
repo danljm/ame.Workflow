@@ -22,7 +22,7 @@
                 Stop<span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
-            <div class="shape pallette" data-shape="Diamond">
+            <div class="shape pallette bezier">
                 Decision<span class="drag_icon">&#10150;</span></div>
         </li>
     </ul>
@@ -36,11 +36,11 @@
                     <h5 class="li-head">
                         Corp. Customer</h5>
                 </div>
-                <div id="window1" class="shape roundedRectangle gradient">
+                <div id="window1" class="shape roundedRectangle">
                     <div class="shape-label">
                         Customer</div>
                     <span class="drag_icon">&#10150;</span></div>
-                <div id="window2" class="shape roundedRectangle gradient">
+                <div id="window2" class="shape roundedRectangle">
                     <div class="shape-label">
                         Customer</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -50,7 +50,7 @@
                     <h5 class="li-head">
                         Sales</h5>
                 </div>
-                <div id="window3" class="shape roundedRectangle gradient">
+                <div id="window3" class="shape roundedRectangle">
                     <div class="shape-label">
                         Sales</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -60,7 +60,7 @@
                     <h5 class="li-head">
                         Administration</h5>
                 </div>
-                <div id="window4" class="shape roundedRectangle gradient">
+                <div id="window4" class="shape roundedRectangle">
                     <div class="shape-label">
                         Admin</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -70,7 +70,7 @@
                     <h5 class="li-head">
                         Software Provider</h5>
                 </div>
-                <div id="window5" class="shape roundedRectangle gradient">
+                <div id="window5" class="shape roundedRectangle">
                     <div class="shape-label">
                         Software Vendor</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -80,15 +80,15 @@
                     <h5 class="li-head">
                         Service</h5>
                 </div>
-                <div id="window6" class="shape roundedRectangle gradient">
+                <div id="window6" class="shape roundedRectangle">
                     <div class="shape-label">
                         Consultant Svcs. Conducts Needs Assesment</div>
                     <span class="drag_icon">&#10150;</span></div>
-                <div id="window7" class="shape roundedRectangle gradient">
+                <div id="window7" class="shape roundedRectangle">
                     <div class="shape-label">
                         IT Professional Installs Software + Writes API</div>
                     <span class="drag_icon">&#10150;</span></div>
-                <div id="window8" class="shape roundedRectangle gradient">
+                <div id="window8" class="shape roundedRectangle">
                     <div class="shape-label">
                         Consultant Trains Customer On Software</div>
                     <span class="drag_icon">&#10150;</span></div>
@@ -281,82 +281,4 @@
     {
         margin: 0;
     }
-    
-.roundedRectangle
-{
-    min-width: 80px;
-    max-width: 120px;
-    min-height: 40px;
-    background: rgb(146, 255, 146);
-    border: 2px solid rgb(128, 128, 128);
-    text-align: center;
-    color: rgb(0, 0, 0);
-    padding: 10px 0;
-    -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
-       -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
-            border-radius: 4.75px 4.75px 4.75px 4.75px;
-    font-size: 0.7em;
-    text-align: center;
-    line-height: 110%;
-}
-
-.start
-{
-    width: 50px;
-    height: 50px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTIiIHkxPSIwIiB4Mj0iMTIiIHkyPSIyNCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTgwMCIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgwZDM4MCIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(0, 168, 0)), color-stop(0%, rgb(128, 211, 128)), color-stop(100%, rgb(255, 255, 255)));
-    background-image: -webkit-linear-gradient(top, rgb(0, 168, 0) 0%, rgb(128, 211, 128) 0%, rgb(255, 255, 255) 100%);
-    background-image:    -moz-linear-gradient(top, rgb(0, 168, 0) 0%, rgb(128, 211, 128) 0%, rgb(255, 255, 255) 100%);
-    background-image:     -ms-linear-gradient(top, rgb(0, 168, 0) 0%, rgb(128, 211, 128) 0%, rgb(255, 255, 255) 100%);
-    background-image:      -o-linear-gradient(top, rgb(0, 168, 0) 0%, rgb(128, 211, 128) 0%, rgb(255, 255, 255) 100%);
-    background-image:         linear-gradient(to bottom, rgb(0, 168, 0) 0%, rgb(128, 211, 128) 0%, rgb(255, 255, 255) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00a800', endColorstr='#ffffff', GradientType=0);
-    background-repeat: no-repeat;
-    border: 2px solid rgb(85, 85, 85);
-    -webkit-border-radius: 50%;
-       -moz-border-radius: 50%;
-            border-radius: 50%;
-}
-
-.stop
-{
-    width: 50px;
-    height: 50px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTIiIHkxPSIwIiB4Mj0iMTIiIHkyPSIyNCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmMWQxZCIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmOGU4ZSIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(255, 29, 29)), color-stop(0%, rgb(255, 142, 142)), color-stop(100%, rgb(255, 255, 255)));
-    background-image: -webkit-linear-gradient(top, rgb(255, 29, 29) 0%, rgb(255, 142, 142) 0%, rgb(255, 255, 255) 100%);
-    background-image:    -moz-linear-gradient(top, rgb(255, 29, 29) 0%, rgb(255, 142, 142) 0%, rgb(255, 255, 255) 100%);
-    background-image:     -ms-linear-gradient(top, rgb(255, 29, 29) 0%, rgb(255, 142, 142) 0%, rgb(255, 255, 255) 100%);
-    background-image:      -o-linear-gradient(top, rgb(255, 29, 29) 0%, rgb(255, 142, 142) 0%, rgb(255, 255, 255) 100%);
-    background-image:         linear-gradient(to bottom, rgb(255, 29, 29) 0%, rgb(255, 142, 142) 0%, rgb(255, 255, 255) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d1d', endColorstr='#ffffff', GradientType=0);
-    background-repeat: no-repeat;
-    border: 2px solid rgb(85, 85, 85);
-    -webkit-border-radius: 50%;
-       -moz-border-radius: 50%;
-            border-radius: 50%;
-}
-
-#oval
-{
-    position: absolute;
-    left: 185px;
-    width: 4px;
-    top: 94px;
-    height: 4px;
-    background: rgb(29, 104, 255);
-    border: 1px solid rgb(0, 0, 226);
-    -webkit-border-radius: 50%;
-       -moz-border-radius: 50%;
-            border-radius: 50%;
-}
-#polygon
-{
-    position: absolute;
-    left: 184px;
-    width: 6px;
-    top: 98px;
-    height: 7px;
-}
 </style>
