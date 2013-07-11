@@ -118,14 +118,15 @@
             containment: '#pallette-draw',
             helper: 'clone',
             stop: function (event, ui) {
-                $(ui.helper).clone(true, true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+                $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
                 var clone = $('.clone');
+                var pos = $(ui.helper).offset();
+                clone.offset({ top: pos.top, left: pos.left });
 
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
                 jsPlumb.makeSource(clone, {
-
                     anchor: "Continuous",
                     connector: "Flowchart"
                 });
