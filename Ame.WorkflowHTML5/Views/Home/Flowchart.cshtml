@@ -156,4 +156,36 @@
     {
         margin: 0;
     }
+    
+    .diamond {
+       width: 80px; 
+       height: 80px; 
+       margin: 3px 0 0 30px;
+       background: rgb(146, 255, 146);
+       border: 2px solid rgb(128, 128, 128);
+       -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
+       -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
+            border-radius: 4.75px 4.75px 4.75px 4.75px;
+       /* Rotate */
+       -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+       -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+       transform: rotate(-45deg);
+       /* Rotate Origin */
+       -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+       -ms-transform-origin: 0 100%;
+       -o-transform-origin: 0 100%;
+       transform-origin: 0 100%;
+    }
+    
+    .diamond span, .diamond div 
+    {
+    	-webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+       -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+       transform: rotate(45deg);
+    }
 </style>

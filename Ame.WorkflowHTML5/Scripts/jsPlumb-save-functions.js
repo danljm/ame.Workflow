@@ -17,7 +17,6 @@ function DragEl(el) {
 
 // save
 function Save() {
-    //$(".shape").resizable("destroy");
 
     chart = $("#pallette-draw").html();
     Objs = [];

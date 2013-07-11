@@ -22,7 +22,7 @@
                 Stop<span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
-            <div class="shape pallette bezier">
+            <div class="shape pallette" data-shape="Diamond">
                 Decision<span class="drag_icon">&#10150;</span></div>
         </li>
     </ul>
@@ -36,67 +36,71 @@
                     <h5 class="li-head">
                         Corp. Customer</h5>
                 </div>
-                <div id="window1" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Customer</div>
-                    <span class="drag_icon">&#10150;</span></div>
-                <div id="window2" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Customer</div>
-                    <span class="drag_icon">&#10150;</span></div>
+
             </li>
             <li>
                 <div class="li-text">
                     <h5 class="li-head">
                         Sales</h5>
                 </div>
-                <div id="window3" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Sales</div>
-                    <span class="drag_icon">&#10150;</span></div>
+
             </li>
             <li>
                 <div class="li-text">
                     <h5 class="li-head">
                         Administration</h5>
                 </div>
-                <div id="window4" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Admin</div>
-                    <span class="drag_icon">&#10150;</span></div>
+                
             </li>
             <li>
                 <div class="li-text">
                     <h5 class="li-head">
                         Software Provider</h5>
                 </div>
-                <div id="window5" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Software Vendor</div>
-                    <span class="drag_icon">&#10150;</span></div>
+                
             </li>
             <li>
                 <div class="li-text">
                     <h5 class="li-head">
                         Service</h5>
                 </div>
-                <div id="window6" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Consultant Svcs. Conducts Needs Assesment</div>
-                    <span class="drag_icon">&#10150;</span></div>
-                <div id="window7" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        IT Professional Installs Software + Writes API</div>
-                    <span class="drag_icon">&#10150;</span></div>
-                <div id="window8" class="shape roundedRectangle">
-                    <div class="shape-label">
-                        Consultant Trains Customer On Software</div>
-                    <span class="drag_icon">&#10150;</span></div>
+
             </li>
         </ul>
         <div id="render">
         </div>
-
+        <div id="window1" class="shape roundedRectangle">
+            <div class="shape-label">
+                Customer</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window2" class="shape roundedRectangle">
+            <div class="shape-label">
+                Customer</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window3" class="shape roundedRectangle">
+            <div class="shape-label">
+                Sales</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window4" class="shape roundedRectangle">
+            <div class="shape-label">
+                Admin</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window5" class="shape roundedRectangle">
+            <div class="shape-label">
+                Software Vendor</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window6" class="shape roundedRectangle">
+            <div class="shape-label">
+                Consultant Svcs. Conducts Needs Assesment</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window7" class="shape roundedRectangle">
+            <div class="shape-label">
+                IT Professional Installs Software + Writes API</div>
+            <span class="drag_icon">&#10150;</span></div>
+        <div id="window8" class="shape roundedRectangle">
+            <div class="shape-label">
+                Consultant Trains Customer On Software</div>
+            <span class="drag_icon">&#10150;</span></div>
     </div>
 </div>
 
@@ -114,36 +118,23 @@
             containment: '#pallette-draw',
             helper: 'clone',
             stop: function (event, ui) {
+                $(ui.helper).clone(true, true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
-
-                /* var clone = $('.clone');
+                var clone = $('.clone');
 
                 jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
-                clone.removeClass('clone');
-                console.log("clone class removed");
+                jsPlumb.makeSource(clone, {
 
-                jsPlumbDemo.init();
-                console.log("init calles");*/
-
-                if ($(ui.helper).hasClass('clone')) {
-                    var clone = $('clone');
-
-                    jsPlumb.setDraggable(clone, true);
-                }
+                    anchor: "Continuous",
+                    connector: "Flowchart"
+                });
             }
         });
 
 
 
-        $('li').droppable({
-            hoverClass: "ui-state-active",
-            drop: function (event, ui) {
-                if ($(ui.helper).hasClass('pallette')) {
-                    $(ui.helper).clone(true).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
-                }                
-            }
-        });
+        $('li').droppable({ hoverClass: "ui-state-active" });
         $('.img-list').sortable({ hoverClass: "ui-state-active" });
         $('.img-list').disableSelection();
 
