@@ -3,8 +3,13 @@
 }
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
-<h2>
-    Swimlane Map - Test Process</h2>
+<h2>Swimlane Map - Test Process</h2>
+
+<input class="input" type="text" placeholder="Swimlane Map - Test Process">
+<input type='button' class='k-button' value='Save' onclick='Save()'>
+<input type='button' class='k-button' value='Load' onclick='Load()'>
+<input type='button' class='k-button' value='Clear' onclick='Clear()'>
+
 <div id="pallette-menu">
     <ul>
         <h4 style="text-align: center">
@@ -103,10 +108,6 @@
             <span class="drag_icon">&#10150;</span></div>
     </div>
 </div>
-
-<input type='button' class='k-button' value='Save' onclick='Save()'>
-<input type='button' class='k-button' value='Load' onclick='Load()'>
-<input type='button' class='k-button' value='Clear' onclick='Clear()'>
 
 <script type="text/javascript">
 

@@ -23,7 +23,19 @@ function Save() {
     $(".shape").not(".pallette").each(function () {
         Objs.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
-    console.log(chart);
+
+    var connections = jsPlumb.getConnections();
+
+    console.dir(connections);
+
+
+
+    for (var i = 0; i < connections.length; ++i) {
+        var connectionLabel = connections[i].getLabel();
+        console.dir(connectionLabel);
+    }
+
+    console.log(Objs);
 }
 
 // load
