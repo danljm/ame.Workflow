@@ -3,9 +3,9 @@
 }
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
-<h2>Swimlane Map - Test Process</h2>
+<h2>Swimlane Map</h2>
 
-<input id="chartName" class="input" type="text" placeholder="Swimlane Map - Test Process">
+<div class="append field"><input id="chartName" class="input" type="text" placeholder="Swimlane Map - Test Process"><span class="adjoined">i</span></div>
 <input type='button' class='k-button' value='Save' onclick='Save("Swimlane")'>
 <input type='button' class='k-button' value='Load' onclick='Load()'>
 <input type='button' class='k-button' value='Clear' onclick='Clear()'>
@@ -16,19 +16,23 @@
             Drawing Palette</h4>
         <li class="pallette-shape">
             <div class="shape pallette roundedRectangle gradient">
-                Action<span class="drag_icon">&#10150;</span></div>
+                <div class="shape-label">Action</div>
+                <span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
             <div class="shape pallette start">
-                Start<span class="drag_icon">&#10150;</span></div>
+                <div class="shape-label">Start</div>
+                <span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
             <div class="shape pallette stop">
-                Stop<span class="drag_icon">&#10150;</span></div>
+                <div class="shape-label">Stop</div>
+                <span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
             <div class="shape pallette" data-shape="Diamond">
-                Decision<span class="drag_icon">&#10150;</span></div>
+                <div class="shape-label">Decision</div>
+                <span class="drag_icon">&#10150;</span></div>
         </li>
     </ul>
 </div>
@@ -170,11 +174,6 @@
         /* Connection 7 */
         jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
 
-        $(".shape").not(".pallette").click(function () {
-            $(this).addClass('edit');
-            win.open();
-        });
-
         var handleUserInput = function () {
             var userinput = ($("#userinput").val());
             $('.edit .shape-label').text(userinput);
@@ -195,10 +194,22 @@
             .data("kendoWindow")
             .center();
 
-    });  
+        $(".shape").not(".pallette").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+    });
+
+      
 
 </script>
 <style>
+    
+    #chartName
+    {
+    	width: 600px;
+    }
+    
     /* Shape positions */
     #window1
     {

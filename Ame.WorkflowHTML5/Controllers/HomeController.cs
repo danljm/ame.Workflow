@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ame.WorkflowHTML5.Repositories;
+using Ame.WorkflowHTML5.Models;
 
 namespace Ame.WorkflowHTML5.Controllers
 {
@@ -35,14 +37,36 @@ namespace Ame.WorkflowHTML5.Controllers
             return View();
         }
 
-        public ActionResult SwimlaneMap123()
-        {
-            return View();
-        }
-
         public ActionResult Flowchart()
         {
             return View();
         }
+
+        // Utility function to add a exam to each class for a list of students
+        private void AddChart(IList<Chart> charts, Chart chart, string updateSource)
+        {
+            charts.Add(chart);            
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult GetCharts()
+        {
+            ChartRepository repository = new ChartRepository();
+            repository.Initialize();
+
+            return Json(repository.GetCharts());
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult AddChartByJson(IList<Chart> charts, Chart chart)
+        {
+            ChartRepository repository = new ChartRepository();
+            repository.SetCharts(charts);
+
+            AddChart(charts, chart, "json");
+            return Json(charts);
+        }
+
+        
     }
 }
