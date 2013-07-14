@@ -24,9 +24,9 @@
                 info.connection.getOverlay("label").setLabel(info.connection.id);
             });*/
 
-            jsPlumb.bind("click", function(c) { 
+            /*jsPlumb.bind("click", function(c) { 
 				jsPlumb.detach(c); 
-			});
+			});*/
 				
 			// loop through them and connect each one to each other one.
 			for (var i = 0; i < shapes.length; i++) {
