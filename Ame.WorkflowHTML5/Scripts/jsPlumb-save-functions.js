@@ -37,11 +37,12 @@ function Save(chartType) {
     }
 
     console.log(chart);
+    console.log(JSON.stringify(chart));
 
     $.ajax({
         cache: false,
         type: "POST",
-        url: "Home/AddChartByJson",
+        url: "/AddChartByJson",
         contentType: 'application/json',
         dataType: "json",
         data: JSON.stringify(chart),
