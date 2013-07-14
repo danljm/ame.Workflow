@@ -1,5 +1,8 @@
 ﻿//// functions ////
 
+var GetChartsURL = '<%: Url.Action("GetCharts", "HomeController") %>';
+var AddChartByJsonURL = '<%: Url.Action("AddChartByJson", "HomeController") %>';
+
 // repaint
 function Repaint() {
     $("#main").resize(function () {
@@ -29,11 +32,23 @@ function Save(chartType) {
     var chart = {
         chartName: $("#chartName").val(),
         chartType: chartType,
-        shapes: chartShapes,
-        connections: chartConnections 
+        shapes: chartShapes
+        //connections: chartConnections 
     }
 
     console.log(chart);
+
+    $.ajax({
+        cache: false,
+        type: "POST",
+        url: "Home/AddChartByJson",
+        contentType: 'application/json',
+        dataType: "json",
+        data: JSON.stringify(chart),
+        success: function (chart) {
+            console.log(chart);
+        }
+    });
 }
 
 // load

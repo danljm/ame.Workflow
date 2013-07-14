@@ -152,27 +152,27 @@
         $('.img-list').disableSelection();
 
         /* Connection 1 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
+        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
         /* Connection 2 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Sales Sends Purchase Order On To Admin", location: 0.7, id: "label2"}]] });
+        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Sales Sends Purchase Order On To Admin", location: 0.7, id: "label2"}]] });
         /* Connection 3 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window6'), anchor: "Continuous", overlays: [["Label", { label: "Sales Informs Consultant Svcs. Of customer order", location: 0.7, id: "label3"}]] });
+        jsPlumb.connect({ source: $('#window3'), target: $('#window6'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Sales Informs Consultant Svcs. Of customer order", location: 0.7, id: "label3"}]] });
         /* Connection 4 */
-        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Customer Makes Payment", location: 0.7, id: "label4"}]] });
+        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Customer Makes Payment", location: 0.7, id: "label4"}]] });
         /* Connection 5 */
-        jsPlumb.connect({ source: $('#window4'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Admin Invoices Customer", location: 0.7, id: "label5"}]] });
+        jsPlumb.connect({ source: $('#window4'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Admin Invoices Customer", location: 0.7, id: "label5"}]] });
         /* Connection 6 */
-        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { label: "Admin Sends Purchase Order to Software Vendor", location: 0.7, id: "label6"}]] });
+        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Admin Sends Purchase Order to Software Vendor", location: 0.7, id: "label6"}]] });
         /* Connection 8 */
-        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label8"}]] });
+        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "", location: 0.7, id: "label8"}]] });
         /* Connection 9 */
-        jsPlumb.connect({ source: $('#window6'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { label: "Consultant Puts in Request for Software", location: 0.7, id: "label9"}]] });
+        jsPlumb.connect({ source: $('#window6'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Puts in Request for Software", location: 0.7, id: "label9"}]] });
         /* Connection 10 */
-        jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { label: "Consultant Sends stats to Programmers", location: 0.7, id: "label10"}]] });
+        jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Sends stats to Programmers", location: 0.7, id: "label10"}]] });
         /* Connection 11 */
-        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous", overlays: [["Label", { label: "", location: 0.7, id: "label11"}]] });
+        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "", location: 0.7, id: "label11"}]] });
         /* Connection 7 */
-        jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
+        jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
 
         var handleUserInput = function () {
             var userinput = ($("#userinput").val());
@@ -321,4 +321,18 @@
     {
         margin: 0;
     }
+    
+    .component {
+	
+	opacity:0.8; 
+	filter:alpha(opacity=80);
+	background-color:white;
+	color:black;
+	font-size: 0.7em;
+    text-align: center;
+	padding:0.5em;
+    width: 100px;
+    line-height: 110%; 
+	
+}
 </style>

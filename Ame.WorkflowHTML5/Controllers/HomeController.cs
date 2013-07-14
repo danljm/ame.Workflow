@@ -58,13 +58,14 @@ namespace Ame.WorkflowHTML5.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult AddChartByJson(IList<Chart> charts, Chart chart)
+        public ActionResult AddChartByJson(Chart chart)
         {
+            IList<Chart> tempChart = new List<Chart>();
+            tempChart.Add(chart);
             ChartRepository repository = new ChartRepository();
-            repository.SetCharts(charts);
+            repository.SetCharts(tempChart);
 
-            AddChart(charts, chart, "json");
-            return Json(charts);
+            return Json(chart);
         }
 
         

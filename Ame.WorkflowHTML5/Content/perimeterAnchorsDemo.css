@@ -152,12 +152,11 @@
 
 .roundedRectangle
 {
-    min-width: 80px;
-    max-width: 120px;
-    min-height: 40px;
+    min-width: 120px;
+    max-width: 160px;
+    min-height: 80px;
     background: rgb(146, 255, 146);
     border: 2px solid rgb(128, 128, 128);
-    text-align: center;
     color: rgb(0, 0, 0);
     padding: 10px 0;
     -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
