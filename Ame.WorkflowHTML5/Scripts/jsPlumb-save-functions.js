@@ -16,26 +16,24 @@ function DragEl(el) {
 }
 
 // save
-function Save() {
+function Save(chartType) {
 
-    chart = $("#pallette-draw").html();
-    Objs = [];
+    //chart = $("#pallette-draw").html();
+    chartShapes = [];
     $(".shape").not(".pallette").each(function () {
-        Objs.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
-    var connections = jsPlumb.getConnections();
+    var chartConnections = jsPlumb.getConnections();
 
-    console.dir(connections);
-
-
-
-    for (var i = 0; i < connections.length; ++i) {
-        var connectionLabel = connections[i].getLabel();
-        console.dir(connectionLabel);
+    var chart = {
+        chartName: $("#chartName").val(),
+        chartType: chartType,
+        shapes: chartShapes,
+        connections: chartConnections 
     }
 
-    console.log(Objs);
+    console.log(chart);
 }
 
 // load
