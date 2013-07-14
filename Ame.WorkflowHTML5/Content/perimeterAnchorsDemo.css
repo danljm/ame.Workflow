@@ -162,7 +162,8 @@
     -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
        -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
             border-radius: 4.75px 4.75px 4.75px 4.75px;
-    font-size: 0.7em;
+    font-size: 0.9em;
+    font-weight: 900;
     text-align: center;
     line-height: 110%;
 }
