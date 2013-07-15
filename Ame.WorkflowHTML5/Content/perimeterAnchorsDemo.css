@@ -237,3 +237,17 @@
     line-height: 110%;
     color: rgb(0, 0, 0);
 }
+
+.component {
+	
+	opacity:0.8; 
+	filter:alpha(opacity=80);
+	background-color:white;
+	color:black;
+	font-size: 0.7em;
+    text-align: center;
+	padding:0.5em;
+    width: 100px;
+    line-height: 110%; 
+	
+}

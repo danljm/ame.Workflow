@@ -5,13 +5,11 @@
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
 
-
-<h2>FlowChart - Test Process</h2>
-
-<input id="chartName" class="input" type="text" placeholder="Flowchart - Test Process">
-<input type='button' class='k-button' value='Save' onclick='Save("Flowchart")'>
-<input type='button' class='k-button' value='Load' onclick='Load()'>
-<input type='button' class='k-button' value='Clear' onclick='Clear()'>
+<div class="field"><input id="chartName" class="input" type="text" placeholder="Swimlane Map - Test Process"></div>
+<div class="field"><textarea class="input textarea" placeholder="Textarea" rows="4"></textarea></div>
+<div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+<div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("Swimlane")'></div>
+<div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
 
 <div id="pallette-menu">
     <ul>
@@ -42,11 +40,6 @@
     
     </div>
 </div>
-
-<input type='button' class='k-button' value='Save' onclick='Save()'>
-<input type='button' class='k-button' value='Load' onclick='Load()'>
-<input type='button' class='k-button' value='Clear' onclick='Clear()'>
-
 
 <script type="text/javascript">
 
