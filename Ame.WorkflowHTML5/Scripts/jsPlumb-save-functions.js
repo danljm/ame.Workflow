@@ -32,7 +32,7 @@ function Save(chartType) {
     var jsPlumbConnections = jsPlumb.getConnections();
 
     for (var i = 0; i < jsPlumbConnections.length; ++i) {
-        chartConnections.push({ sourceId: jsPlumbConnections[i].sourceId(), targetId: jsPlumbConnections[i].targetId });
+        chartConnections.push({ sourceId: jsPlumbConnections[i].sourceId, targetId: jsPlumbConnections[i].targetId });
     }
 
     var chart = {
