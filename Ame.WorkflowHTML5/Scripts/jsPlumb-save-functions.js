@@ -27,13 +27,19 @@ function Save(chartType) {
         chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
-    var chartConnections = jsPlumb.getConnections();
+    chartConnections = [];
+
+    var jsPlumbConnections = jsPlumb.getConnections();
+
+    for (var i = 0; i < jsPlumbConnections.length; ++i) {
+        chartConnections.push({ sourceId: jsPlumbConnections[i].sourceId(), targetId: jsPlumbConnections[i].targetId });
+    }
 
     var chart = {
         chartName: $("#chartName").val(),
         chartType: chartType,
-        shapes: chartShapes
-        //connections: chartConnections 
+        chartShapes: chartShapes,
+        chartConnections: chartConnections 
     }
 
     console.log(chart);
@@ -42,7 +48,7 @@ function Save(chartType) {
     $.ajax({
         cache: false,
         type: "POST",
-        url: "/AddChartByJson",
+        url: "/Home/AddChartByJson",
         contentType: 'application/json',
         dataType: "json",
         data: JSON.stringify(chart),
