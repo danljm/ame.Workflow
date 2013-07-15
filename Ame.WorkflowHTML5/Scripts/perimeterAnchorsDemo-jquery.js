@@ -10,8 +10,7 @@
 				Endpoint:"Blank",
 				EndpointStyle:{ fillStyle:"#5BAB54" },
                 ConnectionOverlays : [
-					[ "Arrow", { location:-10 } ],
-                    [ "Label", { label:"", location:0.7, id:"label" }]
+					[ "Arrow", { location:-10 } ]
 				]
 			});
 			  
@@ -20,9 +19,9 @@
 			// make everything draggable
 			jsPlumb.draggable(shapes);
 
-            /*jsPlumb.bind("connection", function(info) {
+            jsPlumb.bind("connection", function(info) {
                 info.connection.getOverlay("label").setLabel(info.connection.id);
-            });*/
+            });
 
             /*jsPlumb.bind("click", function(c) { 
 				jsPlumb.detach(c); 

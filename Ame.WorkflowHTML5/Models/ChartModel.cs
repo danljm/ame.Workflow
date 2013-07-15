@@ -9,6 +9,7 @@ namespace Ame.WorkflowHTML5.Models
     {
         public String ChartName { get; set; }
         public String ChartType { get; set; }
+        public String ChartDescription { get; set; }
         public IList<Shape> ChartShapes { get; set; }
         public IList<Connection> ChartConnections { get; set; }
     }

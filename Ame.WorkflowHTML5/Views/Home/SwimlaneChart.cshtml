@@ -1,15 +1,20 @@
 ﻿@{
     ViewBag.Title = "SwimlaneChart";
 }
+<script src="@Url.Content("~/Scripts/jsPlumb-save-functions.js")" type="text/javascript"></script>
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
 <h2>Swimlane Map</h2>
 
-<div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
-<div class="field"><textarea class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
-<div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
-<div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("Swimlane")'></div>
-<div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+<div id="chartOptions">
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("Swimlane")'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+</div>
+
+<div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
+
 
 <div id="pallette-menu">
     <ul>
@@ -118,8 +123,7 @@
 </div>
 
 <div id="inputWindow">
-    <label for="userinput">Input:</label>
-    <input type="text" name="userinput" id="userinput" title="Input" />
+    <div class="field"><input id="labelSet" class="input" type="text" placeholder="Enter Label"></div>
 </div>
 
 <script type="text/javascript">
@@ -179,7 +183,7 @@
         jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
 
         var handleUserInput = function () {
-            var userinput = ($("#userinput").val());
+            var userinput = ($("#labelSet").val());
             $('.edit .shape-label').text(userinput);
             $('.edit').removeClass('edit');
         }
@@ -208,7 +212,10 @@
 
 </script>
 <style>
-    
+    #chartOptions
+    {
+    	float: left;
+    }
     #chartName
     {
     	width: 600px;
