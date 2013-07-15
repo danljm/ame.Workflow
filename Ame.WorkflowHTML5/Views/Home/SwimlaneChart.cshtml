@@ -6,16 +6,16 @@
 <h2>Swimlane Map</h2>
 
 <div class="append field"><input id="chartName" class="input" type="text" placeholder="Swimlane Map - Test Process"><span class="adjoined">i</span></div>
-<input type='button' class='k-button' value='Save' onclick='Save("Swimlane")'>
-<input type='button' class='k-button' value='Load' onclick='Load()'>
-<input type='button' class='k-button' value='Clear' onclick='Clear()'>
+<div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+<div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("Swimlane")'></div>
+<div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
 
 <div id="pallette-menu">
     <ul>
         <h4 style="text-align: center">
             Drawing Palette</h4>
         <li class="pallette-shape">
-            <div class="shape pallette roundedRectangle gradient">
+            <div class="shape pallette roundedRectangle">
                 <div class="shape-label">Action</div>
                 <span class="drag_icon">&#10150;</span></div>
         </li>
@@ -33,6 +33,9 @@
             <div class="shape pallette" data-shape="Diamond">
                 <div class="shape-label">Decision</div>
                 <span class="drag_icon">&#10150;</span></div>
+        </li>
+        <li class="pallette-shape">
+            <div class="shape pallette stickyNote">Sticky Note text example</div>
         </li>
     </ul>
 </div>
@@ -145,7 +148,7 @@
             }
         });
 
-
+        $('.stickyNote').resizable();
 
         $('li').droppable({ hoverClass: "ui-state-active" });
         $('.img-list').sortable({ hoverClass: "ui-state-active" });
@@ -316,6 +319,8 @@
     {
         margin: 0;
         padding: 5px 5px 5px 5px;
+        text-align: center;
+        font-weight: 800;
     }
     .li-sub
     {

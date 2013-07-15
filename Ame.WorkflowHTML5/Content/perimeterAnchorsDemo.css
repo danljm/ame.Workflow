@@ -168,6 +168,19 @@
     line-height: 110%;
 }
 
+.stickyNote
+{
+    width: 160px;
+    height: 160px;
+    background: rgb(255, 255, 146);
+    border: none;
+    -webkit-box-shadow: 2px 2px 3.5px 0 rgb(170, 170, 170);
+       -moz-box-shadow: 2px 2px 3.5px 0 rgb(170, 170, 170);
+            box-shadow: 2px 2px 3.5px 0 rgb(170, 170, 170);
+    font-size: .9em;
+    text-align: left;
+}
+
 .start
 {
     width: 50px;
