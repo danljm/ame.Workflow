@@ -49,7 +49,7 @@ function Save(chartType) {
     $.ajax({
         cache: false,
         type: "POST",
-        url: "/Home/AddChartByJson",
+        url: "/Home/Create",
         contentType: 'application/json',
         dataType: "json",
         data: JSON.stringify(chart),
