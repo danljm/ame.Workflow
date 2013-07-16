@@ -79,5 +79,5 @@ function Load() {
 function Clear() {
     jsPlumb.detachEveryConnection();
     jsPlumb.reset();
-    $("#pallette-draw").empty();
+    $("#pallette-draw .shape").empty().remove();
 }

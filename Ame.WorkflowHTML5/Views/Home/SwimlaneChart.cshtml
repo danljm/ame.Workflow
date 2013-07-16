@@ -119,6 +119,8 @@
             <div class="shape-label">
                 Consultant Trains Customer On Software</div>
             <span class="drag_icon">&#10150;</span></div>
+
+        <div id="window9" class="shape stickyNote"><div class="shape-label">Sticky Note text example</div></div>
     </div>
 </div>
 
@@ -172,19 +174,20 @@
         /* Connection 6 */
         jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Admin Sends Purchase Order to Software Vendor", location: 0.7, id: "label6"}]] });
         /* Connection 8 */
-        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "", location: 0.7, id: "label8"}]] });
+        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous" });
         /* Connection 9 */
         jsPlumb.connect({ source: $('#window6'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Puts in Request for Software", location: 0.7, id: "label9"}]] });
         /* Connection 10 */
         jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Sends stats to Programmers", location: 0.7, id: "label10"}]] });
         /* Connection 11 */
-        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "", location: 0.7, id: "label11"}]] });
+        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous" });
         /* Connection 7 */
         jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
 
         var handleUserInput = function () {
             var userinput = ($("#labelSet").val());
             $('.edit .shape-label').text(userinput);
+            $('.edit .li-head').text(userinput);
             $('.edit').removeClass('edit');
         }
 
@@ -203,6 +206,11 @@
             .center();
 
         $(".shape").not(".pallette").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+
+        $(".li-head").click(function () {
             $(this).addClass('edit');
             win.open();
         });
@@ -268,6 +276,13 @@
     {
         position: absolute;
         left: 1580px;
+        top: 760px;
+    }
+    
+    #window9
+    {
+        position: absolute;
+        left: 400px;
         top: 760px;
     }
     
