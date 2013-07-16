@@ -9,7 +9,5 @@ namespace Ame.WorkflowHTML5.Models
     public class ChartContext : DbContext
     {
         public DbSet<Chart> Charts { get; set; }
-        public DbSet<PreRelationalList> PreRelationalLists { get; set; }
-        public DbSet<PreRelationalListItem> PreRelationalListItems { get; set; }
     }
 }

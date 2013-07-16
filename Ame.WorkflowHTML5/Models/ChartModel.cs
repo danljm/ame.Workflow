@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ame.WorkflowHTML5.Models
 {
+    /*
     public class PreRelationalList
     {
         [Key]
@@ -18,7 +19,7 @@ namespace Ame.WorkflowHTML5.Models
         public String listId { get; set; }
         public String listItem { get; set; }
         public bool isIncluded { get; set; }
-    }
+    }*/
 
     public class Chart
     {

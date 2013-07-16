@@ -24,30 +24,41 @@ function Save(chartType) {
     //chart = $("#pallette-draw").html();
     chartShapes = [];
     chartConnections = [];
+    chartSwimlanes = [];
     chartData = [];
 
+    /** FOR SHAPES **/
     $(".shape").not(".pallette").each(function () {
         chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
-    
-
-
+    /** FOR CONNECTIONS **/
     var jsPlumbConnections = jsPlumb.getConnections();
 
     for (var i = 0; i < jsPlumbConnections.length; ++i) {
         chartConnections.push({ sourceId: jsPlumbConnections[i].sourceId, targetId: jsPlumbConnections[i].targetId, label: jsPlumbConnections[i].getLabel() });
     }
 
+    /** FOR SWIMLANES **/
+     $(".swimlane li").each(function () {
+        chartSwimlanes.push({ html: $(this).html() });
+    });
+
+    chartData.push(chartShapes);
+    chartData.push(chartConnections);
+    chartData.push(chartSwimlanes);
+
     var chart = {
         chartName: $("#chartName").val(),
         chartDescription: $("#chartDescription").val(),
         chartType: chartType,
-        chartData: 
+        chartData: JSON.stringify(chartData)
     }
 
+    //Testing methods
+    console.log(chartData);
     console.log(chart);
-    console.log(JSON.stringify(chart));
+    console.log(jQuery.parseJSON(JSON.stringify(chartData)));
 
     $.ajax({
         cache: false,
