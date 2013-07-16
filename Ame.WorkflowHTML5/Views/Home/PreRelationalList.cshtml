@@ -18,7 +18,7 @@
                 data.push({
                     Id: i + 1,
                     ProcessStep: processSteps[i],
-                    AccountedFor: true
+                    Included: true
                 });
             }
             return data;
@@ -27,7 +27,6 @@
         $(document).ready(function () {
             var dataSource = new kendo.data.DataSource({
                 data: performers,
-                autoSync: true,
                 pageSize: 20,
                 schema: {
                     model: {
@@ -35,7 +34,7 @@
                         fields: {
                             ProcessID: { editable: false, nullable: true },
                             ProcessStep: { validation: { required: true} },
-                            AccountedFor: { type: "boolean" }
+                            Included: { type: "boolean" }
                         }
                     }
                 }
@@ -48,7 +47,7 @@
                 toolbar: ["create"],
                 columns: [
                             { field: "ProcessStep", title: "Performer", width: "200px" },
-                            { field: "AccountedFor", title: "Accounted For", format: "{0:c}", width: "100px" },
+                            { field: "Included", title: "Included", width: "100px" },
                             { command: ["destroy"], title: " ", width: "90px"}],
                 editable: true
             });
