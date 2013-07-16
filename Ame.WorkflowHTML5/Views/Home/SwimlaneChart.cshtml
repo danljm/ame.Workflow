@@ -86,7 +86,13 @@
             </li>
         </ul>
 
-        <div class="verticalLine"></div>
+        <div id="line1" class="verticalLine" style="left: 14%"></div>
+        <div id="line2" class="verticalLine" style="left: 28%"></div>
+        <div id="line3" class="verticalLine" style="left: 42%"></div>
+        <div id="line4" class="verticalLine" style="left: 56%"></div>
+        <div id="line5" class="verticalLine" style="left: 70%"></div>
+        <div id="line6" class="verticalLine" style="left: 84%"></div>
+        <div id="line7" class="verticalLine" style="left: 98%"></div>
 
         <div id="render">
         </div>
@@ -217,6 +223,13 @@
             $(this).addClass('edit');
             win.open();
         });
+
+        $('.verticalLine').draggable({
+            containment: '#pallette-draw',
+            axis: "x"
+        }).click(function () {
+            $(this).remove();
+        });
     });
 
       
@@ -291,11 +304,10 @@
     
     .verticalLine 
     {
-    	position:relative;
-    	left: 12%;
-        border-left: thick dashed #3085d6;
+    	position:absolute;
+    	width: 0%;
+        border-right: dashed #3085d6;
         height: 100%;
-        width: 0%;
     }
     
     .shape-label
