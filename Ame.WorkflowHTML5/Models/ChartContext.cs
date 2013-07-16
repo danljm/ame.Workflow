@@ -11,8 +11,5 @@ namespace Ame.WorkflowHTML5.Models
         public DbSet<Chart> Charts { get; set; }
         public DbSet<PreRelationalList> PreRelationalLists { get; set; }
         public DbSet<PreRelationalListItem> PreRelationalListItems { get; set; }
-        public DbSet<Shape> Shapes { get; set; }
-        public DbSet<Connection> Connections { get; set; }
-        public DbSet<Swimlane> Swimlanes { get; set; }
     }
 }

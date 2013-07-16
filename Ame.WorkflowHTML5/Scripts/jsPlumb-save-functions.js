@@ -23,11 +23,15 @@ function Save(chartType) {
 
     //chart = $("#pallette-draw").html();
     chartShapes = [];
+    chartConnections = [];
+    chartData = [];
+
     $(".shape").not(".pallette").each(function () {
         chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
-    chartConnections = [];
+    
+
 
     var jsPlumbConnections = jsPlumb.getConnections();
 
@@ -39,8 +43,7 @@ function Save(chartType) {
         chartName: $("#chartName").val(),
         chartDescription: $("#chartDescription").val(),
         chartType: chartType,
-        chartShapes: chartShapes,
-        chartConnections: chartConnections 
+        chartData: 
     }
 
     console.log(chart);

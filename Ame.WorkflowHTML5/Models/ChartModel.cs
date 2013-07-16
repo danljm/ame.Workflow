@@ -2,31 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ame.WorkflowHTML5.Models
 {
     public class PreRelationalList
     {
+        [Key]
         public String ListName { get; set; }
         public virtual IList<PreRelationalListItem> Items { get; set; }
     }
 
     public class PreRelationalListItem
     {
+        public String listId { get; set; }
         public String listItem { get; set; }
         public bool isIncluded { get; set; }
     }
 
     public class Chart
     {
+        [Key]
         public String ChartName { get; set; }
         public String ChartType { get; set; }
         public String ChartDescription { get; set; }
-        public virtual IList<Shape> ChartShapes { get; set; }
-        public virtual IList<Connection> ChartConnections { get; set; }
-        public virtual IList<Swimlane> ChartSwimlanes { get; set; }
+        public String ChartData { get; set; }
     }
 
+    /*
     public class Shape
     {
         public String Id { get; set; }
@@ -47,5 +50,5 @@ namespace Ame.WorkflowHTML5.Models
     public class Swimlane
     {
         public String Title { get; set; }
-    }
+    }*/
 }
