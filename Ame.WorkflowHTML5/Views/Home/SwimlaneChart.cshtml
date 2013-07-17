@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "SwimlaneChart";
 }
+@model Ame.WorkflowHTML5.Models.Chart
 
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
@@ -139,6 +140,14 @@
 
 <script type="text/javascript">
 
+    function LoadChart() {
+        var chartName = '@Model.ChartName';
+        var chartDescription = '@Model.ChartDescription';
+
+        $('#chartName').val(chartName);
+        $('#chartDescription').val(chartDescription);
+    }
+
     $(document).ready(function () {
 
         counter = 0;
@@ -230,6 +239,8 @@
         }).click(function () {
             $(this).remove();
         });
+
+        LoadChart();
     });
 
       
