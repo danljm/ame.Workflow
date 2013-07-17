@@ -9,27 +9,10 @@
 
 <ul class="list img-list">
 @foreach (var item in Model) {
-   <!--<tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChartName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChartType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChartDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>-->
     
     <li><a href="/Home/Flowchart" class="inner">
         <div class="li-img">
-            <div class="menu-rectangle" style="background: rgb(0, 226, 75);">
-                F</div>
+            <div class="menu-rectangle" style="background: rgb(0, 226, 75);">@Html.DisplayFor(modelItem => item.ChartType)</div>
         </div>
         <div class="li-text">
             <h4 class="li-head">

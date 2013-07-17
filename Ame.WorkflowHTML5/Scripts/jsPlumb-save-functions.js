@@ -9,13 +9,18 @@ function Repaint() {
         jsPlumb.repaintEverything();
     });
 }
-// размер
-function ResizeEl(el) {
+// resize
+function ResizeElement(el) {
     $(el).resizable();
 }
 // drag
-function DragEl(el) {
+function DragElement(el) {
     jsPlumb.draggable($(el));
+}
+
+// connection
+function MakeConnection(connection) {
+    jsPlumb.connect({ source: $(connection['sourceId']), target: $(connection['targetId']), anchor: "Continuous" });
 }
 
 // save
@@ -85,12 +90,14 @@ function Load(chart) {
 
     /** FOR SHAPES **/
     for (var shape in chartShapes) {
-
+        var o = Objs[i];
+        console.log(o);
+        s += '<div id="' + o.id + '" class="shape rectangle" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
     }
 
     /** FOR CONNECTIONS **/
-    for (var connections in chartConnections) {
-
+    for (var connection in chartConnections) {
+        MakeConnection(connection);
     }
 
     /** FOR SWIMLANES **/
