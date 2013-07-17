@@ -72,7 +72,6 @@
     <Compile Include="Models\ChartContext.cs" />
     <Compile Include="Models\ChartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ChartRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\arrow.gif" />
