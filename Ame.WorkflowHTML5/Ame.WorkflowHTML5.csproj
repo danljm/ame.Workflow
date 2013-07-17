@@ -89,7 +89,6 @@
     <Content Include="Content\demo-all.css" />
     <Content Include="Content\diamond.png" />
     <Content Include="Content\ellipse.png" />
-    <Content Include="Content\flowchartDemo.css" />
     <Content Include="Content\growth-curve.png" />
     <Content Include="Content\gumby.css" />
     <Content Include="Content\header-bg.png" />
@@ -98,7 +97,6 @@
     <Content Include="Content\perimeterAnchorsDemo.css" />
     <Content Include="Content\rectangle.png" />
     <Content Include="Content\square.png" />
-    <Content Include="Content\stateMachineDemo.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
