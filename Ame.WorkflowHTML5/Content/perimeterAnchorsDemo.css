@@ -171,6 +171,7 @@
 {
 	width: 160px;
 	height: 160px;
+	opacity: 1.0;
 	background: rgb(255, 255, 146);
 	border: none;
 	-webkit-box-shadow: 2px 2px 3.5px 0 rgb(170, 170, 170);

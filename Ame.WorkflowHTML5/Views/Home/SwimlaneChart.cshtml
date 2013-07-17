@@ -49,36 +49,36 @@
 
 <div id="pallette-container">
     <div id="pallette-draw">
-        <ul class="list swimlane">
-            <li>
+        <ul class="swimlane-wrapper">
+            <li class="swimlane">
                 <div class="li-text">
                     <h5 class="li-head">
                         Corp. Customer</h5>
                 </div>
 
             </li>
-            <li>
+            <li class="swimlane">
                 <div class="li-text">
                     <h5 class="li-head">
                         Sales</h5>
                 </div>
 
             </li>
-            <li>
+            <li class="swimlane">
                 <div class="li-text">
                     <h5 class="li-head">
                         Administration</h5>
                 </div>
                 
             </li>
-            <li>
+            <li class="swimlane">
                 <div class="li-text">
                     <h5 class="li-head">
                         Software Provider</h5>
                 </div>
                 
             </li>
-            <li>
+            <li class="swimlane">
                 <div class="li-text">
                     <h5 class="li-head">
                         Service</h5>
@@ -173,11 +173,7 @@
             }
         });
 
-        $('.stickyNote').resizable();
-
         $('li').droppable({ hoverClass: "ui-state-active" });
-        $('.img-list').sortable({ hoverClass: "ui-state-active" });
-        $('.img-list').disableSelection();
 
         /* Connection 1 */
         jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
@@ -319,14 +315,14 @@
         width: 90%;
     }
     
-    .swimlane
+    .swimlane-wrapper
     {
         float: left;
         width: 100%;
         margin: 0;
     }
-    
-    .swimlane li
+
+    .swimlane
     {
         display: table;
         border-collapse: collapse;
@@ -339,10 +335,12 @@
         box-shadow: 0 1px 4px rgba(0,0,0,1.0);
         margin: 0;
     }
+    
     .ui-state-active
     {
         background: #FEFFD6;
     }
+    
     .inner
     {
         display: table-row;
