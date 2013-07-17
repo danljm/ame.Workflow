@@ -74,7 +74,30 @@ function Save(chartType) {
 }
 
 // load
-function Load() {
+function Load(chart) {
+
+    var chartData = jQuery.parseJSON(chart);
+
+    chartShapes = chartData[0];
+    chartConnections = chartData[1];
+    chartSwimlanes = chartData[2];
+
+
+    /** FOR SHAPES **/
+    for (var shape in chartShapes) {
+
+    }
+
+    /** FOR CONNECTIONS **/
+    for (var connections in chartConnections) {
+
+    }
+
+    /** FOR SWIMLANES **/
+    for (var swimlane in chartSwimlanes) {
+
+    }
+
     var s = "";
     for (var i in Objs) {
         var o = Objs[i];
