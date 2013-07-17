@@ -28,6 +28,17 @@ namespace Ame.WorkflowHTML5.Models
         public String ChartType { get; set; }
         public String ChartDescription { get; set; }
         public String ChartData { get; set; }
+
+        public bool Empty
+        {
+            get
+            {
+                return (string.IsNullOrWhiteSpace(ChartName) &&
+                          string.IsNullOrWhiteSpace(ChartDescription) &&
+                          string.IsNullOrWhiteSpace(ChartType) &&
+                          string.IsNullOrWhiteSpace(ChartData));
+            }
+        }
     }
 
     /*

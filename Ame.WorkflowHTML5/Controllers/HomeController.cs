@@ -28,17 +28,17 @@ namespace Ame.WorkflowHTML5.Controllers
 
         public ActionResult RelationalMap()
         {
-            return View();
+            return View(new Chart());
         }
 
         public ActionResult SwimlaneChart()
         {
-            return View();
+            return View(new Chart());
         }
 
         public ActionResult Flowchart()
         {
-            return View();
+            return View(new Chart());
         }
 
         //
@@ -93,7 +93,7 @@ namespace Ame.WorkflowHTML5.Controllers
         //
         // GET: /PreRelationalList/Edit/5
 
-        public ActionResult Edit(string chartName)
+        public ActionResult Edit(String chartName)
         {
             using (var db = new ChartContext())
             {
