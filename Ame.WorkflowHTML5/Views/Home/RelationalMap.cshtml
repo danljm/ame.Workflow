@@ -61,6 +61,8 @@
 <input type='button' class='k-button' value='Save' onclick='Save()'>
 <input type='button' class='k-button' value='Load' onclick='Load()'>
 <input type='button' class='k-button' value='Clear' onclick='Clear()'>
+<div id='component-input-div' ><input id='component-input' type="text" class=''/></div>
+
 
 <script type="text/javascript">
 
@@ -88,6 +90,34 @@
         });
 
         $('li').droppable({ hoverClass: "ui-state-active" });
+
+        $(document).on('click', 'div._jsPlumb_overlay.component', function () {
+            var thisObj = this,
+                jThis = $(this);
+
+            $('#component-input-div').toggle(true).position({
+                my: 'left top',
+                at: 'left bottom',
+                of: thisObj,
+                collision: 'fit flip'
+            }).find('input').val(jThis.html());
+
+            $('div._jsPlumb_overlay.component.selected').removeClass('selected');
+            jThis.addClass('selected');
+
+        });
+
+        $('#component-input').on('keydown', function () {
+
+            if (event.which === 13) {
+
+                $('#component-input-div').toggle(false);
+                $('div._jsPlumb_overlay.component.selected').html(this.value);
+                $('div._jsPlumb_overlay.component.selected').removeClass('selected');
+
+            }
+
+        });
 
         /* Connection 1 */
         jsPlumb.connect({ source: $('#window1'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Supplier Invoice", location: 0.7, id: "label1"}]] });
@@ -145,6 +175,21 @@
         position: absolute;
         left: 1350px;
         top: 356px;
+    }
+    
+    #component-input-div 
+    {
+        position: fixed;
+        display: block;
+        height: 30px;
+        width: 150px;
+        z-index: 50;
+    }
+    
+    #component-input 
+    {
+        width: 100%;
+        z-index: 50;
     }
     
     .rel-map

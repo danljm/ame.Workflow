@@ -5,3 +5,10 @@ C:\Users\Danny\Documents\Visual Studio 10\Projects\Ame.WorkflowHTML5\Ame.Workflo
 C:\Users\Danny\Documents\Visual Studio 10\Projects\Ame.WorkflowHTML5\Ame.WorkflowHTML5\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Danny\Documents\Visual Studio 10\Projects\Ame.WorkflowHTML5\Ame.WorkflowHTML5\obj\Release\Ame.WorkflowHTML5.dll
 C:\Users\Danny\Documents\Visual Studio 10\Projects\Ame.WorkflowHTML5\Ame.WorkflowHTML5\obj\Release\Ame.WorkflowHTML5.pdb
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\bin\Ame.WorkflowHTML5.dll
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\bin\Ame.WorkflowHTML5.pdb
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\bin\EntityFramework.dll
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\bin\EntityFramework.xml
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\obj\Release\ResolveAssemblyReference.cache
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\obj\Release\Ame.WorkflowHTML5.dll
+Z:\GitHub\ame.Workflow\Ame.WorkflowHTML5\obj\Release\Ame.WorkflowHTML5.pdb
