@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using Ame.WorkflowHTML5.Models;
 
 namespace Ame.WorkflowHTML5
 {
@@ -35,6 +37,8 @@ namespace Ame.WorkflowHTML5
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ChartContext>());
         }
     }
 }

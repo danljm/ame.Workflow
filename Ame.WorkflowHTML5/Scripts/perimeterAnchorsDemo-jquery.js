@@ -15,7 +15,7 @@
 			var shapes = $(".shape");
 
 			// make everything draggable
-			jsPlumb.draggable(shapes);
+			//jsPlumb.draggable(shapes);
 
             jsPlumb.bind("connection", function(info) {
                 info.connection.getOverlay("label").setLabel(info.connection.id);
@@ -29,7 +29,6 @@
 			for (var i = 0; i < shapes.length; i++) {
 
                 jsPlumb.makeSource(shapes[i], {
-					filter: ".drag_icon",
 					anchor: "Continuous",
 					connector: "Flowchart"
 				});

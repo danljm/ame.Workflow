@@ -100,7 +100,7 @@
         <div id="window1" class="shape roundedRectangle">
             <div class="shape-label">
                 Customer</div>
-            <span class="drag_icon">&#10150;</span></div>
+            <span class="drag_icon">&#127919;</span></div>
         <div id="window2" class="shape roundedRectangle">
             <div class="shape-label">
                 Customer</div>
@@ -155,6 +155,7 @@
         $(".pallette").draggable({
             containment: '#pallette-draw',
             helper: 'clone',
+            
             stop: function (event, ui) {
                 $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
@@ -162,11 +163,20 @@
                 var pos = $(ui.helper).offset();
                 clone.offset({ top: pos.top, left: pos.left });
 
-                jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+                if (!clone.hasClass('stickyNote')) {
+                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
-                jsPlumb.makeSource(clone, {
-                    anchor: "Continuous",
-                    connector: "Flowchart"
+                    jsPlumb.makeSource(clone, {
+                        anchor: "Continuous",
+                        connector: "Flowchart"
+                    });
+                }
+
+                clone.draggable({
+                    handle: ".drag_icon",
+                    drag: function (event, ui) {
+                        jsPlumb.repaint(clone);
+                    }
                 });
 
                 clone.removeClass('clone');
