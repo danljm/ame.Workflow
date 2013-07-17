@@ -34,7 +34,7 @@ function Save(chartType) {
 
     /** FOR SHAPES **/
     $(".shape").not(".pallette").each(function () {
-        chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), class: $(this).attr('class'), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
     /** FOR CONNECTIONS **/
@@ -92,7 +92,7 @@ function Load(chart) {
     for (var shape in chartShapes) {
         var o = Objs[i];
         console.log(o);
-        s += '<div id="' + o.id + '" class="shape rectangle" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
+        s += '<div id="' + o.id + '" class="' + o.class + '" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
     }
 
     /** FOR CONNECTIONS **/

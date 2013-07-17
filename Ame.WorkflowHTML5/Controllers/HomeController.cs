@@ -120,9 +120,13 @@ namespace Ame.WorkflowHTML5.Controllers
         //
         // GET: /PreRelationalList/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string chartName)
         {
-            return View();
+            using (var db = new ChartContext())
+            {
+                Chart chart = db.Charts.Find(chartName);
+                return View(chart.ChartType, chart);
+            }
         }
 
         //

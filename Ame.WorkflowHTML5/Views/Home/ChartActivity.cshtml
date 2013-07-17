@@ -5,22 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ChartActivity</h2>
+<h2>Chart History</h2>
 
 <ul class="list img-list">
 @foreach (var item in Model) {
     
-    <li><a href="/Home/Flowchart" class="inner">
+    <li>
         <div class="li-img">
-            <div class="menu-rectangle" style="background: rgb(0, 226, 75);">@Html.DisplayFor(modelItem => item.ChartType)</div>
+            <div class="menu-rectangle" style="background: rgb(0, 226, 75);">@Html.DisplayFor(modelItem => item.ChartType[0])</div>
         </div>
         <div class="li-text">
             <h4 class="li-head">
-                @Html.DisplayFor(modelItem => item.ChartName)</h4>
+                @Html.ActionLink(item.ChartName, "Edit", new { chartName = item.ChartName })</h4>
             <p class="li-sub">
                 @Html.DisplayFor(modelItem => item.ChartDescription)</p>
         </div>
-    </a></li>
+    </li>
 }
 
 </ul>
@@ -36,6 +36,7 @@
   border-collapse: collapse;
   width: 30%;
   padding: 5px;
+  margin: 1em;
 }
 .inner {
   display: table-row;
