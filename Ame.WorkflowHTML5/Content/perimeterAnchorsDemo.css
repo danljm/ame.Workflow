@@ -251,3 +251,12 @@
     line-height: 110%; 
 	
 }
+
+    #chartOptions
+    {
+    	float: left;
+    }
+    #chartName
+    {
+    	width: 600px;
+    }
