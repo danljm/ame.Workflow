@@ -13,7 +13,7 @@
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane("")'></div>
-    <div class='medium metro rounded btn primary'><input type='button' value='Drag Mode' onclick='ToggleMode()'></div>
+    
 </div>
 
 <div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
@@ -21,33 +21,15 @@
 
 <div id="pallette-menu">
     <ul>
-        <h4 style="text-align: center">
-            Drawing Palette</h4>
-        <li class="pallette-shape">
-            <div class="shape-wrapper">
-                <div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div>
-                <span class="drag_icon">&#10150;</span>
-            </div>
-            
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette start">
-                <div class="shape-label">Start</div>
-                <span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette stop">
-                <div class="shape-label">Stop</div>
-                <span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette" data-shape="Diamond">
-                <div class="shape-label">Decision</div>
-                <span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette stickyNote"><div class="shape-label">Sticky Note text example</div></div>
-        </li>
+        <h4 style="text-align: center">Drawing Palette</h4>
+        <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
+
+        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
+        <li class="pallette-shape"><div class="shape pallette start"><div class="shape-label">Start</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stop"><div class="shape-label">Stop</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond"><div class="shape-label">Decision</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
     </ul>
 </div>
 
@@ -109,96 +91,7 @@
 
 <script type="text/javascript">
 
-    var isDrag = false;
-
-    function ToggleMode() {
-
-            ToggleDrag(isDrag);
-            ToggleConnector(isDrag);
-
-        isDrag = !isDrag;
-    }
-
-    function ToggleDrag(isDrag) {
-        var shapes = $('.shape').not(".pallette");
-        shapes.each(function () {
-
-            if (!isDrag) {
-                $(this).draggable('enable');
-            } else {
-                $(this).draggable('disable');
-            }
-        });
-    }
-
-    function ToggleConnector(isDrag) {
-
-        var shapes = $('.shape').not(".pallette");
-        var s = jsPlumb.setSourceEnabled(shapes, isDrag);
-        var t = jsPlumb.setTargetEnabled(shapes, isDrag);
-
-        console.log(s);
-        console.log(t);
-    }
-
-    function AddSwimlane(text) {
-        console.log('adding swimlane');
-
-        if (text.length == 0) { text = 'New Swimlane'; }
-        $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">' + text + '</h5></div></li>');
-    }
-
-    function LoadChart() {
-        var chartName = '@Model.ChartName';
-        var chartDescription = '@Model.ChartDescription';
-
-        $('#chartName').val(chartName);
-        $('#chartDescription').val(chartDescription);
-
-        Load('@Model.ChartData');    
-    }
-
     $(document).ready(function () {
-
-        counter = 0;
-
-        $(".pallette").draggable({
-            containment: '#pallette-draw',
-            helper: 'clone',
-            stop: function (event, ui) {
-                $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
-
-                var clone = $('.clone');
-                var pos = $(ui.helper).offset();
-                clone.offset({ top: pos.top, left: pos.left });
-
-                if (!clone.hasClass('stickyNote')) {
-                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
-
-                    jsPlumb.makeSource(clone, {
-                        anchor: "Continuous",
-                        connector: "Flowchart"
-                    });
-                }
-
-                clone.draggable({
-                    drag: function () {
-                        jsPlumb.repaintEverything();
-                    }
-                });
-
-                clone.click(function () {
-                    $(this).addClass('edit');
-                    win.open();
-                });
-
-                clone.removeClass('clone');
-            }
-        });
-
-        $('li').droppable({ hoverClass: "ui-state-active" });
-
-        
 
         var handleUserInput = function () {
             var userinput = ($("#labelSet").val());
@@ -230,6 +123,42 @@
             win.open();
         });
 
+        $(".pallette").draggable({
+            containment: '#pallette-draw',
+            helper: 'clone',
+            stop: function (event, ui) {
+                $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+
+                var clone = $('.clone');
+                var pos = $(ui.helper).offset();
+                clone.offset({ top: pos.top, left: pos.left });
+
+                if (!clone.hasClass('stickyNote') || !clone.hasClass('component')) {
+                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+
+                    jsPlumb.makeSource(clone, {
+                        anchor: "Continuous",
+                        connector: "Flowchart"
+                    });
+                }
+
+                clone.draggable({
+                    drag: function () {
+                        jsPlumb.repaintEverything();
+                    }
+                });
+
+                clone.click(function () {
+                    $(this).addClass('edit');
+                    win.open();
+                });
+
+                clone.removeClass('clone');
+            }
+        });
+
+        $('li').droppable({ hoverClass: "ui-state-active" });
+
         $('.verticalLine').draggable({
             containment: '#pallette-draw',
             axis: "x"
@@ -245,75 +174,12 @@
 </script>
 <style>
     
-    /* Shape positions */
-    #window1
-    {
-        position: absolute;
-        left: 1580px;
-        top: 40px;
-    }
-    #window2
-    {
-        position: absolute;
-        left: 350px;
-        top: 40px;
-    }
-    #window3
-    {
-        position: absolute;
-        left: 350px;
-        top: 226px;
-    }
-    #window4
-    {
-        position: absolute;
-        left: 590px;
-        top: 407px;
-    }
-    #window5
-    {
-        position: absolute;
-        left: 827px;
-        top: 569px;
-    }
-    #window6
-    {
-        position: absolute;
-        left: 590px;
-        top: 760px;
-    }
-    #window7
-    {
-        position: absolute;
-        left: 1054px;
-        top: 760px;
-    }
-    #window8
-    {
-        position: absolute;
-        left: 1580px;
-        top: 760px;
-    }
-    
-    #window9
-    {
-        position: absolute;
-        left: 400px;
-        top: 760px;
-    }
-    
     .verticalLine 
     {
     	position:absolute;
     	width: 0%;
         border-right: dashed #3085d6;
         height: 100%;
-    }
-    
-    .shape-label
-    {
-        float: left;
-        width: 90%;
     }
     
     .swimlane-wrapper

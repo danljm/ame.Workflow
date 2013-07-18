@@ -10,12 +10,6 @@
 				Endpoint: "Blank",
 				//EndpointStyle: { fillStyle:"#5BAB54" },
                 ConnectionOverlays : [ 
-                        ["Label", {
-								cssClass:"component",		    			        				 
-								label : "",
-								location:0.7,
-                                id:  "Label"
-							}],
                         [ "PlainArrow", { location:-10 } ] ]
 			});
 			  
@@ -37,7 +31,6 @@
 			for (var i = 0; i < shapes.length; i++) {
 
                 jsPlumb.makeSource(shapes[i], {
-                    filter: ".drag_icon",
 					anchor: "Continuous",
 					connector: "Flowchart"
 				});

@@ -3,6 +3,65 @@
 var GetChartsURL = '<%: Url.Action("GetCharts", "HomeController") %>';
 var AddChartByJsonURL = '<%: Url.Action("AddChartByJson", "HomeController") %>';
 
+var isDrag = false;
+
+function ToggleMode() {
+
+    ToggleDrag(isDrag);
+    ToggleConnector(isDrag);
+
+    isDrag = !isDrag;
+
+    if (isDrag) {
+        $('#toggleButton').val('Drag');
+        $("#toggleButton").css("background-color", "#FF751F");
+        $("#toggleButton").css("border", "1px solid #FF751F");
+    } else {
+        $('#toggleButton').val('Connect');
+        $("#toggleButton").css("background-color", "#3085d6");
+        $("#toggleButton").css("border", "1px solid #3085d6");
+    }
+}
+
+function ToggleDrag(isDrag) {
+    var shapes = $('.shape').not(".pallette");
+    shapes.each(function () {
+
+        if (!isDrag) {
+            $(this).draggable('enable');
+        } else {
+            $(this).draggable('disable');
+        }
+    });
+}
+
+function ToggleConnector(isDrag) {
+
+    var shapes = $('.shape').not(".pallette");
+    var s = jsPlumb.setSourceEnabled(shapes, isDrag);
+    var t = jsPlumb.setTargetEnabled(shapes, isDrag);
+
+    console.log(s);
+    console.log(t);
+}
+
+function AddSwimlane(text) {
+    console.log('adding swimlane');
+
+    if (text.length == 0) { text = 'New Swimlane'; }
+    $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">' + text + '</h5></div></li>');
+}
+
+function LoadChart() {
+    var chartName = '@Model.ChartName';
+    var chartDescription = '@Model.ChartDescription';
+
+    $('#chartName').val(chartName);
+    $('#chartDescription').val(chartDescription);
+
+    Load('@Model.ChartData');
+}
+
 // repaint
 function Repaint() {
     $("#main").resize(function () {
@@ -105,7 +164,7 @@ function Load(chart) {
     for (var i in chartShapes) {
         var shape = chartShapes[i];
         html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' 
-            + '<div class="shape-label">' + shape.label + '</div><span class="drag_icon">&#10150;</span></div></div>';
+            + '<div class="shape-label">' + shape.label + '</div></div>';
     }
 
     console.log(html);

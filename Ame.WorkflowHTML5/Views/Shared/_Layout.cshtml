@@ -34,6 +34,7 @@
         <!--Pattern HTML-->
         <section id="crumb-path" class="pattern">
             <ul class="crumbs">
+                <li>@Html.ActionLink("Saved History", "ChartActivity", "Home")</li>
                 <li>@Html.ActionLink("Pre Relational List", "PreRelationalList", "Home")</li>
                 <li>@Html.ActionLink("Relational Map", "RelationalMap", "Home")</li>
                 <li>@Html.ActionLink("Swimlane Map", "SwimlaneChart", "Home")</li>
@@ -56,18 +57,7 @@
         </div>
     </div>
 </body>
-
-
-
-
 </html>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("#treeview").kendoTreeView();
-    });
-</script>
 
 <style>
     .crumbs
@@ -80,7 +70,7 @@
     }
     .crumbs li:after
     {
-        content: '→';
+        content: '|';
         padding: 0 0.25em 0 0.5em;
         color: #999;
     }

@@ -6,10 +6,10 @@
            
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
-<h2>Relational Map - Test Process</h2>
+<h2>Relational Map</h2>
 
 <div id="chartOptions">
-    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Relational Map"></div>
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("RelationalMap")'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
@@ -19,57 +19,57 @@
 
 <div id="pallette-menu">
     <ul>
-        <h4 style="text-align: center">
-            Drawing Palette</h4>
-        <li class="pallette-shape">
-            <div class="shape pallette roundedRectangle gradient">
-                Action<span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette start">
-                Start<span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette stop">
-                Stop<span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette" data-shape="Diamond">
-                Decision<span class="drag_icon">&#10150;</span></div>
-        </li>
-        <li class="pallette-shape">
-            <div class="shape pallette stickyNote">Sticky Note text example</div>
-        </li>
+        <h4 style="text-align: center">Drawing Palette</h4>
+        <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
+
+        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
+        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
     </ul>
 </div>
 
 <div id="pallette-container">
     <div id="pallette-draw">
         <div class="rel-map supplier">
-            <h4>
-                Suppliers</h4>
+            <h4>Suppliers</h4>
         </div>
         <div class="rel-map organization">
-            <h4>
-                Organization</h4>
+            <h4>Organization</h4>
         </div>
         <div class="rel-map customer">
-            <h4>
-                Customers</h4>
+            <h4>Customers</h4>
         </div>
-        <div id="render">
-        </div>
-        <div id="window1" class="shape roundedRectangle">Software Provider<span class="drag_icon">&#10150;</span></div>
-        <div id="window2" class="shape roundedRectangle">Administration<span class="drag_icon">&#10150;</span></div>
-        <div id="window3" class="shape roundedRectangle">Sales<span class="drag_icon">&#10150;</span></div>
-        <div id="window4" class="shape roundedRectangle">Service<span class="drag_icon">&#10150;</span></div>
-        <div id="window5" class="shape roundedRectangle">Corp. Customer<span class="drag_icon">&#10150;</span></div>
+        <div id="render"></div>
     </div>
+</div>
+
+<div id="inputWindow">
+    <div class="field"><input id="labelSet" class="input" type="text" placeholder="Enter Label"></div>
 </div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        var handleUserInput = function () {
+            var userinput = ($("#labelSet").val());
+            $('.edit').text(userinput);
+            $('.edit').removeClass('edit');
+        }
+
+
+        var win = $("#inputWindow")
+            .kendoWindow({
+                actions: ["Close"],
+                minWidth: 300,
+                modal: true,
+                resizable: true,
+                title: "Enter title text",
+                visible: false,
+                close: handleUserInput
+            })
+            .data("kendoWindow")
+            .center();
 
         $(".pallette").draggable({
             containment: '#pallette-draw',
@@ -81,11 +81,24 @@
                 var pos = $(ui.helper).offset();
                 clone.offset({ top: pos.top, left: pos.left });
 
-                jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+                if (!clone.hasClass('stickyNote') || !clone.hasClass('component')) {
+                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
 
-                jsPlumb.makeSource(clone, {
-                    anchor: "Continuous",
-                    connector: "Flowchart"
+                    jsPlumb.makeSource(clone, {
+                        anchor: "Continuous",
+                        connector: "Flowchart"
+                    });
+                }
+
+                clone.draggable({
+                    drag: function () {
+                        jsPlumb.repaintEverything();
+                    }
+                });
+
+                clone.click(function () {
+                    $(this).addClass('edit');
+                    win.open();
                 });
 
                 clone.removeClass('clone');

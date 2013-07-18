@@ -1,36 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<section id="left-nav">
-    <ul id="treeview">
-        <li data-expanded="true"><span class="k-sprite folder"></span>Recent Activity
-            <ul>
-                <li data-expanded="false"><span class="k-sprite folder"></span>Pre Relation List
-                    <ul>
-                        <li>Relational List A</li>
-                        <li>Relational List B</li>
-                        <li>Relational List C</li>
-                    </ul>
-                </li>
-                <li data-expanded="false"><span class="k-sprite folder"></span>Relational Mapping
-                    <ul>
-                        <li>@Html.ActionLink("Relational Map Process", "RelationalMap", "Home")</li>
-                    </ul>
-                </li>
-                <li data-expanded="false"><span class="k-sprite folder"></span>Swim Lane Map
-                    <ul>
-                        <li>@Html.ActionLink("Swimlane Map Process", "SwimlaneChart", "Home")</li>
-                    </ul>
-                </li>
-                <li data-expanded="false"><span class="k-sprite folder"></span>Flowchart
-                    <ul>
-                        <li>@Html.ActionLink("Flowchart Process", "Flowchart", "Home")</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</section>
 
 <!--Pattern HTML-->
 <div id="pattern" class="pattern">
@@ -87,7 +57,7 @@
 {
 	position:absolute;
 	width:100%;
-	left:250px;
+	left:25px;
 }
 .list li {
   display: table;
