@@ -98,42 +98,7 @@
         <div id="line6" class="verticalLine" style="left: 84%"></div>
         <div id="line7" class="verticalLine" style="left: 98%"></div>
 
-        <div id="render">
-        </div>
-        <div id="window1" class="shape roundedRectangle">
-            <div class="shape-label">
-                Customer</div>
-            <span class="drag_icon">&#127919;</span></div>
-        <div id="window2" class="shape roundedRectangle">
-            <div class="shape-label">
-                Customer</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window3" class="shape roundedRectangle">
-            <div class="shape-label">
-                Sales</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window4" class="shape roundedRectangle">
-            <div class="shape-label">
-                Admin</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window5" class="shape roundedRectangle">
-            <div class="shape-label">
-                Software Vendor</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window6" class="shape roundedRectangle">
-            <div class="shape-label">
-                Consultant Svcs. Conducts Needs Assesment</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window7" class="shape roundedRectangle">
-            <div class="shape-label">
-                IT Professional Installs Software + Writes API</div>
-            <span class="drag_icon">&#10150;</span></div>
-        <div id="window8" class="shape roundedRectangle">
-            <div class="shape-label">
-                Consultant Trains Customer On Software</div>
-            <span class="drag_icon">&#10150;</span></div>
-
-        <div id="window9" class="shape stickyNote"><div class="shape-label">Sticky Note text example</div></div>
+        <div id="render"></div>
     </div>
 </div>
 
@@ -187,28 +152,7 @@
 
         $('li').droppable({ hoverClass: "ui-state-active" });
 
-        /* Connection 1 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Customer Places Purchase Order", location: 0.7, id: "label1"}]] });
-        /* Connection 2 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Sales Sends Purchase Order On To Admin", location: 0.7, id: "label2"}]] });
-        /* Connection 3 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window6'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Sales Informs Consultant Svcs. Of customer order", location: 0.7, id: "label3"}]] });
-        /* Connection 4 */
-        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Customer Makes Payment", location: 0.7, id: "label4"}]] });
-        /* Connection 5 */
-        jsPlumb.connect({ source: $('#window4'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Admin Invoices Customer", location: 0.7, id: "label5"}]] });
-        /* Connection 6 */
-        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Admin Sends Purchase Order to Software Vendor", location: 0.7, id: "label6"}]] });
-        /* Connection 8 */
-        jsPlumb.connect({ source: $('#window5'), target: $('#window7'), anchor: "Continuous" });
-        /* Connection 9 */
-        jsPlumb.connect({ source: $('#window6'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Puts in Request for Software", location: 0.7, id: "label9"}]] });
-        /* Connection 10 */
-        jsPlumb.connect({ source: $('#window6'), target: $('#window7'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consultant Sends stats to Programmers", location: 0.7, id: "label10"}]] });
-        /* Connection 11 */
-        jsPlumb.connect({ source: $('#window7'), target: $('#window8'), anchor: "Continuous" });
-        /* Connection 7 */
-        jsPlumb.connect({ source: $('#window8'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consulting Makes Final Delivery of Custom Software", location: 0.7, id: "label7"}]] });
+        
 
         var handleUserInput = function () {
             var userinput = ($("#labelSet").val());

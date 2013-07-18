@@ -110,6 +110,9 @@ function Load(chart) {
 
     console.log(html);
 
+    //Need to set before doing other stuff
+    $('#pallette-draw').append(html);
+
     /** FOR CONNECTIONS **/
     for (var j in chartConnections) {
         var connection = chartConnections[j]
@@ -120,9 +123,7 @@ function Load(chart) {
     for (var k in chartSwimlanes) {
         var swimlane = chartSwimlanes[k];
         console.log(swimlane);
-    }
-
-    $('#pallette-draw').append(html);
+    }  
 }
 
 // clear
