@@ -20,7 +20,9 @@ function DragElement(el) {
 
 // connection
 function MakeConnection(connection) {
-    jsPlumb.connect({ source: $(connection['sourceId']), target: $(connection['targetId']), anchor: "Continuous" });
+    var source = connection.sourceId;
+    var target = connection.targetId;
+    jsPlumb.connect({ source: source, target: target, anchor: "Continuous" });
 }
 
 // save
@@ -34,7 +36,7 @@ function Save(chartType) {
 
     /** FOR SHAPES **/
     $(".shape").not(".pallette").each(function () {
-        chartShapes.push({ id: $(this).attr('id'), html: $(this).html(), class: $(this).attr('class'), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        chartShapes.push({ id: $(this).attr('id'), label: $(this).find('.shape-label').text().trim(), class: $(this).attr('class'), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
     /** FOR CONNECTIONS **/
@@ -63,7 +65,7 @@ function Save(chartType) {
     //Testing methods
     console.log(chartData);
     console.log(chart);
-    console.log(jQuery.parseJSON(JSON.stringify(chartData)));
+    console.log(JSON.stringify(chartData));
 
     $.ajax({
         cache: false,
@@ -81,42 +83,46 @@ function Save(chartType) {
 // load
 function Load(chart) {
 
-    var chartData = jQuery.parseJSON(chart);
+    var formattedChart = chart.replace(/&quot;/g, '"');
+    formattedChart = formattedChart.replace(/&lt;/g, '<');
+    formattedChart = formattedChart.replace(/&gt;/g, '>');
+    formattedChart = formattedChart.replace(/&gt;/g, '>');
+    formattedChart = formattedChart.replace(/\n/g, ' ');
+    formattedChart = formattedChart.replace(/'\'/g, '');
+
+    console.log(formattedChart);
+
+    var chartData = jQuery.parseJSON(formattedChart);
+
+    console.log(chartData);
 
     chartShapes = chartData[0];
     chartConnections = chartData[1];
     chartSwimlanes = chartData[2];
 
-
+    var html = ""
     /** FOR SHAPES **/
-    for (var shape in chartShapes) {
-        var o = Objs[i];
-        console.log(o);
-        s += '<div id="' + o.id + '" class="' + o.class + '" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
+    for (var i in chartShapes) {
+        var shape = chartShapes[i];
+        html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' 
+            + '<div class="shape-label">' + shape.label + '</div><span class="drag_icon">&#10150;</span></div></div>';
     }
 
+    console.log(html);
+
     /** FOR CONNECTIONS **/
-    for (var connection in chartConnections) {
+    for (var j in chartConnections) {
+        var connection = chartConnections[j]
         MakeConnection(connection);
     }
 
     /** FOR SWIMLANES **/
-    for (var swimlane in chartSwimlanes) {
-
+    for (var k in chartSwimlanes) {
+        var swimlane = chartSwimlanes[k];
+        console.log(swimlane);
     }
 
-    var s = "";
-    for (var i in Objs) {
-        var o = Objs[i];
-        console.log(o);
-        s += '<div id="' + o.id + '" class="shape rectangle" style="left:' + o.left + '; top:' + o.top + '; width:' + o.width + '; height:' + o.height + ' "> ' + o.html + '</div>';
-    }
-    $('#pallette-draw').html(chart);
-
-    /** Externalize into a function to be shared */
-    var shapes = $(".shape");
-
-    jsPlumbDemo.init();
+    $('#pallette-draw').append(html);
 }
 
 // clear

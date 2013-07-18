@@ -12,6 +12,7 @@
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane()'></div>
 </div>
 
 <div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
@@ -22,9 +23,11 @@
         <h4 style="text-align: center">
             Drawing Palette</h4>
         <li class="pallette-shape">
-            <div class="shape pallette roundedRectangle">
-                <div class="shape-label">Action</div>
-                <span class="drag_icon">&#10150;</span></div>
+            <div class="shape-wrapper">
+                <div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div>
+                <span class="drag_icon">&#10150;</span>
+            </div>
+            
         </li>
         <li class="pallette-shape">
             <div class="shape pallette start">
@@ -42,7 +45,7 @@
                 <span class="drag_icon">&#10150;</span></div>
         </li>
         <li class="pallette-shape">
-            <div class="shape pallette stickyNote">Sticky Note text example</div>
+            <div class="shape pallette stickyNote"><div class="shape-label">Sticky Note text example</div></div>
         </li>
     </ul>
 </div>
@@ -140,12 +143,19 @@
 
 <script type="text/javascript">
 
+    function AddSwimlane() {
+        console.log('adding swimlane');
+        $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">Service</h5></div></li>');
+    }
+
     function LoadChart() {
         var chartName = '@Model.ChartName';
         var chartDescription = '@Model.ChartDescription';
 
         $('#chartName').val(chartName);
-        $('#chartDescription').val(chartDescription);       
+        $('#chartDescription').val(chartDescription);
+
+        Load('@Model.ChartData');    
     }
 
     $(document).ready(function () {
@@ -155,7 +165,6 @@
         $(".pallette").draggable({
             containment: '#pallette-draw',
             helper: 'clone',
-            
             stop: function (event, ui) {
                 $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
 
@@ -171,13 +180,6 @@
                         connector: "Flowchart"
                     });
                 }
-
-                clone.draggable({
-                    handle: ".drag_icon",
-                    drag: function (event, ui) {
-                        jsPlumb.repaint(clone);
-                    }
-                });
 
                 clone.removeClass('clone');
             }
