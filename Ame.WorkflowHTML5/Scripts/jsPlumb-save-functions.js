@@ -52,16 +52,6 @@ function AddSwimlane(text) {
     $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">' + text + '</h5></div></li>');
 }
 
-function LoadChart() {
-    var chartName = '@Model.ChartName';
-    var chartDescription = '@Model.ChartDescription';
-
-    $('#chartName').val(chartName);
-    $('#chartDescription').val(chartDescription);
-
-    Load('@Model.ChartData');
-}
-
 // repaint
 function Repaint() {
     $("#main").resize(function () {

@@ -49,6 +49,16 @@
 
 <script type="text/javascript">
 
+    function LoadChart() {
+        var chartName = '@Model.ChartName';
+        var chartDescription = '@Model.ChartDescription';
+
+        $('#chartName').val(chartName);
+        $('#chartDescription').val(chartDescription);
+
+        Load('@Model.ChartData');
+    }
+
     $(document).ready(function () {
 
         var handleUserInput = function () {
@@ -105,30 +115,7 @@
             }
         });
 
-        $('li').droppable({ hoverClass: "ui-state-active" });
-
-        /* Connection 1 */
-        jsPlumb.connect({ source: $('#window1'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Supplier Invoice", location: 0.7, id: "label1"}]] });
-        /* Connection 2 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Payment", location: 0.7, id: "label2"}]] });
-        /* Connection 3 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window1'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Purchase Order", location: 0.7, id: "label3"}]] });
-        /* Connection 4 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window3'), anchor: "Continuous" });
-        /* Connection 5 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window2'), anchor: "Continuous" });
-        /* Connection 6 */
-        jsPlumb.connect({ source: $('#window3'), target: $('#window4'), anchor: "Continuous" });
-        /* Connection 7 */
-        jsPlumb.connect({ source: $('#window4'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Consulting Services Completed", location: 0.7, id: "label7"}]] });
-        /* Connection 8 */
-        jsPlumb.connect({ source: $('#window2'), target: $('#window5'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Invoice", location: 0.7, id: "label8"}]] });
-        /* Connection 9 */
-        jsPlumb.connect({ source: $('#window5'), target: $('#window2'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Payment", location: 0.7, id: "label9"}]] });
-        /* Connection 10 */
-        jsPlumb.connect({ source: $('#window5'), target: $('#window3'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Organizational Change Requested", location: 0.7, id: "label10"}]] });
-        /* Connection 11 */
-        jsPlumb.connect({ source: $('#window1'), target: $('#window4'), anchor: "Continuous", overlays: [["Label", { cssClass: "component", label: "Software Needed on the Consult", location: 0.7, id: "label11"}]] });
+        LoadChart();    
     });  
 
 </script>

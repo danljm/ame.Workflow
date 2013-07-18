@@ -44,6 +44,16 @@
 
 <script type="text/javascript">
 
+    function LoadChart() {
+        var chartName = '@Model.ChartName';
+        var chartDescription = '@Model.ChartDescription';
+
+        $('#chartName').val(chartName);
+        $('#chartDescription').val(chartDescription);
+
+        Load('@Model.ChartData');
+    }
+
     $(document).ready(function () {
 
         var handleUserInput = function () {
@@ -99,6 +109,8 @@
                 clone.removeClass('clone');
             }
         });
+
+        LoadChart();
     });
 </script>
 
