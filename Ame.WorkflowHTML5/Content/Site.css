@@ -95,9 +95,7 @@ header h1, #header h1 {
 #main 
 {
 	position:relative;
-	/*left: 250px;*/
 	top: 40px;
-	height: 800px;
 	right: 0;
     padding: 10px 10px 10px 10px;
     background-color: #fff;

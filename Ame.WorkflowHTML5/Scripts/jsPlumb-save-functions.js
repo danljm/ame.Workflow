@@ -47,8 +47,8 @@ function Save(chartType) {
     }
 
     /** FOR SWIMLANES **/
-     $(".swimlane li").each(function () {
-        chartSwimlanes.push({ html: $(this).html() });
+     $(".li-head").each(function () {
+        chartSwimlanes.push({ label: $(this).text().trim() });
     });
 
     chartData.push(chartShapes);
@@ -120,9 +120,11 @@ function Load(chart) {
     }
 
     /** FOR SWIMLANES **/
+    $('.swimlane-wrapper').empty();
     for (var k in chartSwimlanes) {
         var swimlane = chartSwimlanes[k];
         console.log(swimlane);
+        AddSwimlane(swimlane.label);
     }  
 }
 
