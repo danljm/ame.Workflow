@@ -23,7 +23,7 @@
                 info.connection.getOverlay("Label").setLabel();
             });
 
-            jsPlumb.bind("click", function(c) { 
+            jsPlumb.bind("dblclick", function(c) { 
 				jsPlumb.detach(c); 
 			});
 				

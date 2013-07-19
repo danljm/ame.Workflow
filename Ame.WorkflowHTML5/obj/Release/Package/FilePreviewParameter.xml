@@ -4,9 +4,6 @@
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Danny\\Documents\\Visual\ Studio\ 2012\\Projects\\Ame\.WorkflowHTML5\\Ame\.WorkflowHTML5\\obj\\Release\\Package\\PackageTmp$" />
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Danny\\Documents\\Visual\ Studio\ 2012\\Projects\\Ame\.WorkflowHTML5\\Ame\.WorkflowHTML5\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="Ame.WorkflowHTML5.Models.ChartContext-Web.config Connection String" description="" value="Ame.WorkflowHTML5.Models.ChartContext_ConnectionString" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danny\\Documents\\Visual\ Studio\ 2012\\Projects\\Ame\.WorkflowHTML5\\Ame\.WorkflowHTML5\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Ame.WorkflowHTML5.Models.ChartContext']/@connectionString" />
-  </parameter>
   <parameter name="ApplicationServices-Web.config Connection String" description="" value="data source=server=h2n7fg0did.database.windows.net;database=idaptic_db;uid=idapticAdmin;pwd=Bear9937;Pooling=false" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Danny\\Documents\\Visual\ Studio\ 2012\\Projects\\Ame\.WorkflowHTML5\\Ame\.WorkflowHTML5\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
   </parameter>
