@@ -105,8 +105,6 @@
 
     $(document).ready(function () {
 
-        LoadChart();
-
         $(".shape").not(".pallette").click(function () {
             $(this).addClass('edit');
             win.open();
@@ -168,7 +166,7 @@
             $(this).remove();
         });
 
-        
+        LoadChart();
     });
 
       
