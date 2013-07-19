@@ -51,7 +51,24 @@
 
 <script type="text/javascript">
 
-    
+    var handleUserInput = function () {
+        var userinput = ($("#labelSet").val());
+        $('.edit').text(userinput);
+        $('.edit').removeClass('edit');
+    }
+
+    var win = $("#inputWindow")
+        .kendoWindow({
+            actions: ["Close"],
+            minWidth: 300,
+            modal: true,
+            resizable: true,
+            title: "Enter title text",
+            visible: false,
+            close: handleUserInput
+        })
+        .data("kendoWindow")
+        .center();
 
     function LoadChart() {
         var chartName = '@Model.ChartName';
@@ -65,6 +82,17 @@
 
     $(document).ready(function () {
 
+        LoadChart();
+
+        $(".shape").not(".pallette").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+
+        $(".shape").not(".pallette").dblclick(function () {
+            $(this).remove();
+        });
+
         function ChangeLabel() {
             win.close();
         }
@@ -74,24 +102,7 @@
             win.close();
         }
 
-        var handleUserInput = function () {
-            var userinput = ($("#labelSet").val());
-            $('.edit').text(userinput);
-            $('.edit').removeClass('edit');
-        }
 
-        var win = $("#inputWindow")
-            .kendoWindow({
-                actions: ["Close"],
-                minWidth: 300,
-                modal: true,
-                resizable: true,
-                title: "Enter title text",
-                visible: false,
-                close: handleUserInput
-            })
-            .data("kendoWindow")
-            .center();
 
         $(".pallette").draggable({
             containment: '#pallette-draw',
@@ -125,9 +136,7 @@
 
                 clone.removeClass('clone');
             }
-        });
-
-        LoadChart();    
+        });   
     });  
 
 </script>
