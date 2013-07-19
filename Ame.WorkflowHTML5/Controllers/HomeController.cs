@@ -76,11 +76,26 @@ namespace Ame.WorkflowHTML5.Controllers
         {
             try
             {
+
+                
                 // TODO: Add insert logic here
                 using (var db = new ChartContext())
                 {
-                    db.Charts.Add(chart);
-                    db.SaveChanges();
+                    Chart duplicate = db.Charts.Find(chart.ChartName);
+
+                    if (duplicate == null)
+                    {
+                        db.Charts.Add(chart);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        db.Charts.Remove(duplicate);
+                        db.SaveChanges();
+                        db.Charts.Add(chart);
+                        db.SaveChanges();                        
+                    }
+                    
                 }
                 return RedirectToAction("ChartActivity");
             }
