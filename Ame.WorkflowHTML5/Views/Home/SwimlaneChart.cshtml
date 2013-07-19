@@ -35,43 +35,7 @@
 
 <div id="pallette-container">
     <div id="pallette-draw">
-        <ul class="swimlane-wrapper">
-            <li class="swimlane">
-                <div class="li-text">
-                    <h5 class="li-head">
-                        Corp. Customer</h5>
-                </div>
-
-            </li>
-            <li class="swimlane">
-                <div class="li-text">
-                    <h5 class="li-head">
-                        Sales</h5>
-                </div>
-
-            </li>
-            <li class="swimlane">
-                <div class="li-text">
-                    <h5 class="li-head">
-                        Administration</h5>
-                </div>
-                
-            </li>
-            <li class="swimlane">
-                <div class="li-text">
-                    <h5 class="li-head">
-                        Software Provider</h5>
-                </div>
-                
-            </li>
-            <li class="swimlane">
-                <div class="li-text">
-                    <h5 class="li-head">
-                        Service</h5>
-                </div>
-
-            </li>
-        </ul>
+        <ul class="swimlane-wrapper"></ul>
 
         <div id="line1" class="verticalLine" style="left: 14%"></div>
         <div id="line2" class="verticalLine" style="left: 28%"></div>
@@ -131,6 +95,10 @@
         $(".li-head").click(function () {
             $(this).addClass('edit');
             win.open();
+        });
+
+        $(".swimlane").dblclick(function () {
+            $(this).remove();
         });
     }
 

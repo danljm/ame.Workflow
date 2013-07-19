@@ -6,8 +6,8 @@
 .shape
 {
 	z-index: 2;
-	opacity: 0.7;
-	filter: alpha(opacity=70);
+	opacity: 0.8;
+	filter: alpha(opacity=80);
 	position: absolute;
 	cursor: pointer;
 	text-align: center;
@@ -64,7 +64,7 @@
 	background-image: url(../Content/circle_stop.png);
 }
 
-[data-shape=Triangle]
+.triangle
 {
 	width: 150px;
 	height: 150px;
@@ -78,16 +78,6 @@
 	height: 150px;
 	line-height: 150px;
 	background-image: url(../Content/triangle_90.png);
-}
-
-.diamond
-{
-	width: 90px;
-	height: 90px;
-	left: 550px;
-	top: 150px;
-	line-height: 90px;
-	background-image: url(../Content/diamond.png);
 }
 
 .ep
@@ -226,6 +216,71 @@
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
+}
+
+.oval {
+   width: 150px; 
+   height: 80px; 
+   background: rgb(146, 255, 146);
+	border: 2px solid rgb(128, 128, 128);
+   -moz-border-radius: 100px / 50px; 
+   -webkit-border-radius: 100px / 50px; 
+   border-radius: 100px / 50px;
+   font-size: 0.9em;
+	font-weight: 900;
+	text-align: center;
+	line-height: 250%;
+}
+
+    .diamond {
+       width: 80px; 
+       height: 80px; 
+       margin: 3px 0 0 30px;
+       background: rgb(146, 255, 146);
+       border: 2px solid rgb(128, 128, 128);
+       -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
+       -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
+            border-radius: 4.75px 4.75px 4.75px 4.75px;
+       /* Rotate */
+       -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+       -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+       transform: rotate(-45deg);
+       /* Rotate Origin */
+       -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+       -ms-transform-origin: 0 100%;
+       -o-transform-origin: 0 100%;
+       transform-origin: 0 100%;
+    }
+    
+    .diamond span, .diamond div 
+    {
+    	-webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+       -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+       transform: rotate(45deg);
+    }
+
+.pentagon {
+    position: relative;
+    width: 54px;
+    border-width: 50px 18px 0;
+    border-style: solid;
+    border-color: red transparent;
+}
+.pentagon:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -85px;
+    left: -18px;
+    border-width: 0 45px 35px;
+    border-style: solid;
+    border-color: transparent transparent red;
 }
 
 .bezier

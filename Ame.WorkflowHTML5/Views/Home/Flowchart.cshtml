@@ -23,12 +23,15 @@
         <h4 style="text-align: center">Drawing Palette</h4>
         <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
 
-        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
-        <li class="pallette-shape"><div class="shape pallette start"><div class="shape-label">Start</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette stop"><div class="shape-label">Stop</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond"><div class="shape-label">Decision</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette roundedRectangle">Action</div></li>
+        <li class="pallette-shape"><div class="shape pallette start">Start</div></li>
+        <li class="pallette-shape"><div class="shape pallette stop">Stop</div></li>
+        <li class="pallette-shape"><div class="shape pallette oval"></div></li>
+        <li class="pallette-shape"><div class="shape pallette diamond">Decision</div></li>
+        <li class="pallette-shape"><div class="shape pallette triangle">Decision</div></li>
+        <li class="pallette-shape"><div class="shape pallette pentagon">Decision</div></li>
+        <li class="pallette-shape"><div class="shape pallette component">Connection Label</div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote">Note</div></li>
     </ul>
 </div>
 
@@ -130,35 +133,5 @@
         box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
     }
     
-    .diamond {
-       width: 80px; 
-       height: 80px; 
-       margin: 3px 0 0 30px;
-       background: rgb(146, 255, 146);
-       border: 2px solid rgb(128, 128, 128);
-       -webkit-border-radius: 4.75px 4.75px 4.75px 4.75px;
-       -moz-border-radius: 4.75px 4.75px 4.75px 4.75px;
-            border-radius: 4.75px 4.75px 4.75px 4.75px;
-       /* Rotate */
-       -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
-       -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-       transform: rotate(-45deg);
-       /* Rotate Origin */
-       -webkit-transform-origin: 0 100%;
-       -moz-transform-origin: 0 100%;
-       -ms-transform-origin: 0 100%;
-       -o-transform-origin: 0 100%;
-       transform-origin: 0 100%;
-    }
-    
-    .diamond span, .diamond div 
-    {
-    	-webkit-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-       -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-       transform: rotate(45deg);
-    }
+
 </style>
