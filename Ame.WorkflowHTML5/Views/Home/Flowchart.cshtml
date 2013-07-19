@@ -13,7 +13,7 @@
     <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("Flowchart")'></div>
-    <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+
 </div>
 
 <div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
@@ -80,7 +80,7 @@
 
     $(document).ready(function () {
 
-        LoadChart();
+        
 
         $(".shape").not(".pallette").click(function () {
             $(this).addClass('edit');
@@ -90,8 +90,6 @@
         $(".shape").not(".pallette").dblclick(function () {
             $(this).remove();
         });
-
-        
 
         $(".pallette").draggable({
             containment: '#pallette-draw',
@@ -126,6 +124,8 @@
                 clone.removeClass('clone');
             }
         });
+
+        LoadChart();
     });
 </script>
 

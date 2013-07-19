@@ -203,4 +203,6 @@ function Clear() {
     jsPlumb.detachEveryConnection();
     jsPlumb.reset();
     $("#pallette-draw .shape").empty().remove();
+    $("#chartName").val('');
+    $("#chartDescription").val('');
 }
