@@ -149,10 +149,39 @@ function Load(chart) {
         html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' + shape.label + '</div>';
     }
 
+    
+
+    
+
     console.log(html);
 
     //Need to set before doing other stuff
     $('#pallette-draw').append(html);
+
+    var shapes = $('.shape').not(".pallette");
+
+    shapes.draggable({
+        drag: function () {
+            jsPlumb.repaintEverything();
+        }
+    });
+
+    shapes.click(function () {
+        $(this).addClass('edit');
+        win.open();
+    });
+
+    shapes.each(function () {
+        if (!$(this).hasClass('stickyNote') || !$(this).hasClass('component')) {
+            jsPlumb.makeTarget($(this), { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+
+            jsPlumb.makeSource($(this), {
+                anchor: "Continuous",
+                connector: "Flowchart"
+            });
+        }
+    });
+    
 
     /** FOR CONNECTIONS **/
     for (var j in chartConnections) {
