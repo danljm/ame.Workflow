@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ame.WorkflowHTML5", "Ame.WorkflowHTML5\Ame.WorkflowHTML5.csproj", "{188EA761-2AD8-415E-A173-85006D7C6320}"
 EndProject
 Global
