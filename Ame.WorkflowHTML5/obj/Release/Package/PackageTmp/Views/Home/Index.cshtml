@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--Pattern HTML-->
+<div id="pattern" class="pattern">
+    <ul class="list img-list">
+        <li><a href="/Home/PreRelationalList" class="inner">
+            <div class="li-img">
+                <div class="menu-rectangle" style="background: rgb(0, 75, 226);">L</div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Pre-Relational List</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/RelationalMap" class="inner">
+            <div class="li-img">
+                <div class="menu-rectangle" style="background: rgb(255, 87, 87);">R</div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Relational Process Map</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/SwimlaneChart" class="inner">
+            <div class="li-img">
+                <div class="menu-rectangle" style="background: rgb(255, 143, 87);">S</div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">SwimLane Process Map</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li>
+        <li><a href="/Home/Flowchart" class="inner">
+            <div class="li-img">
+                <div class="menu-rectangle" style="background: rgb(0, 226, 75);">F</div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Activity FlowChart</h4>
+                <p class="li-sub">Create New</p>
+            </div>
+        </a></li><li><a href="/Home/ChartActivity" class="inner">
+            <div class="li-img">
+                <div class="menu-rectangle" style="background: rgb(255, 64, 128);">H</div>
+            </div>
+            <div class="li-text">
+                <h4 class="li-head">Saved History</h4>
+                <p class="li-sub">View All Saved Lists, Maps, and Charts</p>
+            </div>
+        </a></li>
+    </ul>
+</div>
+<!--End Pattern HTML-->
+<style>
+#pattern
+{
+	position:absolute;
+	width:100%;
+	left:25px;
+}
+.list li {
+  display: table;
+  border-collapse: collapse;
+  width: 30%;
+  padding: 5px;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 15%;
+  padding-right: 1em;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
+}
+
+.menu-rectangle
+{
+    width: 60px;
+    height: 60px;
+    border: none;
+    -webkit-box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+       -moz-box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+            box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+    color: White;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    line-height: 60px;
+}
+</style>

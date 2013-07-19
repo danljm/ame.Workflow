@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "PreRelationalList";
+}
+
+<link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
+
+<h2>Pre Relational List - Test Process</h2>
+
+<div id="chartOptions">
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("PreRelationalList")'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+</div>
+
+<div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
+
+<div id="example" class="k-content">
+    <div id="grid">
+    </div>
+    <script>
+
+        var performers = createData();
+
+        function createData() {
+            var data = [];
+            var processSteps = ['Software Provider', 'Administration', 'Sales', 'Service', 'Corp. Customer'];
+            for (var i = 0; i < 5; i++) {
+                data.push({
+                    Id: i + 1,
+                    ProcessStep: processSteps[i],
+                    Included: true
+                });
+            }
+            return data;
+        }
+
+        $(document).ready(function () {
+            var dataSource = new kendo.data.DataSource({
+                data: performers,
+                pageSize: 20,
+                schema: {
+                    model: {
+                        id: "ProcessID",
+                        fields: {
+                            ProcessID: { editable: false, nullable: true },
+                            ProcessStep: { validation: { required: true} },
+                            Included: { type: "boolean" }
+                        }
+                    }
+                }
+            });
+
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                height: 430,
+                toolbar: ["create"],
+                columns: [
+                            { field: "ProcessStep", title: "Performer", width: "200px" },
+                            { field: "Included", title: "Included", width: "100px" },
+                            { command: ["destroy"], title: "Remove Item ", width: "90px"}],
+                editable: true
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "SwimlaneChart";
+}
+@model Ame.WorkflowHTML5.Models.Chart
+
+<link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
+<h2>Swimlane Map</h2>
+
+<div id="chartOptions">
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane("")'></div>
+    
+</div>
+
+<div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
+
+
+<div id="pallette-menu">
+    <ul>
+        <h4 style="text-align: center">Drawing Palette</h4>
+        <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
+
+        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
+        <li class="pallette-shape"><div class="shape pallette start"><div class="shape-label">Start</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stop"><div class="shape-label">Stop</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond"><div class="shape-label">Decision</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
+    </ul>
+</div>
+
+<div id="pallette-container">
+    <div id="pallette-draw">
+        <ul class="swimlane-wrapper">
+            <li class="swimlane">
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Corp. Customer</h5>
+                </div>
+
+            </li>
+            <li class="swimlane">
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Sales</h5>
+                </div>
+
+            </li>
+            <li class="swimlane">
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Administration</h5>
+                </div>
+                
+            </li>
+            <li class="swimlane">
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Software Provider</h5>
+                </div>
+                
+            </li>
+            <li class="swimlane">
+                <div class="li-text">
+                    <h5 class="li-head">
+                        Service</h5>
+                </div>
+
+            </li>
+        </ul>
+
+        <div id="line1" class="verticalLine" style="left: 14%"></div>
+        <div id="line2" class="verticalLine" style="left: 28%"></div>
+        <div id="line3" class="verticalLine" style="left: 42%"></div>
+        <div id="line4" class="verticalLine" style="left: 56%"></div>
+        <div id="line5" class="verticalLine" style="left: 70%"></div>
+        <div id="line6" class="verticalLine" style="left: 84%"></div>
+        <div id="line7" class="verticalLine" style="left: 98%"></div>
+
+        <div id="render"></div>
+    </div>
+</div>
+
+<div id="inputWindow">
+    <div class="field"><input id="labelSet" class="input" type="text" placeholder="Enter Label"></div>
+</div>
+
+<script type="text/javascript">
+
+    function LoadChart() {
+        var chartName = '@Model.ChartName';
+        var chartDescription = '@Model.ChartDescription';
+
+        $('#chartName').val(chartName);
+        $('#chartDescription').val(chartDescription);
+
+        Load('@Model.ChartData');
+    }
+
+    $(document).ready(function () {
+
+        var handleUserInput = function () {
+            var userinput = ($("#labelSet").val());
+            $('.edit').text(userinput);
+            $('.edit').removeClass('edit');
+        }
+
+
+        var win = $("#inputWindow")
+            .kendoWindow({
+                actions: ["Close"],
+                minWidth: 300,
+                modal: true,
+                resizable: true,
+                title: "Enter title text",
+                visible: false,
+                close: handleUserInput
+            })
+            .data("kendoWindow")
+            .center();
+
+        $(".shape").not(".pallette").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+
+        $(".li-head").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+
+        $(".pallette").draggable({
+            containment: '#pallette-draw',
+            helper: 'clone',
+            stop: function (event, ui) {
+                $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+
+                var clone = $('.clone');
+                var pos = $(ui.helper).offset();
+                clone.offset({ top: pos.top, left: pos.left });
+
+                if (!clone.hasClass('stickyNote') || !clone.hasClass('component')) {
+                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+
+                    jsPlumb.makeSource(clone, {
+                        anchor: "Continuous",
+                        connector: "Flowchart"
+                    });
+                }
+
+                clone.draggable({
+                    drag: function () {
+                        jsPlumb.repaintEverything();
+                    }
+                });
+
+                clone.click(function () {
+                    $(this).addClass('edit');
+                    win.open();
+                });
+
+                clone.removeClass('clone');
+            }
+        });
+
+        $('li').droppable({ hoverClass: "ui-state-active" });
+
+        $('.verticalLine').draggable({
+            containment: '#pallette-draw',
+            axis: "x"
+        }).click(function () {
+            $(this).remove();
+        });
+
+        LoadChart();
+    });
+
+      
+
+</script>
+<style>
+    
+    .verticalLine 
+    {
+    	position:absolute;
+    	width: 0%;
+        border-right: dashed #3085d6;
+        height: 100%;
+    }
+    
+    .swimlane-wrapper
+    {
+        float: left;
+        width: 100%;
+        margin: 0;
+    }
+
+    .swimlane
+    {
+        display: table;
+        border-collapse: collapse;
+        width: 100%;
+        min-height: 180px;
+        height: 180px;
+        padding: 5px;
+        background: #FFFFFF;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,1.0);
+        box-shadow: 0 1px 4px rgba(0,0,0,1.0);
+        margin: 0;
+    }
+    
+    .ui-state-active
+    {
+        background: #FEFFD6;
+    }
+    
+    .inner
+    {
+        display: table-row;
+        overflow: hidden;
+    }
+    .li-text
+    {
+        width: 180px;
+        vertical-align: middle;
+        background: #e1e1e1;
+        
+        transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform-origin: 88px 90px;
+        -moz-transform-origin: 88px 90px;
+        -ms-transform-origin: 88px 90px;
+        -o-transform-origin: 88px 90px;
+        
+    }
+    .li-head
+    {
+        margin: 0;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+        font-weight: 800;
+    }
+    .li-sub
+    {
+        margin: 0;
+    }
+    
+    
+</style>

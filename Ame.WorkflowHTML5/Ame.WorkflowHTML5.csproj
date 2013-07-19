@@ -670,7 +670,9 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\perimeterAnchorsDemo-jquery.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -718,6 +720,8 @@
     <None Include="Content\fonts\icons\entypo.woff" />
     <Content Include="Views\Home\ChartActivity.cshtml" />
     <None Include="Properties\PublishProfiles\EC2 GCI Profile.pubxml" />
+    <None Include="Properties\PublishProfiles\gciworkfloweditor - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gciworkfloweditor - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

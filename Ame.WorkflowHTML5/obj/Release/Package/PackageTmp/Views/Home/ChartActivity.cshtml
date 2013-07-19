@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Ame.WorkflowHTML5.Models.Chart>
+
+@{
+    ViewBag.Title = "ChartActivity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chart History</h2>
+
+<ul class="list img-list">
+@foreach (var item in Model) {
+    
+    <li>
+        <div class="li-img">
+            <div class="menu-rectangle" style="background: rgb(0, 226, 75);">@Html.DisplayFor(modelItem => item.ChartType[0])</div>
+        </div>
+        <div class="li-text">
+            <h4 class="li-head">
+                @Html.ActionLink(item.ChartName, "Edit", new { chartName = item.ChartName })</h4>
+            <p class="li-sub">
+                @Html.DisplayFor(modelItem => item.ChartDescription)</p>
+        </div>
+    </li>
+}
+
+</ul>
+<style>
+#pattern
+{
+	position:absolute;
+	width:100%;
+	left:250px;
+}
+.list li {
+  display: table;
+  border-collapse: collapse;
+  width: 30%;
+  padding: 5px;
+  margin: 1em;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 15%;
+  padding-right: 1em;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
+}
+
+.menu-rectangle
+{
+    width: 60px;
+    height: 60px;
+    border: none;
+    -webkit-box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+       -moz-box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+            box-shadow: 3px 3px 2.5px 0 rgba(170, 170, 170, 0.901);
+    color: White;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    line-height: 60px;
+}
+</style>

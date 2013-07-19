@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+<div class="canvas" id="mainCanvas" style="width: 1500px; height: 800px; border: 1px solid black;">
+
+                <div id="suppliers_block" class="block" style="left: 30px; top: 50px; width: 350px; height: 600px; z-index:-10;">SUPPLIERS</div>
+
+                <div id="org_block" class="block" style="left: 430px; top: 50px; width: 600px; height: 600px; z-index:-10;">ORG UNITS</div>
+
+                <div id="customers_block" class="block" style="left: 1060px; top: 50px; width: 350px; height: 600px; z-index:-10;">CUSTOMERS</div>
+
+                <p id="title_block" class="block draggable" style="left: 30px; top: 30px;">Auto Parts Distributor</p>
+				<p id="subtitle_block" class="block draggable" style="left: 130px; top: 130px;">Administration</p>
+				
+				<div class="connector title_block subtitle_block down_start">
+					<img class="connector-end" src="@Url.Content("~/Content/arrow.gif")">
+				</div>
+				
+				<div class="connector subtitle_block description1_block down_start">
+					<img class="connector-end" src="@Url.Content("~/Content/arrow.gif")">
+					<label class="middle-label">that</label>
+				</div>
+				
+				<p id="description1_block" class="block draggable" style="left: 100px; top: 250px;">Sales
+				</p>
+				
+				<div class="connector description1_block description2_block horizontal">
+					<img class="connector-end" src="@Url.Content("~/Content/arrow.gif")">
+					<label class="source-label">to</label>
+					<label class="middle-label">connect</label>
+					<label class="destination-label">your</label>
+				</div>		
+				
+				<div id="description2_block" class="block draggable" style="left: 350px; top: 300px; width: 100px;">Service
+					<div id="description2_out1" class="block dock_point" style="right: -2px; top: 20%;"></div>
+					<div id="description2_out2" class="block dock_point" style="right: -2px; top: 80%;"></div>
+				</div>
+				
+				<p id="no_js_code_block" class="block draggable" style="left: 580px; top: 200px; width: 200px;">Customer (OIL CHANGE)</p>
+				
+				<div class="connector description2_out1 no_js_code_block right_start">
+					<img class="connector-end" src="@Url.Content("~/Content/arrow.gif")">
+					<label class="middle-label">how?</label>
+				</div>
+				
+				<p id="drag_and_drop_block" class="block draggable" style="left: 580px; top: 340px; width: 250px;">
+					you can drag and drop anything around!<br>
+					(but you already noticed, didn't you?)
+				</p>
+				
+				<div class="connector description2_out2 drag_and_drop_block right_start">
+					<img class="connector-end" src="@Url.Content("~/Content/arrow.gif")">
+					<label class="middle-label">and...</label>
+					<label class="destination-label">...oh!</label>
+				</div>
+</div>
+
+<script>
+    
+    $('#connector').click(function () {
+        var newdiv = document.createElement('div');
+        newdiv.setAttribute('class', 'connector ' + $('.selected:first').attr('id') + ' ' + $('.selected:first').next().attr('id'));
+        var ni = document.getElementById('mainCanvas');
+        ni.appendChild(newdiv);
+        var canvas = findCanvas('mainCanvas');
+        var newConnector = new Connector(newdiv, canvas);
+        newConnector.initConnector();
+        canvas.connectors.push(newConnector);
+    });
+
+</script>
+
+<!-- JS GRAPH IT styling... move to css -->
+<style>
+    .block
+    {
+        position: absolute;
+    }
+    .draggable
+{
+	position: absolute;
+}
+
+div.block, h1.block, h2.block, p.block
+{
+	border: 1px solid #9DA3B3;
+	background-color: #E0E8FF;
+	padding: 5px;
+}
+
+div.canvas
+{
+	border: 1px solid #262A37;
+	background-color: white;
+	padding: 0px;	
+}
+
+.highlighter
+{
+	border: 1px solid #CFDF62 !important;
+	background-color: #F1FF90 !important;
+	margin-bottom: 2px !important;
+	padding: 0px !important;
+	z-index: 3;
+}
+
+.highlighter .highlighter
+{
+	border: 1px solid #7DAB76 !important;
+	background-color: #BAFFB0 !important;
+	margin-left: 2px !important;
+	margin-right: 2px !important;
+}
+
+
+html
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.middle-label, .source-label, .destination-label
+{
+	font-size: 11px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+div.connector
+{
+	background-color: #FF9900;
+	z-index: 1000;
+}
+
+table.main_table 
+{
+	width: 100%; 
+	border-collapse: separate;
+}
+	
+td.menu
+{
+	padding: 5px;
+}
+
+.menu ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	list-style-position: outside;
+}
+
+.menu li
+{
+	border: none;
+	padding: 0px;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+
+.menu li a
+{
+	display: block;
+	border: 1px solid #262A37;
+	width: 100px;
+	color: #262A37;
+	text-decoration: none;
+	padding: 1px;
+	background-color: #E0E8FF;
+}
+
+.menu li a.active_menu
+{
+	color: #FF9900;
+	border-color: #FF9900;
+}
+
+.menu li a:hover
+{
+	color: #FF9900;
+	border-color: #FF9900;
+}
+
+.block ol, .block ul
+{
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	padding-left: 25px;
+}
+
+.code
+{
+	font-family: monospace;
+	line-height: 1.5em !important;
+}
+</style>

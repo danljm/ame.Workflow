@@ -37,8 +37,6 @@ namespace Ame.WorkflowHTML5
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ChartContext>());
         }
     }
 }

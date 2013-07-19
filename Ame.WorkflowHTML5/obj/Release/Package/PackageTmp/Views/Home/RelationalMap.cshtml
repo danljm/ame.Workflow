@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "RelationalMap";
+}
+
+@model Ame.WorkflowHTML5.Models.Chart
+           
+<link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
+<h2>Relational Map</h2>
+
+<div id="chartOptions">
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Relational Map"></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("RelationalMap")'></div>
+    <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
+</div>
+
+<div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
+
+<div id="pallette-menu">
+    <ul>
+        <h4 style="text-align: center">Drawing Palette</h4>
+        <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
+
+        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
+        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
+    </ul>
+</div>
+
+<div id="pallette-container">
+    <div id="pallette-draw">
+        <div class="rel-map supplier">
+            <h4>Suppliers</h4>
+        </div>
+        <div class="rel-map organization">
+            <h4>Organization</h4>
+        </div>
+        <div class="rel-map customer">
+            <h4>Customers</h4>
+        </div>
+        <div id="render"></div>
+    </div>
+</div>
+
+<div id="inputWindow">
+    <div class="field"><input id="labelSet" class="input" type="text" placeholder="Enter Label"></div>
+</div>
+
+<script type="text/javascript">
+
+    function LoadChart() {
+        var chartName = '@Model.ChartName';
+        var chartDescription = '@Model.ChartDescription';
+
+        $('#chartName').val(chartName);
+        $('#chartDescription').val(chartDescription);
+
+        Load('@Model.ChartData');
+    }
+
+    $(document).ready(function () {
+
+        var handleUserInput = function () {
+            var userinput = ($("#labelSet").val());
+            $('.edit').text(userinput);
+            $('.edit').removeClass('edit');
+        }
+
+
+        var win = $("#inputWindow")
+            .kendoWindow({
+                actions: ["Close"],
+                minWidth: 300,
+                modal: true,
+                resizable: true,
+                title: "Enter title text",
+                visible: false,
+                close: handleUserInput
+            })
+            .data("kendoWindow")
+            .center();
+
+        $(".pallette").draggable({
+            containment: '#pallette-draw',
+            helper: 'clone',
+            stop: function (event, ui) {
+                $(ui.helper).clone(true, false).removeClass('pallette ui-draggable-dragging jsPlumb_dragged').addClass('clone').appendTo($('#pallette-draw'));
+
+                var clone = $('.clone');
+                var pos = $(ui.helper).offset();
+                clone.offset({ top: pos.top, left: pos.left });
+
+                if (!clone.hasClass('stickyNote') || !clone.hasClass('component')) {
+                    jsPlumb.makeTarget(clone, { dropOptions: { hoverClass: "dragHover" }, anchor: "Continuous" });
+
+                    jsPlumb.makeSource(clone, {
+                        anchor: "Continuous",
+                        connector: "Flowchart"
+                    });
+                }
+
+                clone.draggable({
+                    drag: function () {
+                        jsPlumb.repaintEverything();
+                    }
+                });
+
+                clone.click(function () {
+                    $(this).addClass('edit');
+                    win.open();
+                });
+
+                clone.removeClass('clone');
+            }
+        });
+
+        LoadChart();    
+    });  
+
+</script>
+<style>
+    /* Shape positions */
+    #window1
+    {
+        position: absolute;
+        left: 200px;
+        top: 297px;
+    }
+    #window2
+    {
+        position: absolute;
+        left: 740px;
+        top: 126px;
+    }
+    #window3
+    {
+        position: absolute;
+        left: 750px;
+        top: 498px;
+    }
+    #window4
+    {
+        position: absolute;
+        left: 1000px;
+        top: 496px;
+    }
+    #window5
+    {
+        position: absolute;
+        left: 1350px;
+        top: 356px;
+    }
+    
+    .rel-map
+    {
+        display:inline-block;
+        text-align: center;
+        height: 95%;
+        background: white;
+        margin: 1em 1em 1em 1em;
+        -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+    
+    .supplier
+    {
+        min-width: 23%;
+    }
+    
+    .organization
+    {
+        min-width: 45%;
+    }
+    
+    .customer
+    {
+        min-width: 23%;
+    }
+    
+    .img-list
+    {
+    	float: left;
+        width: 87%;
+    }
+    
+    .list li
+    {
+        display: table;
+        border-collapse: collapse;
+        width: 100%;
+        height: 250px;
+        padding: 5px;
+        border-bottom: 2px solid #2C2A67;
+    }
+    .ui-state-active
+    {
+        background: #FEFFD6;
+    }
+    .inner
+    {
+        display: table-row;
+        overflow: hidden;
+    }
+    .li-text
+    {
+        /*display: table-cell;*/
+        width: 250px;
+        vertical-align: middle;
+        transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform-origin: 120px 120px;
+        -moz-transform-origin: 120px 120px;
+        -ms-transform-origin: 120px 120px;
+        -o-transform-origin: 120px 120px;
+        border-bottom: 2px solid #2C2A67;
+    }
+    .li-head
+    {
+        margin: 0;
+    }
+    .li-sub
+    {
+        margin: 0;
+    }
+</style>

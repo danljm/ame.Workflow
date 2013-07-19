@@ -1,0 +1,2 @@
+C:\Users\Danny\Documents\Visual Studio 2012\Projects\Ame.WorkflowHTML5\Ame.AzureService\bin\Release\ServiceConfiguration.cscfg
+C:\Users\Danny\Documents\Visual Studio 2012\Projects\Ame.WorkflowHTML5\Ame.AzureService\bin\Release\ServiceDefinition.csdef
