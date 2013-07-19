@@ -8,7 +8,7 @@
 <h2>Swimlane Map</h2>
 
 <div id="chartOptions">
-    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Flowchart"></div>
+    <div class="field"><input id="chartName" class="input" type="text" placeholder="New Swimlane Map"></div>
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Discard' onclick='Clear()'></div>
@@ -24,12 +24,12 @@
         <h4 style="text-align: center">Drawing Palette</h4>
         <div class='medium metro rounded btn primary' style="margin-left: 60px" ><input id='toggleButton' type='button' value='Connect' onclick='ToggleMode()'></div>
 
-        <li class="pallette-shape"><div class="shape-wrapper"><div class="shape pallette roundedRectangle"><div class="shape-label">Action</div></div></div></li>
-        <li class="pallette-shape"><div class="shape pallette start"><div class="shape-label">Start</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette stop"><div class="shape-label">Stop</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette" data-shape="Diamond"><div class="shape-label">Decision</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette component"><div class="shape-label">Connection Label</div></div></li>
-        <li class="pallette-shape"><div class="shape pallette stickyNote"><div class="shape-label">Note</div></div></li>
+        <li class="pallette-shape"><div class="shape pallette roundedRectangle">Action</div></li>
+        <li class="pallette-shape"><div class="shape pallette start">Start</div></li>
+        <li class="pallette-shape"><div class="shape pallette stop">Stop</div></li>
+        <li class="pallette-shape"><div class="shape pallette diamond">Decision</div></li>
+        <li class="pallette-shape"><div class="shape pallette component">Connection Label</div></li>
+        <li class="pallette-shape"><div class="shape pallette stickyNote">Note</div></li>
     </ul>
 </div>
 
@@ -91,6 +91,27 @@
 
 <script type="text/javascript">
 
+    var handleUserInput = function () {
+        var userinput = ($("#labelSet").val());
+        $('.edit').text(userinput);
+        $('.li-head .edit').text(userinput);
+        $('.edit').removeClass('edit');
+    }
+
+
+    var win = $("#inputWindow")
+        .kendoWindow({
+            actions: ["Close"],
+            minWidth: 300,
+            modal: true,
+            resizable: true,
+            title: "Enter title text",
+            visible: false,
+            close: handleUserInput
+        })
+        .data("kendoWindow")
+        .center();
+
     function LoadChart() {
         var chartName = '@Model.ChartName';
         var chartDescription = '@Model.ChartDescription';
@@ -101,27 +122,19 @@
         Load('@Model.ChartData');
     }
 
+    function AddSwimlane(text) {
+        console.log('adding swimlane');
+
+        if (text.length == 0) { text = 'New Swimlane'; }
+        $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">' + text + '</h5></div></li>');
+
+        $(".li-head").click(function () {
+            $(this).addClass('edit');
+            win.open();
+        });
+    }
+
     $(document).ready(function () {
-
-        var handleUserInput = function () {
-            var userinput = ($("#labelSet").val());
-            $('.edit').find('.shape-label').text(userinput);
-            $('.edit').removeClass('edit');
-        }
-
-
-        var win = $("#inputWindow")
-            .kendoWindow({
-                actions: ["Close"],
-                minWidth: 300,
-                modal: true,
-                resizable: true,
-                title: "Enter title text",
-                visible: false,
-                close: handleUserInput
-            })
-            .data("kendoWindow")
-            .center();
 
         $(".shape").not(".pallette").click(function () {
             $(this).addClass('edit');
@@ -131,6 +144,14 @@
         $(".li-head").click(function () {
             $(this).addClass('edit');
             win.open();
+        });
+
+        $(".shape").not(".pallette").dblclick(function () {
+            $(this).remove();
+        });
+
+        $(".li-head").dblclick(function () {
+            $(this).remove();
         });
 
         $(".pallette").draggable({

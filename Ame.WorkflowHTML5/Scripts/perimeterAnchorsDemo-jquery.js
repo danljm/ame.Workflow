@@ -8,7 +8,6 @@
 				Connector:"Flowchart",
 				PaintStyle:{ lineWidth:1, strokeStyle:"#5BAB54" },
 				Endpoint: "Blank",
-				//EndpointStyle: { fillStyle:"#5BAB54" },
                 ConnectionOverlays : [ 
                         [ "PlainArrow", { location:-10 } ] ]
 			});
@@ -17,11 +16,6 @@
 
 			// make everything draggable
 			jsPlumb.draggable(shapes);
-
-            jsPlumb.bind("connection", function(info) {
-                win.open();
-                info.connection.getOverlay("Label").setLabel();
-            });
 
             jsPlumb.bind("dblclick", function(c) { 
 				jsPlumb.detach(c); 

@@ -80,7 +80,7 @@
 	background-image: url(../Content/triangle_90.png);
 }
 
-[data-shape=Diamond]
+.diamond
 {
 	width: 90px;
 	height: 90px;
@@ -245,12 +245,6 @@
 	text-align: center;
 	line-height: 110%;
 	color: rgb(0, 0, 0);
-}
-
-.shape-label
-{
-    float: left;
-    width: 90%;
 }
 
 #chartOptions

@@ -45,13 +45,6 @@ function ToggleConnector(isDrag) {
     console.log(t);
 }
 
-function AddSwimlane(text) {
-    console.log('adding swimlane');
-
-    if (text.length == 0) { text = 'New Swimlane'; }
-    $(".swimlane-wrapper").append('<li class="swimlane"><div class="li-text"><h5 class="li-head">' + text + '</h5></div></li>');
-}
-
 // repaint
 function Repaint() {
     $("#main").resize(function () {
@@ -85,7 +78,7 @@ function Save(chartType) {
 
     /** FOR SHAPES **/
     $(".shape").not(".pallette").each(function () {
-        chartShapes.push({ id: $(this).attr('id'), label: $(this).find('.shape-label').text().trim(), class: $(this).attr('class'), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
+        chartShapes.push({ id: $(this).attr('id'), label: $(this).text().trim(), class: $(this).attr('class'), left: $(this).css('left'), top: $(this).css('top'), width: $(this).css('width'), height: $(this).css('height') });
     });
 
     /** FOR CONNECTIONS **/
@@ -153,8 +146,7 @@ function Load(chart) {
     /** FOR SHAPES **/
     for (var i in chartShapes) {
         var shape = chartShapes[i];
-        html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' 
-            + '<div class="shape-label">' + shape.label + '</div></div>';
+        html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' + shape.label + '</div>';
     }
 
     console.log(html);
