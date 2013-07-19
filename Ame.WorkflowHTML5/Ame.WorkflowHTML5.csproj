@@ -84,24 +84,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\arrow.gif" />
-    <Content Include="Content\arrow_d.gif" />
-    <Content Include="Content\arrow_l.gif" />
-    <Content Include="Content\arrow_r.gif" />
-    <Content Include="Content\arrow_u.gif" />
-    <Content Include="Content\circle_start.png" />
-    <Content Include="Content\circle_stop.png" />
     <Content Include="Content\demo-all.css" />
     <Content Include="Content\diamond.png" />
-    <Content Include="Content\ellipse.png" />
     <Content Include="Content\growth-curve.png" />
     <Content Include="Content\gumby.css" />
     <Content Include="Content\header-bg.png" />
     <Content Include="Content\Idaptic.png" />
-    <Content Include="Content\move.gif" />
     <Content Include="Content\perimeterAnchorsDemo.css" />
-    <Content Include="Content\rectangle.png" />
-    <Content Include="Content\square.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -130,7 +119,6 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Content\triangle.png" />
-    <Content Include="Content\triangle_90.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\demo-helper-jquery.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
