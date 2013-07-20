@@ -118,6 +118,7 @@ function Save(chartType) {
         data: JSON.stringify(chart),
         success: function (chart) {
             console.log(chart);
+            $("#Success").show().delay(5000).fadeOut();
         }
     });
 }

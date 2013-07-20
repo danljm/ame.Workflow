@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="idapticAzureConnection-Web.config Connection String" description="idapticAzureConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=h2n7fg0did.database.windows.net;Initial Catalog=idaptic_db;User ID=idapticAdmin;Password=Bear9937" tags="SqlConnectionString">
+  <parameter name="idapticAzureConnection-Web.config Connection String" description="idapticAzureConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=h2n7fg0did.database.windows.net;Initial Catalog=test_idaptic_db;User ID=idapticAdmin;Password=Bear9937" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Danny\\Documents\\Visual\ Studio\ 2012\\Projects\\Ame\.WorkflowHTML5\\Ame\.WorkflowHTML5\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='idapticAzureConnection']/@connectionString" />
   </parameter>
   <parameter name="ApplicationServices-Web.config Connection String" description="ApplicationServices Connection String used in web.config by the application to access the database." defaultValue="data source=server=h2n7fg0did.database.windows.net;database=idaptic_db;uid=idapticAdmin;pwd=Bear9937;Pooling=false" tags="SqlConnectionString">

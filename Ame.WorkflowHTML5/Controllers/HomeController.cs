@@ -97,7 +97,7 @@ namespace Ame.WorkflowHTML5.Controllers
                     }
                     
                 }
-                return RedirectToAction("ChartActivity");
+                return RedirectToAction("ChartActivity", "Home");
             }
             catch
             {
