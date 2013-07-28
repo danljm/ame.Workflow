@@ -12,6 +12,7 @@
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane("")'></div>
+    <div id="Success" class='success alert'>Save Successful</div>
     
 </div>
 
@@ -109,6 +110,8 @@
     }
 
     $(document).ready(function () {
+
+        $('#Success').hide();
 
         $(".shape").not(".pallette").click(function () {
             $(this).addClass('edit');
