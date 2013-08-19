@@ -136,23 +136,25 @@ namespace Ame.WorkflowHTML5.Controllers
         }
 
         //
-        // GET: /PreRelationalList/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
         // POST: /PreRelationalList/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(String chartName)
         {
             try
             {
-                // TODO: Add delete logic here
+                
+                using (var db = new ChartContext())
+                {
+                    Chart chartToRemove = db.Charts.Find(chartName);
 
+                    if (chartToRemove != null)
+                    {
+                        db.Charts.Remove(chartToRemove);
+                        db.SaveChanges();
+                    }
+                }                
+                
                 return RedirectToAction("Index");
             }
             catch

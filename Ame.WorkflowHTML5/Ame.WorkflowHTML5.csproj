@@ -710,6 +710,8 @@
     <None Include="Properties\PublishProfiles\EC2 GCI Profile.pubxml" />
     <None Include="Properties\PublishProfiles\gciworkfloweditor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\gciworkfloweditor - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\rbgworkfloweditor - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rbgworkfloweditor - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testgciworkfloweditor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\testgciworkfloweditor - Web Deploy.pubxml" />
   </ItemGroup>

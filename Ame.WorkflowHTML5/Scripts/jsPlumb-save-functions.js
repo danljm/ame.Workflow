@@ -123,6 +123,24 @@ function Save(chartType) {
     });
 }
 
+function Delete() {
+
+    var chartName = $("#chartName").val();
+
+    $.ajax({
+        cache: false,
+        type: "POST",
+        url: "/Home/Delete",
+        contentType: 'application/json',
+        dataType: "json",
+        data: JSON.stringify(chartName),
+        success: function (chartName) {
+            console.log(chartName + " was delted");
+            $("#Success").show().delay(5000).fadeOut();
+        }
+    });
+}
+
 // load
 function Load(chart) {
 

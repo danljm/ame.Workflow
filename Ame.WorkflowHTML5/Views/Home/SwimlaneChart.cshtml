@@ -11,6 +11,7 @@
     <div class="field"><input id="chartName" class="input" type="text" placeholder="New Swimlane Map"></div>
     <div class='medium metro rounded btn primary'><input type='button' value='New' onclick='Clear()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
+    <div class='medium metro rounded btn danger'><input type='button' value='Delete Chart' onclick='Delete()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane("")'></div>
     <div id="Success" class='success alert'>Save Successful</div>
     
@@ -107,6 +108,12 @@
         $(".swimlane").dblclick(function () {
             $(this).remove();
         });
+
+        var newHeight = $(".verticalLine").height() + 180;
+
+        console.log(newHeight);
+
+        $(".verticalLine").height(newHeight);
     }
 
     $(document).ready(function () {
@@ -187,7 +194,6 @@
     	position:absolute;
     	width: 0%;
         border-right: dashed #3085d6;
-        height: 100%;
     }
     
     .swimlane-wrapper
@@ -206,8 +212,7 @@
         height: 180px;
         padding: 5px;
         background: #FFFFFF;
-        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,1.0);
-        box-shadow: 0 1px 4px rgba(0,0,0,1.0);
+        border-bottom: solid 1px black;
         margin: 0;
     }
     
