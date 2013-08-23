@@ -153,9 +153,9 @@ namespace Ame.WorkflowHTML5.Controllers
                         db.Charts.Remove(chartToRemove);
                         db.SaveChanges();
                     }
-                }                
-                
-                return RedirectToAction("Index");
+                }
+
+                return View(new Chart());
             }
             catch
             {
