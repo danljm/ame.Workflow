@@ -6,6 +6,7 @@
 <link href="@Url.Content("~/Content/demo-all.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/perimeterAnchorsDemo.css")" rel="stylesheet" type="text/css" />
 <h2>Swimlane Map</h2>
+<div id="Success" class='success alert'>Action Successful</div>   
 
 <div id="chartOptions">
     <div class="field"><input id="chartName" class="input" type="text" placeholder="New Swimlane Map"></div>
@@ -13,8 +14,7 @@
     <div class='medium metro rounded btn primary'><input type='button' value='Save' onclick='Save("SwimlaneChart")'></div>
     <div class='medium metro rounded btn danger'><input type='button' value='Delete Chart' onclick='Delete()'></div>
     <div class='medium metro rounded btn primary'><input type='button' value='Add Swimlane' onclick='AddSwimlane("")'></div>
-    <div id="Success" class='success alert'>Save Successful</div>
-    
+   
 </div>
 
 <div class="field"><textarea id="chartDescription" class="input textarea" placeholder="Enter Process Description" rows="4"></textarea></div>
@@ -30,6 +30,7 @@
         <li class="pallette-shape"><div class="shape pallette stop">Stop</div></li>
         <li class="pallette-shape"><div class="shape pallette oval"></div></li>
         <li class="pallette-shape"><div class="shape pallette diamond">Decision</div></li>
+        <li class="pallette-shape"><div class="shape pallette arrow"></div></li>
         <li class="pallette-shape"><div class="shape pallette triangle"></div></li>
         <li class="pallette-shape"><div class="shape pallette component">Connection Label</div></li>
         <li class="pallette-shape"><div class="shape pallette stickyNote">Note</div></li>

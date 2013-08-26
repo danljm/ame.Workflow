@@ -74,6 +74,7 @@ function Save(chartType) {
     chartShapes = [];
     chartConnections = [];
     chartSwimlanes = [];
+    chartTimelines = [];
     chartData = [];
 
     /** FOR SHAPES **/
@@ -91,11 +92,17 @@ function Save(chartType) {
     /** FOR SWIMLANES **/
      $(".li-head").each(function () {
         chartSwimlanes.push({ label: $(this).text().trim() });
-    });
+     });
+
+    /** FOR TIME LINES **/
+     $(".verticalLine").each(function () {
+         chartTimelines.push({ left: $(this).css('left') });
+     });
 
     chartData.push(chartShapes);
     chartData.push(chartConnections);
     chartData.push(chartSwimlanes);
+    chartData.push(chartTimelines);
 
     var chart = {
         chartName: $("#chartName").val(),
@@ -117,8 +124,26 @@ function Save(chartType) {
         dataType: "json",
         data: JSON.stringify(chart),
         success: function (chart) {
-            console.log(chart);
-            $("#Success").show().delay(5000).fadeOut();
+            $('#Success').text('Chart was saved successfully');
+            $("#Success").show().delay(2000).fadeOut();
+        }
+    });
+}
+
+function Delete() {
+
+    var chartDelete = $("#chartName").val();
+
+    $.ajax({
+        cache: false,
+        type: "POST",
+        url: "/Home/Delete",
+        data: { 'chartName' : chartDelete },
+        success: function (chartDelete) {
+            console.log(chartDelete + " was deleted");
+            $('#Success').text('Chart was deleted successfully');
+            $("#Success").show().delay(2000).fadeOut();
+            Clear();
         }
     });
 }
@@ -142,6 +167,7 @@ function Load(chart) {
     chartShapes = chartData[0];
     chartConnections = chartData[1];
     chartSwimlanes = chartData[2];
+    chartTimelines = chartData[3];
 
     var html = ""
     /** FOR SHAPES **/
@@ -149,12 +175,6 @@ function Load(chart) {
         var shape = chartShapes[i];
         html += '<div id="' + shape.id + '" class="' + shape.class + '" style="left:' + shape.left + '; top:' + shape.top + '; width:' + shape.width + '; height:' + shape.height + ' ">' + shape.label + '</div>';
     }
-
-    
-
-    
-
-    console.log(html);
 
     //Need to set before doing other stuff
     $('#pallette-draw').append(html);
@@ -190,13 +210,31 @@ function Load(chart) {
         MakeConnection(connection);
     }
 
+    if (chartTimelines.length > 1) {
+        $('.verticalLine').remove();
+    }
+
+    /** FOR TIMELIENS **/
+    for (var l in chartTimelines) {
+        var timeline = chartTimelines[l];
+        var timelineHTML = '<div id="line' + l + '" class="verticalLine" style="left:' + timeline.left + '"></div>'
+        $('#pallette-draw').append(timelineHTML);
+    }
+
+    $('.verticalLine').draggable({
+        containment: '#pallette-draw',
+        axis: "x"
+    }).click(function () {
+        $(this).remove();
+    });
+
     /** FOR SWIMLANES **/
     $('.swimlane-wrapper').empty();
     for (var k in chartSwimlanes) {
         var swimlane = chartSwimlanes[k];
         console.log(swimlane);
         AddSwimlane(swimlane.label);
-    }  
+    }   
 }
 
 // clear

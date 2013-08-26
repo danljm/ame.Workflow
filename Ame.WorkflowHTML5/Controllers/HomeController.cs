@@ -97,7 +97,7 @@ namespace Ame.WorkflowHTML5.Controllers
                     }
                     
                 }
-                return RedirectToAction("ChartActivity", "Home");
+                return Json(chart);
             }
             catch
             {
@@ -155,7 +155,7 @@ namespace Ame.WorkflowHTML5.Controllers
                     }
                 }
 
-                return View(new Chart());
+                return Json(chartName);
             }
             catch
             {

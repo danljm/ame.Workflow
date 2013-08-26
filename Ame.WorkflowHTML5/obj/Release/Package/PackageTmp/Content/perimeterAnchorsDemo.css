@@ -72,6 +72,14 @@
 	background-image: url(../Content/triangle.png);
 }
 
+.arrow
+{
+	width: 160px;
+	height: 110px;
+	line-height: 110px;
+	background-image: url(../Content/arrow.png);
+}
+
 ._90[data-shape=Triangle]
 {
 	width: 150px;

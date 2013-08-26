@@ -84,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\arrow.png" />
     <Content Include="Content\demo-all.css" />
     <Content Include="Content\diamond.png" />
     <Content Include="Content\growth-curve.png" />
